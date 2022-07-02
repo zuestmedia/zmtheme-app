@@ -10,6 +10,10 @@ class _extensions extends \ZMT\Theme\ExtendModules {
       $this->woocommerce = new \ZMT\Theme\DefaultConfig\configWooCommerce('default',false);
     }
 
+    if ( class_exists( 'bbPress' ) ) {
+      $this->bbpress = new \ZMT\Theme\DefaultConfig\configBBPress('default',false);
+    }
+
 
     $this->extendModules();
 

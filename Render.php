@@ -205,9 +205,21 @@ class Render {
 
     if ( class_exists( 'woocommerce' ) ) {
       if(is_woocommerce()){
-
         return 'extensions__woocommerce';
+      }
+    }
 
+    if ( class_exists( 'bbPress' ) ) {
+      /*
+      * is_bbpress() not working properly!
+      * when a bbpress shortcode is used, is_bbpress() returns also true!!!
+      * not only when loaded as main content.
+      * so use global $template here and bbpress.php template file to check
+      * if bbpress template is loaded and use then only bbpress module.
+      */
+      global $template;
+      if( basename( $template ) == 'bbpress.php' ){
+        return 'extensions__bbpress';
       }
     }
 
