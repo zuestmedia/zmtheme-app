@@ -50,10 +50,12 @@ class configNavMenu extends configNav {
 
     parent::navbar();
 
-    $this->args['menu_ul_class'] = 'uk-navbar-nav';
+    $this->args['menu_ul_class'] = 'uk-navbar-nav zm-has-nav-parent-icon';
 
     /*$this->args['menu_walker_wrap_first'] = '[{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"boundary: .uk-navbar-nav; boundary-align: true; pos: bottom-justify;offset:0;"}},{"tag":"ul","attributes":{"class":"uk-nav uk-navbar-dropdown-nav"}}]';*/
-    $this->args['menu_walker_wrap_first'] = '[{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"boundary-align: true; pos: bottom-justify;offset:0;"}},{"tag":"ul","attributes":{"class":"uk-nav uk-navbar-dropdown-nav"}}]';
+    /*$this->args['menu_walker_wrap_first'] = '[{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"boundary-align: true; pos: bottom-justify;offset:0;"}},{"tag":"ul","attributes":{"class":"uk-nav uk-navbar-dropdown-nav"}}]';*/
+    //uk-drop is not necessary on default dropdown...
+    $this->args['menu_walker_wrap_first'] = '[{"tag":"div","attributes":{"class":"uk-navbar-dropdown"}},{"tag":"ul","attributes":{"class":"uk-nav uk-navbar-dropdown-nav"}}]';
 
   }
 

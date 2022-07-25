@@ -63,7 +63,6 @@ class Init {
         * Theme Config
         */
         $zmtheme['theme']->setVersion( $theme_config_object->theme->version );
-        $zmtheme['theme']->setVersionNotice( $theme_config_object->theme->version_notice );
         $zmtheme['theme']->setDisplayName( $theme_config_object->theme->displayname );
         $zmtheme['theme']->setFramework( $theme_config_object->theme->framework );
         $zmtheme['theme']->setCss( $theme_config_object->theme->css );
@@ -73,8 +72,6 @@ class Init {
         $zmtheme['theme']->setJsArray( $theme_config_object->theme->js_array );
         $zmtheme['theme']->setMenuActiveClass( $theme_config_object->theme->menu_active_class );
         $zmtheme['theme']->setMenuParentClass( $theme_config_object->theme->menu_parent_class );
-
-        $zmtheme['theme']->setIE11Support( $theme_config_object->theme->ie11_support );
 
         $zmtheme['theme']->setHeadModules( $theme_config_object->theme->head_modules );
 
@@ -125,7 +122,7 @@ class Init {
 
               $errormenu->setMenuPage('<div class="notice notice-info"><p>');
 
-                $errormenu->setMenuPage( esc_html( $zmtheme['default_config']->welcomepage->error_message ) );
+                $errormenu->setMenuPage( __( 'Please note: To be able to manage ZM Themes Settings and to use the Customizer, you need to install ZM Plugin. If you do not need or want to change any theme settings, you can proceed using this theme, without any need of installing ZM Plugin. But check it out, it is free and there are cool features you do not want to miss!', 'zmtheme' ) );
 
               $errormenu->setMenuPage('</p></div>');
 

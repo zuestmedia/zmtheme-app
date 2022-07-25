@@ -1,0 +1,256 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: zmtheme-frameword-0.9.1\n"
+"POT-Creation-Date: 2022-07-25 21:05+0200\n"
+"PO-Revision-Date: 2022-07-25 21:18+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.1.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-KeywordsList: __\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: Helpers.php:334
+msgid "Front Page (front-page)"
+msgstr "Startseite (front-page)"
+
+#: Helpers.php:335
+msgid "Pages"
+msgstr "Seiten"
+
+#: Helpers.php:336
+msgid "Blog Page (home)"
+msgstr "Blog Archive (home)"
+
+#: Helpers.php:337
+msgid "Default Archive"
+msgstr "Standard Archiv"
+
+#: Helpers.php:338
+msgid "└ Category Archive"
+msgstr "Kategorie Archiv"
+
+#: Helpers.php:339
+msgid "└ Tag Archive"
+msgstr "Schlagwort Archiv"
+
+#: Helpers.php:340
+msgid "└ Author Archive"
+msgstr "Autor Archiv"
+
+#: Helpers.php:341
+msgid "└ Date Archive"
+msgstr "Datums Archiv"
+
+#: Helpers.php:350
+msgid "Taxonomy Archive"
+msgstr "Taxonomy Archiv"
+
+#: Helpers.php:362
+msgid "Post Type Archive"
+msgstr "Beitragstyp Archiv"
+
+#: Helpers.php:366
+msgid "Single Post"
+msgstr "Einzelner Beitrag"
+
+#: Helpers.php:377
+msgid "Single Post Type"
+msgstr "Einzelner Beitragstyp "
+
+#: Helpers.php:385
+msgid "Singular Template"
+msgstr "Singular Template"
+
+#: Helpers.php:389
+msgid "SearchPage"
+msgstr "Suchem Archiv"
+
+#: Helpers.php:394
+msgid "Woocommerce"
+msgstr ""
+
+#: Helpers.php:398
+msgid "bbPress"
+msgstr ""
+
+#: Helpers.php:401
+msgid "Logged in Users"
+msgstr "Eingeloggte Nutzer"
+
+#: Init.php:125
+msgid ""
+"Please note: To be able to manage ZM Themes Settings and to use the "
+"Customizer, you need to install ZM Plugin. If you do not need or want to "
+"change any theme settings, you can proceed using this theme, without any "
+"need of installing ZM Plugin. But check it out, it is free and there are "
+"cool features you do not want to miss!"
+msgstr ""
+
+#: Theme.php:70
+msgid "Warning: Versions are not consistent!"
+msgstr ""
+
+#: default_config/configAuthorLink.php:14
+msgid "Author:"
+msgstr "Autor:"
+
+#: default_config/configAuthorLink.php:26
+#: default_config/configAuthorLink.php:41
+msgid "written by"
+msgstr "verfasst von"
+
+#: default_config/configCommentsCounter.php:17
+msgid "No Comments"
+msgstr "Keine Kommentare"
+
+#: default_config/configCommentsCounter.php:18
+#: default_config/configCommentsCounter.php:33
+#: default_config/configCommentsCounter.php:50
+#, php-format
+msgid "%s Comment"
+msgstr "%s Kommentar"
+
+#: default_config/configCommentsCounter.php:19
+#: default_config/configCommentsCounter.php:34
+#: default_config/configCommentsCounter.php:51
+#, php-format
+msgid "%s Comments"
+msgstr "%s Kommentare"
+
+#: default_config/configCommentsCounter.php:28
+#: default_config/configCommentsCounter.php:45
+msgid "having"
+msgstr "hat"
+
+#: default_config/configCommentsCounter.php:32
+#: default_config/configCommentsCounter.php:49
+msgid "no Comments"
+msgstr "keine Kommentare"
+
+#: default_config/configCommentsForm.php:20
+msgid "Comments are closed."
+msgstr "Die Kommentarfunktion ist deaktiviert."
+
+#: default_config/configCommentsList.php:21
+msgid "Comments"
+msgstr "Kommentare"
+
+#: default_config/configCommentsList.php:30
+#, php-format
+msgid "%1$s at %2$s"
+msgstr "%1$s um %2$s Uhr"
+
+#: default_config/configCommentsList.php:33
+msgid "Your comment is awaiting moderation."
+msgstr "Ihr Kommentar wartet auf die Freischaltung."
+
+#: default_config/configCommentsList.php:34
+msgid ""
+"Your comment is awaiting moderation. This is a preview, your comment will be "
+"visible after it has been approved."
+msgstr ""
+"Ihr Kommentar wartet auf die Freischaltung. Dies ist eine Vorschau, ihr "
+"Kommentar wird sichtbar, nachdem er genehmigt wurde."
+
+#: default_config/configCommentsList.php:35
+#: default_config/configEditlink.php:34
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: default_config/configCommentsPagination.php:15
+#: default_config/configPagination.php:19
+msgid "Previous"
+msgstr "Vorherige Seite"
+
+#: default_config/configCommentsPagination.php:16
+#: default_config/configPagination.php:20
+msgid "Next"
+msgstr "Nächste Seite"
+
+#: default_config/configDate.php:26 default_config/configDate.php:41
+msgid "Published on"
+msgstr "Publiziert am"
+
+#: default_config/configEditlink.php:16
+msgid "Edit This"
+msgstr "Bearbeiten"
+
+#: default_config/configErrorPage.php:13
+msgid "404 - Page Not Found"
+msgstr "404 - Seite nicht gefunden"
+
+#: default_config/configErrorPage.php:14
+msgid ""
+"The page you were looking for could not be found. It might have been "
+"removed, renamed, or does not exist anymore. Start again from home or use "
+"the searchform to find what you are looking for."
+msgstr ""
+"Die von Ihnen gesuchte Seite konnte nicht gefunden werden. Sie wurde "
+"möglicherweise entfernt, umbenannt oder existiert nicht mehr. Starten Sie "
+"erneut von der Startseite aus oder verwenden Sie das Suchformular, um zu "
+"finden, was Sie suchen."
+
+#: default_config/configLinkPages.php:20
+msgid "Continue Reading: "
+msgstr "Weiterlesen: "
+
+#: default_config/configLinkPages.php:23
+msgid "Previous page"
+msgstr "Vorherige Seite"
+
+#: default_config/configLinkPages.php:24
+msgid "Next page"
+msgstr "Nächste Seite"
+
+#: default_config/configNavSearch.php:15
+msgid "Search"
+msgstr "Suchen"
+
+#: default_config/configPowered.php:13
+msgid "ThisThemeName"
+msgstr ""
+
+#: default_config/configPowered.php:16
+msgid "Built with ZMTheme"
+msgstr ""
+
+#: default_config/configReadMore.php:16
+msgid "Read More"
+msgstr "Mehr"
+
+#: default_config/configTaxonomyTerms.php:16
+msgid "Taxonomy"
+msgstr ""
+
+#: default_config/configTaxonomyTerms.php:26
+msgid "Category"
+msgstr "Kategorie"
+
+#: default_config/configTaxonomyTerms.php:32
+msgid "Tag"
+msgstr "Schlagwort"
+
+#: default_config/configTaxonomyTerms.php:54
+#: default_config/configTaxonomyTerms.php:87
+msgid "in"
+msgstr ""
+
+#: default_config/configTaxonomyTerms.php:63
+#: default_config/configTaxonomyTerms.php:96
+msgid "tagged with"
+msgstr "mit Schlagwort"
+
+#: modules/modArchiveTitle.php:52
+msgid "Blog"
+msgstr "Blog"
+
+#: modules/modArchiveTitle.php:59
+#, php-format
+msgid "Search Results for \"%s\""
+msgstr "Suchergebnisse für \"%s“"

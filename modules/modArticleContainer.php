@@ -8,7 +8,12 @@ class modArticleContainer extends modContainerSortable {
 
     $result = parent::getAttrs($section_element_type);
 
-    if($section_element_type == 'module'){
+    /*if($section_element_type == 'module'){
+
+      $result .= ' id="'.esc_attr(get_the_ID()).'"';
+
+    }*/
+    if($section_element_type == 'moduleouter'){
 
       $result .= ' id="'.esc_attr(get_the_ID()).'"';
 
@@ -22,15 +27,19 @@ class modArticleContainer extends modContainerSortable {
 
     $result = parent::getClasses($section_element_type,$zmquery_class);
 
+    $classes = NULL;
+
+    if($section_element_type == 'moduleouter'){
+
+      $classes = join( ' ', get_post_class('',get_the_ID()) );
+
+    }
+
     if($section_element_type == 'module'){
 
-      $classes = NULL;
-
       if(is_customize_preview()){
-        $classes .= 'zm-nohide-articles ';//to jquery not hide if has zm-prev-hidden eg in article container children
+        $classes = 'zm-nohide-articles';//to jquery not hide if has zm-prev-hidden eg in article container children
       }
-
-      $classes .= join( ' ', get_post_class('',get_the_ID()) );
 
       $stickyclass = $this->getArg('sticky_class'); //only escape in getContent! --> this is a modContainer class...
 
@@ -38,7 +47,19 @@ class modArticleContainer extends modContainerSortable {
         $classes .= ' '.$stickyclass;
       }
 
-      $result = str_replace(' class="', ' class="'.esc_attr($classes).' ', $result);
+    }
+
+    if($classes){
+
+      if($result){
+
+        $result = str_replace(' class="', ' class="'.esc_attr($classes).' ', $result);
+
+      } else {//if arg classes == NULL!!
+
+        $result = ' class="'.esc_attr($classes).'"';
+
+      }
 
     }
 

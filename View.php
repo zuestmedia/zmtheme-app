@@ -37,7 +37,8 @@ class View {
       $result = NULL;
       if($conditions_array) {
 
-        $result = self::checkConditions($conditions_array);
+      //  $result = self::checkConditions($conditions_array);
+        $result = self::checkConditions2($conditions_array);
 
       }
 
@@ -110,6 +111,176 @@ class View {
     }
 
     return $result;
+
+  }
+
+  static function isWooorbbP( $conditions_array ){
+
+    if ( class_exists( 'woocommerce' ) ) {
+      if(is_woocommerce()){
+        return 'woocommerce';
+      }
+    }
+
+    if ( class_exists( 'bbPress' ) ) {
+      /*
+      * is_bbpress() not working properly!
+      * when a bbpress shortcode is used, is_bbpress() returns also true!!!
+      * not only when loaded as main content.
+      * so use global $template here and bbpress.php template file to check
+      * if bbpress template is loaded and use then only bbpress module.
+      */
+      global $template;
+      if( basename( $template ) == 'bbpress.php' ){
+        return 'bbPress';
+      }
+    }
+
+    return false;
+
+  }
+
+
+  static function checkConditions2( $conditions_array ){
+
+    $result = NULL;
+
+    if (!empty($conditions_array)) {
+
+      //check if logged in user content only!
+      if (in_array( 'loggedin', $conditions_array )) {
+        if(is_user_logged_in() == false){
+          return $result;
+        }
+      }
+
+      //check first if is woo or bbp
+      $wooorbbp = self::isWooorbbP( $conditions_array );
+      if( $wooorbbp !== false ){
+
+        if (in_array( $wooorbbp, $conditions_array )) {
+          $result = 1;
+        }
+
+        return $result;
+
+      }
+
+      //frontpage
+      if( is_front_page() ){
+
+        if (in_array( 'frontpage', $conditions_array )) {
+          return 1;
+        }
+
+      }
+
+      //home = blogpage
+      if( is_home() ){
+
+        if (in_array( 'blogpage', $conditions_array )) {
+          return 1;
+        }
+
+      }
+
+      //search
+      if( is_search() ){
+
+        if (in_array( 'searchpage', $conditions_array )) {
+          return 1;
+        }
+
+      }
+
+      //404 - not in use...
+      if( is_404() ){
+
+        if (in_array( 'errorpage', $conditions_array )) {
+          return 1;
+        }
+
+      }
+
+      //singular
+      if( is_singular() ){
+
+        if( is_page_template( ) ) {
+          $key = get_page_template_slug();
+          if (in_array( $key, $conditions_array )) {
+            $result = 1;
+          }
+          return $result;
+        }
+
+        if( is_page() && is_front_page() == false ) {
+
+          if (in_array( 'page', $conditions_array )) {
+            $result = 1;
+          }
+
+        //single
+        } elseif( is_single() ){
+
+            //single post type
+            $key = 'single';
+            if(get_post_type() !== 'post' ) {
+              $key = 'single_'.get_post_type();
+            }
+            if (in_array( $key, $conditions_array )) {
+              $result = 1;
+            }
+
+        }
+
+        return $result;
+
+      }
+
+      //archive
+      if( is_archive() ){
+
+        //übergeordnet
+        if (in_array( 'archive', $conditions_array )) {
+          $result = 1;
+        }
+
+        if( is_category() ){
+          if (in_array( 'category', $conditions_array )) {
+            $result = 1;
+          }
+        } elseif( is_tag() ){
+          if (in_array( 'tag', $conditions_array )) {
+            $result = 1;
+          }
+        } elseif( is_author() ){
+          if (in_array( 'author', $conditions_array )) {
+            $result = 1;
+          }
+        } elseif( is_date() ){
+          if (in_array( 'date', $conditions_array )) {
+            $result = 1;
+          }
+        } elseif( is_tax() ){
+          $key = 'taxonomy_'.get_query_var('taxonomy');
+          if (in_array( $key, $conditions_array )) {
+            $result = 1;
+          }
+        } elseif( is_post_type_archive() ){
+          $key = 'archive_'.get_post_type();
+          if (in_array( $key, $conditions_array )) {
+            $result = 1;
+          }
+        }
+
+        return $result;
+
+      }
+
+      //return NULL if no result...
+      return $result;
+
+    }
 
   }
 

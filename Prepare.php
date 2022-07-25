@@ -229,10 +229,28 @@ class Prepare {
 
     }
 
+    public function addCustomTemplatesProgramaticallyatInit(){
+      add_action('init', array( $this, 'addCustomTemplatesProgramatically' ));
+    }
 
     public function addCustomTemplatesProgramatically(){
 
       add_action( 'theme_page_templates', array( $this, 'CustomTemplatesProgramatically') );
+      add_action( 'theme_post_templates', array( $this, 'CustomTemplatesProgramatically') );
+
+      $args = array(
+        'public' => true,
+        '_builtin' => false, //without builtin posttypes!
+        'capability_type' => 'post', //only post like posttypes... not forums or woocommerce...
+      );
+
+      $posttypesarr = get_post_types($args);
+      //var_dump($posttypesarr);
+      foreach($posttypesarr as $post_type){
+
+        add_action( "theme_{$post_type}_templates", array( $this, 'CustomTemplatesProgramatically') );
+
+      }
 
     }
     public function CustomTemplatesProgramatically($templates){
@@ -337,7 +355,8 @@ class Prepare {
               }
 
               //once is enough, has own loop.
-              $this->addCustomTemplatesProgramatically();
+              //$this->addCustomTemplatesProgramatically();
+              $this->addCustomTemplatesProgramaticallyatInit();
 
             } elseif($key == 'nav'){
 

@@ -289,7 +289,7 @@ class Helpers {
         'public'   => true
       );
 
-      $taxonomies = get_taxonomies( $args );
+      $taxonomies = Helpers::getCleanTaxonomies($args);
 
       $new_array = array();
 
@@ -302,6 +302,105 @@ class Helpers {
       }
 
       return $new_array;
+
+    }
+
+    static function getCleanTaxonomies( $args ){
+
+      $taxonomies = get_taxonomies( $args );
+
+      unset($taxonomies['post_format']);
+
+      if ( class_exists( 'bbPress' ) ) {
+        unset($taxonomies['topic-tag']);// do not use: 'topic-tag' (bbpress)
+      }
+
+      if ( class_exists( 'woocommerce' ) ) {
+        unset(
+          $taxonomies['product_cat'],// do not use: 'product_cat' (woocommerce)
+          $taxonomies['product_tag'],// do not use: 'product_tag' (woocommerce)
+          $taxonomies['product_shipping_class']// do not use: 'product_shipping_class' (woocommerce)
+        );
+      }
+
+      return $taxonomies;
+
+    }
+
+    static function getViewConditionsChoices(){
+
+      $result = array();
+
+      $result['frontpage']    =  __( 'Front Page (front-page)', 'zmplugin' );
+      $result['page']         =  __( 'Pages', 'zmplugin' );
+      $result['blogpage']     =  __( 'Blog Page (home)', 'zmplugin' );
+      $result['archive']      =  __( 'Default Archive', 'zmplugin' );
+      $result['category']     =  __( '└ Category Archive', 'zmplugin' );
+      $result['tag']          =  __( '└ Tag Archive', 'zmplugin' );
+      $result['author']       =  __( '└ Author Archive', 'zmplugin' );
+      $result['date']         =  __( '└ Date Archive', 'zmplugin' );
+
+      //taxonomy archives
+      $args = array(
+        'public' => true,
+        '_builtin' => false, //only not builtin posttypes!
+      );
+      $taxarr = Helpers::getCleanTaxonomies($args);
+      foreach($taxarr as $key_1 => $value_1){
+        $result[ 'taxonomy_'.$key_1 ] =  '└ '.__( 'Taxonomy Archive', 'zmplugin' ).': '.$value_1;
+      }
+
+      //get post_type_archives
+      $args_has_archive = array(
+        'public' => true,
+        '_builtin' => false, //only not builtin posttypes!
+        'has_archive' => true, //only posttypes with archive!
+        'capability_type' => 'post', //only post like posttypes... not forums or woocommerce...
+      );
+      $posttypes_archive_arr = get_post_types($args_has_archive);
+      foreach($posttypes_archive_arr as $key_2 => $value_2){
+        $result[ 'archive_'.$key_2 ] =  '└ '.__( 'Post Type Archive', 'zmplugin' ).': '.$value_2;
+      }
+
+
+      $result['single']       =  __( 'Single Post', 'zmplugin' );
+
+
+      //get post_types
+      $args = array(
+        'public' => true,
+        '_builtin' => false, //without builtin posttypes!
+        'capability_type' => 'post', //only post like posttypes... not forums or woocommerce...
+      );
+      $posttypesarr = get_post_types($args);
+      foreach($posttypesarr as $key_3 => $value_3){
+        $result[ 'single_'.$key_3 ] =  __( 'Single Post Type', 'zmplugin' ).': '.$value_3;
+      }
+
+
+
+      //get singular custom Templates (same for singular page = post = posttypes)
+      $singular_custom_templates = wp_get_theme()->get_page_templates();
+      foreach($singular_custom_templates as $key_4 => $value_4){
+        $result[ $key_4 ] =  __( 'Singular Template', 'zmplugin' ).': '.$value_4;
+      }
+
+
+      $result['searchpage']   =  __( 'SearchPage', 'zmplugin' );
+//      $result['errorpage']    =  __( 'ErrorPage', 'zmplugin' );//NOT IN USE
+
+
+      if ( class_exists( 'woocommerce' ) ) {
+        $result['woocommerce'] = __( 'Woocommerce', 'zmplugin' );
+      }
+
+      if ( class_exists( 'bbPress' ) ) {
+        $result['bbPress'] = __( 'bbPress', 'zmplugin' );
+      }
+
+      $result['loggedin']   =  __( 'Logged in Users', 'zmplugin' );
+
+      return $result;
 
     }
 
@@ -358,6 +457,10 @@ class Helpers {
 
      //load_theme_textdomain( Helpers::getTextDomain() , get_template_directory().'/core/languages' );
      load_theme_textdomain( Helpers::getTextDomain(), get_template_directory().'/languages' );
+
+     //load zmtheme framework textdomain!
+     $locale = get_locale();
+     load_textdomain( 'zmtheme', get_template_directory().'/app/languages/zmtheme-'.$locale.'.mo' );
 
    }
 

@@ -624,7 +624,7 @@ class Element {
   }
   static function processHTMLElementTestArraytaxonomy(){
 
-    //result:'<div uk-grid class="uk-grid-small uk-article-meta"><div class="uk-width-auto"><b>'.__('Category', 'zmtheme').': </b></div>';
+    //result:'<div uk-grid class="uk-grid-small uk-article-meta"><div class="uk-width-auto"><b>cat: </b></div>';
     //[{"tag":"div","attributes":{"class":"uk-grid-small uk-article-meta","uk-grid":""}},{"tag":"div","attributes":{"class":"uk-width-auto"},"content":{"tag":"b","content":"__cat__","close":true},"close":true}]
     return array(
 

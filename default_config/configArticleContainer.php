@@ -14,7 +14,7 @@ class configArticleContainer extends configContainer {
 
     $this->args['sticky_class'] = 'uk-sticky';//in customizer not possible getting sticky class
 
-    $this->args['moduleouter_element'] = 'div';//as gridchild - no style!
+    $this->args['moduleouter_element'] = 'div';//as gridchild - no style! //contains wp post id and wp classes
 
 
     parent::module();

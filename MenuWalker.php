@@ -123,4 +123,28 @@ class MenuWalker extends Walker_Nav_Menu {
 
   }
 
+  public function start_el( &$output, $data_object, $depth = 0, $args = null, $current_object_id = 0 ) {
+
+    //TODO: maybe create options in customizer... now only via class in wp/menu/ add class to items...
+
+    $args->link_after = '';
+
+    //parent icon can be set via menu classes in wp dashboard
+    if(in_array('zm-has-nav-parent-icon', $data_object->classes)){
+
+      $args->link_after = ' <span uk-nav-parent-icon></span>';
+
+    }
+
+    //parent icon will be set via class in presets menu_ul_class! (used in nav-accordion and navbar)
+    if( strpos( $args->menu_class, 'zm-has-nav-parent-icon') !== false && ( $depth == 0 ) && in_array('menu-item-has-children', $data_object->classes)){
+
+      $args->link_after = ' <span uk-nav-parent-icon></span>';
+
+    }
+
+    parent::start_el( $output, $data_object, $depth, $args, $current_object_id );
+
+  }
+
 }

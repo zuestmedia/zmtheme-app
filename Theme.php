@@ -5,17 +5,7 @@ namespace ZMT\Theme;
 class Theme {
 
   /**
-  * ZMTheme Class
-  *
-  * Base Class to create Themes based on ZMFramework and UIkit
-  *   RTL Settings
-  *
-  */
-
-  /**
     * Alternative Displayname (Optional)
-    * @var string
-    * @access private
     */
     private $displayname = NULL;
 
@@ -23,8 +13,6 @@ class Theme {
     * Predefined Form_OptionsGroupName
     * used in ZMForms, ZMThemeSection, ZMThemeSidebar, ZMThemeMenu combined with formname as optpra
     * if not set, optionsgroupname is theme slug (foldername)
-    * @var string
-    * @access private
     */
     private $optionsgroupname = NULL;
 
@@ -34,20 +22,10 @@ class Theme {
     * 2=on
     * if on, option tables theme,section,sidebar,menu usw. settings will be queried and default options saved to options_table (add_option)
     * if off, just programmatically set options will be used directly from ZM Theme Object
-    * @var int
-    * @access private
     */
     private $settings_status = '1';
     private $option_name_settings_status = '_set_status';
 
-  /**
-    * Assets: CSS, JS und Icons relative path from theme folder
-    * important: add the dir="rtl" attribute to the <html> tag, if rtl css is loaded!
-    * these are uikit core default files, change if necessary with setters
-    * rtl is switchable via options page / -> options-table
-    * @var string
-    * @access private
-    */
     private $framework = 'zm';
     private $css = NULL;
     private $css_rtl = NULL;
@@ -58,28 +36,10 @@ class Theme {
 
     private $option_name_css = '_css';
 
-  /**
-    * Additional JS array
-    * @var string
-    * @access private
-    */
     private $js_array = NULL;
 
-
-  /**
-    * Menu Active Class for WP default menu
-    * Uikit uses uk-active
-    * @var string
-    * @access private
-    */
     private $menu_active_class = 'uk-active';
 
-  /**
-    * Menu Parent Class for WP default menu
-    * Uikit uses uk-parent
-    * @var string
-    * @access private
-    */
     private $menu_parent_class = 'uk-parent';
 
     private $starter_content = NULL;
@@ -89,29 +49,8 @@ class Theme {
 
     private $head_modules = NULL;
 
-    private $ie11_support = NULL;
-
-  /**
-    * Version
-    * @var string
-    * @access private
-    */
     private $version;
-    private $version_notice;
 
-  /**
-    * VersionNotice
-    */
-    public function setVersionNotice($version_notice) {
-
-      $this->version_notice = $version_notice;
-
-    }
-    public function getVersionNotice() {
-
-      return $this->version_notice;
-
-    }
   /**
     * Version-Status
     */
@@ -128,7 +67,7 @@ class Theme {
 
     public function versionErrorNotice() {
 
-      echo '<div class="notice-warning notice"><p>'.esc_html($this->getVersionNotice()).'</p></div>';
+      echo '<div class="notice-warning notice"><p>'.__( 'Warning: Versions are not consistent!', 'zmtheme' ).'</p></div>';
 
     }
 
@@ -379,6 +318,7 @@ class Theme {
     * to load translations for config files, use helpers load_theme_textdomain function and set before config.php is loaded
     * -> LoadTextDomainbeforeConfigFiles()
     */
+    ////not in use --> see helper and init.php!
     public function TextDomain(){
 
       //load_theme_textdomain( Helpers::getTextDomain() , get_template_directory().'/core/languages' );
@@ -556,27 +496,6 @@ class Theme {
 
     }
 
-    public function getIE11Support(){
-
-      return $this->ie11_support;
-
-    }
-    public function setIE11Support($ie11_support){
-
-      $this->ie11_support = $ie11_support;
-
-    }
-    public function addIE11Support(){
-
-      $useragent = htmlentities($_SERVER['HTTP_USER_AGENT'], ENT_QUOTES, 'UTF-8');
-      if (preg_match('~MSIE|Internet Explorer~i', $useragent) || (strpos($useragent, 'Trident/7.0') !== false && strpos($useragent, 'rv:11.0') !== false)) {
-
-        self::EnqueueScript( 'ie11CustomProperties', Helpers::getThemeUrl().$this->getIE11Support(), array( 'jquery', $this->getFramework().'-js' ),$this->getVersion(), true );
-
-      }
-
-    }
-
 
   /**
     * Theme Support for different features default activated
@@ -741,9 +660,6 @@ class Theme {
       }
       if($this->getIcons()) {
         self::EnqueueScript($this->getFramework().'-icons',$this->getIcons(),array($this->getFramework().'-js'),$this->getVersion());
-      }
-      if($this->getIE11Support()){
-        $this->addIE11Support();
       }
 
       //js_array
