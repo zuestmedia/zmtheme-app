@@ -22,6 +22,20 @@ class modQueryTerm extends \ZMT\Theme\Modules\Module {
   }
 */
 
+  public function get_tax_term_class($term){
+
+    if($term->taxonomy == 'post_tag'){
+      $tax_str = 'tag';
+    } else {
+      $tax_str = $term->taxonomy;
+    }
+
+    $result = ' uk-filter-control="filter: .'.$tax_str.'-'.$term->slug.'; group: data-'.$tax_str.'"';
+
+    return $result;
+
+  }
+
   public function getContent() {
 
     $taxonomy = $this->getArg('taxonomy');
@@ -51,7 +65,7 @@ class modQueryTerm extends \ZMT\Theme\Modules\Module {
 
         foreach ( $term_query->terms as $term ) {
 
-          if($list_item) { $html .= '<'.$list_item.'>'; }
+          if($list_item) { $html .= '<'.$list_item.$this->get_tax_term_class($term).'>'; }
             $html .= '<a href="'. get_term_link($term) .'"'. Helpers::getAttribute($link_class,NULL,' class="%s"') .'>' .$term->name. '</a>';
           if($list_item) { $html .= '</'.$list_item.'>'; }
 

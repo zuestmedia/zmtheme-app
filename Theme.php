@@ -37,6 +37,7 @@ class Theme {
     private $option_name_css = '_css';
 
     private $js_array = NULL;
+    private $js_array_child_theme = NULL;
 
     private $menu_active_class = 'uk-active';
 
@@ -309,6 +310,17 @@ class Theme {
     public function setJsArray($js_array) {
 
         $this->js_array = $js_array;
+
+    }
+
+    public function getJsArrayChildTheme() {
+
+        return $this->js_array_child_theme;
+
+    }
+    public function setJsArrayChildTheme($js_array_child_theme) {
+
+        $this->js_array_child_theme = $js_array_child_theme;
 
     }
 
@@ -632,6 +644,26 @@ class Theme {
 
     }
 
+    public function EnqueueJsArrayChildTheme() {
+
+      foreach($this->getJsArrayChildTheme() as $innerarray) {
+
+        if( array_key_exists ('js_slug',$innerarray) ) {
+
+          if(array_key_exists ('js_url',$innerarray)) { $js_url = Helpers::getChildThemeUrl().$innerarray['js_url']; } else { $js_url = NULL; }
+          if(array_key_exists ('js_deps',$innerarray)) { $js_deps = $innerarray['js_deps']; } else { $js_deps = NULL; }
+          if(array_key_exists ('js_ver',$innerarray)) { $js_ver = $innerarray['js_ver']; } else { $js_ver = $this->getVersion(); }
+          if(array_key_exists ('js_in_footer',$innerarray)) { $js_in_footer = $innerarray['js_in_footer']; } else { $js_in_footer = NULL; }
+
+          //Call to static function... (wäre auch mit this möglich, aber so korrekter)
+          self::EnqueueScript($innerarray['js_slug'],$js_url,$js_deps,$js_ver,$js_in_footer);
+
+        }
+
+      }
+
+    }
+
   /**
     * add css to editor (Tinymc not gutenberg)
     */
@@ -665,6 +697,10 @@ class Theme {
       //js_array
       if($this->getJsArray()) {
         $this->EnqueueJsArray();
+      }
+
+      if($this->getJsArrayChildTheme()) {
+        $this->EnqueueJsArrayChildTheme();
       }
 
       //load comments form script

@@ -80,6 +80,11 @@ class Init {
         $zmtheme['theme']->setColors( $theme_config_object->colors->color_palette_array );
         $zmtheme['theme']->setGradients( $theme_config_object->gradients->gradient_palette_array );
 
+        //child theme js
+        if( is_child_theme() && isset( $theme_config_object->theme->js_array_child_theme ) ){
+          $zmtheme['theme']->setJsArrayChildTheme( $theme_config_object->theme->js_array_child_theme );
+        }
+
 
       /**
         * Init Actions and Filters
