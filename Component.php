@@ -387,7 +387,8 @@ class Component extends Base {
             } elseif(
               ( get_class($this) == 'ZMT\Theme\Modules\modContainer' || get_class($this) == 'ZMT\Theme\Modules\modContainerSortable' ) &&
               (
-                strpos( $this->getId(), '__custom_blocks' ) !== false ||
+                strpos( $this->getId(), '__custom_widget' ) !== false ||
+                strpos( $this->getId(), '__custom_block_template' ) !== false ||
                 strpos( $this->getId(), '__custom_container' ) !== false ||
                 strpos( $this->getId(), '__custom_html' ) !== false ||
                 strpos( $this->getId(), '__custom_nav' ) !== false ||
@@ -498,7 +499,8 @@ class Component extends Base {
             } elseif(
               ( get_class($this) == 'ZMT\Theme\Modules\modContainer' || get_class($this) == 'ZMT\Theme\Modules\modContainerSortable' ) &&
               (
-                strpos( $this->getId(), '__custom_blocks' ) !== false ||
+                strpos( $this->getId(), '__custom_widget' ) !== false ||
+                strpos( $this->getId(), '__custom_block_template' ) !== false ||
                 strpos( $this->getId(), '__custom_container' ) !== false ||
                 strpos( $this->getId(), '__custom_html' ) !== false ||
                 strpos( $this->getId(), '__custom_nav' ) !== false ||

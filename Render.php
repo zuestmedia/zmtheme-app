@@ -69,6 +69,12 @@ class Render {
 
               $zmtheme[ $com_id ]->addContent( $query_loop_content );
 
+            } elseif( $component->section_content == 'block_template' ){
+
+              $block_template_content = \ZMT\Theme\Render::getTemplateBlock( $com_id );
+
+              $zmtheme[ $com_id ]->addContent( $block_template_content );
+
             } elseif( $component->section_content == 'get_static_html' ){
 
               $static_html = \ZMT\Theme\Render::getStaticHTML( $com_id );
@@ -298,6 +304,44 @@ class Render {
 
   }
 
+  static function getTemplateBlock($init_obj){
+
+    global $zmtheme;
+
+    /**
+    * get posts by slug! so import export is better to handle with post-types
+    */
+    $zm_block_post_slug = $zmtheme[ $init_obj ]->getArg('block_template');
+
+    $content = NULL;
+
+    if($zm_block_post_slug){
+
+      $post_obj = get_page_by_path( $zm_block_post_slug, OBJECT, 'zm_blocks' );
+
+      if($post_obj && $post_obj->post_status == 'publish'){
+
+        $content = $post_obj->post_content;
+
+        /**
+          * Filters the post content.
+          *
+          * @since 0.71
+          *
+          * @param string $content Content of the current post.
+          * --> https://developer.wordpress.org/reference/functions/the_content/
+          */
+          $content = apply_filters( 'the_content', $content );
+          $content = str_replace( ']]>', ']]&gt;', $content );
+
+      }
+
+    }
+
+    return $content;
+
+  }
+
   static function getQueryLoop($init_obj){
 
     global $zmtheme;
@@ -331,7 +375,7 @@ class Render {
 
     if($query_args_json){
 
-      $query_args = json_decode($query_args_json);//with second variable true; output is array, not object
+      $query_args = json_decode($query_args_json,true);//with second variable true; output is array, not object
 
     } else {
 

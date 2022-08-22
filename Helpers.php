@@ -283,6 +283,31 @@ class Helpers {
       return $result;
     }
 
+    static function getTemplateBlockChoices( $default_label = '- Select a block template -' ){
+
+      $args = array(
+        'post_type'   => 'zm_blocks',
+        'numberposts'   => -1,
+      );
+
+      $posts_array = get_posts($args);
+
+      $new_array = array();
+
+      $new_array[ '0' ] =  $default_label;
+
+      if ( $posts_array ) {
+
+          foreach ( $posts_array  as $post ) {
+              $new_array[ $post->post_name ] =  $post->post_title;
+          }
+
+      }
+
+      return $new_array;
+
+    }
+
     static function getTaxonomiesChoices(){
 
       $args = array(

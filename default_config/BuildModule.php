@@ -21,7 +21,7 @@ class BuildModule extends BuildComponent {
     $this->args['module_attrs'] = '';
   }
   protected function module_container(){
-    $this->args['module_class_container'] = 'uk-container uk-container-small';
+    $this->args['module_class_container'] = 'uk-container uk-container-default';
   }
   protected function module_background(){
     $this->args['module_class_color_background'] = 'uk-section-transparent';

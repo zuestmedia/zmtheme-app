@@ -127,7 +127,7 @@ class Init {
 
               $errormenu->setMenuPage('<div class="notice notice-info"><p>');
 
-                $errormenu->setMenuPage( __( 'Please note: To be able to manage ZM Themes Settings and to use the Customizer, you need to install ZM Plugin. If you do not need or want to change any theme settings, you can proceed using this theme, without any need of installing ZM Plugin. But check it out, it is free and there are cool features you do not want to miss!', 'zmtheme' ) );
+                $errormenu->setMenuPage( __( 'Please note: To manage ZM Theme styles and settings, you need to install the Add-On ZM Plugin. If you don\'t want to change the theme settings, you can use this theme without installing ZM Plugin. But try it out, it\'s free and there are countless useful features you won\'t want to miss!', 'zmtheme' ) );
 
               $errormenu->setMenuPage('</p></div>');
 

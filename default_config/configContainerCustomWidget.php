@@ -2,9 +2,9 @@
 
 namespace ZMT\Theme\DefaultConfig;
 
-class configContainerCustomBlocks extends configContainer {
+class configContainerCustomWidget extends configContainer {
 
-  use traitBlocks;
+  use traitWidget;
 
   protected function default() {
 
@@ -21,9 +21,9 @@ class configContainerCustomBlocks extends configContainer {
     $this->args['moduleinner_element'] = '';
     parent::moduleinner_grid();
 
-    $this->blocks_area();
+    $this->widget_area();
     $this->sidebar['module_element'] = 'hide';//hide to use grid
-    //module_element / _class can not be used here because its deactivated in com_custom_blocks! (its not necessary as well to use :) just to know)
+    //module_element / _class can not be used here because its deactivated in com_custom_widget! (its not necessary as well to use :) just to know)
   }
 
 

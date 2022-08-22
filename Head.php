@@ -11,6 +11,7 @@ class Head {
 
       //start function
       $this->addHead();
+      $this->addJSVarsHeadScript();
 
     }
 
@@ -41,6 +42,59 @@ class Head {
 
       add_action('wp_head', array( $this, 'HeadModules' ));//to add in frontend
       add_action('admin_head', array( $this, 'HeadModules' ));//to add in gutenberg
+
+    }
+
+
+    public function JSVarsHeadScript(){
+
+      ?>
+
+      <script>
+
+        // recalculate on resize
+        window.addEventListener('resize', zmListenonResizeingWindow, false);
+        // recalculate on dom load
+        document.addEventListener('DOMContentLoaded', zmListenonResizeingWindow, false);
+        // recalculate on load (assets loaded as well)
+        window.addEventListener('load', zmListenonResizeingWindow);
+
+        function zmListenonResizeingWindow(){
+
+          zmCalculateScrollbarWidth();
+
+          zmGetArticleContainerWidth();
+
+        }
+
+        function zmGetArticleContainerWidth() {
+
+          var x = document.getElementsByClassName('zm-wp-block-width');
+
+          if (x.length > 0) {
+
+            document.documentElement.style.setProperty('--zm-wp-block-width', x[0].clientWidth + "px");
+
+          }
+
+        }
+
+        //scrollbar width for alignfull calculation
+        function zmCalculateScrollbarWidth() {
+
+          document.documentElement.style.setProperty('--scrollbar-width', (window.innerWidth - document.documentElement.clientWidth) + "px");
+
+        }
+
+      </script>
+
+      <?php
+
+    }
+
+    public function addJSVarsHeadScript() {
+
+      add_action( 'wp_head', array( $this, 'JSVarsHeadScript') );
 
     }
 

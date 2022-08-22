@@ -21,8 +21,8 @@ class _nav extends \ZMT\Theme\ExtendModules {
       $this->search  = new \ZMT\Theme\DefaultConfig\configNavSearch( 'navbar', 0,'navcontainer',false );
       $this->search->com_status = 0;
 
-      $this->blocks  = new \ZMT\Theme\DefaultConfig\configNavSidebar( 'navbar', 0,'navcontainer',false );
-      $this->blocks->com_status = 0;
+      $this->widget  = new \ZMT\Theme\DefaultConfig\configNavSidebar( 'navbar', 0,'navcontainer',false );
+      $this->widget->com_status = 0;
 
       $this->navcontainer_inner  = new \ZMT\Theme\DefaultConfig\configNavContainer( 'navbar', 0,'navcontainer',false );
       $this->navcontainer_inner->com_status = 0;

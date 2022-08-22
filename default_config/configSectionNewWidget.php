@@ -2,16 +2,16 @@
 
 namespace ZMT\Theme\DefaultConfig;
 
-class configSectionNewBlocks extends configSectionNew {
+class configSectionNewWidget extends configSectionNew {
 
-  use traitBlocks;
+  use traitWidget;
 
   protected function default_config() {
     //parent::sidebar();
-    $this->blocks_area();
+    $this->widget_area();
     $this->sidebar['module_element'] = 'hide';//hide to use grid
     $this->args['presets'] = 'default';
-    $this->section_content = 'default';//if default, uses sidebar/blocks area
+    $this->section_content = 'default';//if default, uses sidebar/widget area
   }
 
   //section in sections

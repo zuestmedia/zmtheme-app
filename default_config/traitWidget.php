@@ -2,11 +2,11 @@
 
 namespace ZMT\Theme\DefaultConfig;
 
-trait traitBlocks {
+trait traitWidget {
 
-  protected function blocks_area() {
+  protected function widget_area() {
 
-    // ---> add in section blocks!! $this->sidebar['module_element'] = 'hide';//needed to use grid from section!!!!!!! otherwise one div around sidebars in customizer
+    // ---> add in section widget!! $this->sidebar['module_element'] = 'hide';//needed to use grid from section!!!!!!! otherwise one div around sidebars in customizer
 
     $this->sidebar['widget_element'] = 'div';//only use for child grid! = outer element with default classes
     $this->sidebar['widget_class'] = '';

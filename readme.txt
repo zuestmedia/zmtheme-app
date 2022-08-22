@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 0.9.3
+Version: 0.9.4
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM Theme Framework.
@@ -10,6 +10,15 @@ Build modular OOP WordPress Themes with ZM Theme Framework.
 This is the core of ZM Theme Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 0.9.4 =
+* New: Block Templates (CPT)
+* Update: UIKIT Version 3.15.3
+* Update: some configFiles
+* Update: Translation Files DE
+* Fix: Block Template - Widget (blocks before) confusion solved
+* Fix: add alignfull / wide JS (to genereate CSS Var --scrollbar-width & --zm-wp-block-width) to head instead of zmtheme.js, to load faster and avoid window jumping
+* Fix: getQueryLoop json_decode true; wp_query needs output as array
 
 = 0.9.3 =
 * Update: modQueryTerm added filter group control

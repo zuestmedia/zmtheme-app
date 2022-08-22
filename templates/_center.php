@@ -13,8 +13,11 @@ class _center extends \ZMT\Theme\ExtendModules {
       $this->section_nav  = new \ZMT\Theme\DefaultConfig\configSectionNewNav('sections',0,'sections',false);
       $this->section_nav->com_status = 0;
 
-      $this->section_blocks  = new \ZMT\Theme\DefaultConfig\configSectionNewBlocks('sections_w_bgimg',0,'sections',false);
-      //$this->section_blocks->com_status = 0;
+      $this->section_block_template  = new \ZMT\Theme\DefaultConfig\configSectionNewTemplateBlock('sections_w_bgimg',0,'sections',false);
+      $this->section_block_template->com_status = 0;
+
+      $this->section_widget  = new \ZMT\Theme\DefaultConfig\configSectionNewWidget('sections_w_bgimg',0,'sections',false);
+      $this->section_widget->com_status = 0;
 
       $this->section_queryloop  = new \ZMT\Theme\DefaultConfig\configSectionNewQueryloop('sections',0,'sections',false);
       $this->section_queryloop->com_status = 0;
@@ -34,8 +37,11 @@ class _center extends \ZMT\Theme\ExtendModules {
         $this->main_section_nav  = new \ZMT\Theme\DefaultConfig\configSectionNewNav('main',0,'main',false);
         $this->main_section_nav->com_status = 0;
 
-        $this->main_section_blocks  = new \ZMT\Theme\DefaultConfig\configSectionNewBlocks('main_w_bgimg',0,'main',false);
-        //$this->main_section_blocks->com_status = 0;
+        $this->main_section_block_template  = new \ZMT\Theme\DefaultConfig\configSectionNewTemplateBlock('main_w_bgimg',0,'main',false);
+        $this->main_section_block_template->com_status = 0;
+
+        $this->main_section_widget  = new \ZMT\Theme\DefaultConfig\configSectionNewWidget('main_w_bgimg',0,'main',false);
+        $this->main_section_widget->com_status = 0;
 
         $this->main_section_queryloop  = new \ZMT\Theme\DefaultConfig\configSectionNewQueryloop('main',0,'main',false);
         $this->main_section_queryloop->com_status = 0;
@@ -55,8 +61,11 @@ class _center extends \ZMT\Theme\ExtendModules {
           $this->content_section_nav  = new \ZMT\Theme\DefaultConfig\configSectionNewNav('content',0,'content',false);
           $this->content_section_nav->com_status = 0;
 
-          $this->content_section_blocks  = new \ZMT\Theme\DefaultConfig\configSectionNewBlocks('content_w_bgimg',0,'content',false);
-          //$this->content_section_blocks->com_status = 0;
+          $this->content_section_block_template  = new \ZMT\Theme\DefaultConfig\configSectionNewTemplateBlock('content_w_bgimg',0,'content',false);
+          $this->content_section_block_template->com_status = 0;
+
+          $this->content_section_widget  = new \ZMT\Theme\DefaultConfig\configSectionNewWidget('content_w_bgimg',0,'content',false);
+          $this->content_section_widget->com_status = 0;
 
           $this->content_section_queryloop  = new \ZMT\Theme\DefaultConfig\configSectionNewQueryloop('content',0,'content',false);
           $this->content_section_queryloop->com_status = 0;

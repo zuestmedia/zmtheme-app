@@ -14,8 +14,8 @@ class _offcanvas extends \ZMT\Theme\ExtendModules {
       $this->menu  = new \ZMT\Theme\DefaultConfig\configNavMenu( 'nav', 0, 'offcanvascontainer',false );
       $this->search  = new \ZMT\Theme\DefaultConfig\configNavSearch( 'nav', 0, 'offcanvascontainer',false );
 
-      $this->blocks  = new \ZMT\Theme\DefaultConfig\configNavSidebar( 'nav', 0, 'offcanvascontainer',false );
-      $this->blocks->com_status = 0;
+      $this->widget  = new \ZMT\Theme\DefaultConfig\configNavSidebar( 'nav', 0, 'offcanvascontainer',false );
+      $this->widget->com_status = 0;
 
       $this->custom_container  = new \ZMT\Theme\DefaultConfig\configContainerSortableCustomContainer( 'default', 0,'offcanvascontainer',false );
       $this->custom_container->com_status = 0;

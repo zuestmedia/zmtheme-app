@@ -37,8 +37,10 @@ class _singular extends \ZMT\Theme\ExtendModules {
 
       $this->custom_container  = new \ZMT\Theme\DefaultConfig\configContainerSortableCustomContainer( 'default', 0,'articlecontainer',false );
       $this->custom_container->com_status = 0;
-      $this->custom_blocks  = new \ZMT\Theme\DefaultConfig\configContainerCustomBlocks( 'default', 0,'articlecontainer',false );
-      $this->custom_blocks->com_status = 0;
+      $this->custom_widget  = new \ZMT\Theme\DefaultConfig\configContainerCustomWidget( 'default', 0,'articlecontainer',false );
+      $this->custom_widget->com_status = 0;
+      $this->custom_block_template  = new \ZMT\Theme\DefaultConfig\configContainerCustomTemplateBlock( 'default', 0,'articlecontainer',false );
+      $this->custom_block_template->com_status = 0;
       $this->custom_html  = new \ZMT\Theme\DefaultConfig\configContainerCustomHTML( 'default', 0,'articlecontainer',false );
       $this->custom_html->com_status = 0;
       $this->custom_nav  = new \ZMT\Theme\DefaultConfig\configContainerCustomNav( 'default', 0,'articlecontainer',false );
