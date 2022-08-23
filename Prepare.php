@@ -263,7 +263,9 @@ class Prepare {
 
           if(!array_key_exists($key,$templates)){
 
-            $templates[$key] = \ZMT\Theme\Helpers::transformObjectKeystoLabel($key);
+            $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
+
+            $templates[$key] = $com_type_obj->getComLabelOrKey($key);
 
           }
 

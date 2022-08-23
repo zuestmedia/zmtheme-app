@@ -10,6 +10,20 @@ class modContainer extends \ZMT\Theme\Modules\Module {
     return 1;
   }
 
+  public function setArgs($args){
+
+    parent::setArgs($args);
+
+    if(array_key_exists( 'block_template', $args )){
+
+      global $zmtblockassignment;
+
+      $zmtblockassignment[ $this->getId() ] = $this->getArg('block_template');
+
+    }
+
+  }
+
   /**
     * Section Content Type
     */

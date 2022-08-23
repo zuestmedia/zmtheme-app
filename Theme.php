@@ -517,6 +517,54 @@ class Theme {
 
         add_action('init', array( $this, 'TemplateBlocks' ));
 
+        //add column with asignment status of each block template
+        add_filter('manage_zm_blocks_posts_columns', function($columns) {
+        	return array_merge($columns, ['zmstatus' => __('Assigned to', 'zmtheme')]);
+        });
+
+        add_action('manage_zm_blocks_posts_custom_column', array( $this, 'CustomColumnforBlocks' ), 10, 2);
+
+      }
+
+    }
+
+    public function CustomColumnforBlocks($column_key, $post_id) {
+
+      if ($column_key == 'zmstatus') {
+
+        $this->getBlockTemplateComponentid($post_id);
+
+      }
+
+    }
+
+    public function getBlockTemplateComponentid($post_id){
+
+      global $zmtblockassignment;
+
+      $post_slug = get_post_field( 'post_name', get_post() );
+
+      if( in_array( $post_slug, $zmtblockassignment ) ){
+
+        //echo '<span style="color:green;">'; _e('Assigned to: ', 'zmtheme'); echo '</span>';
+
+        $newarray = array();
+        foreach($zmtblockassignment as $key => $value){
+
+          if($value == $post_slug){
+
+            $newarray[] = $key;
+
+          }
+
+        }
+        echo implode(' <br>', $newarray );
+
+      } else {
+
+        //echo '<span style="color:red;">'; _e('Not assigned', 'zmtheme'); echo '</span>';
+        echo '-';
+
       }
 
     }

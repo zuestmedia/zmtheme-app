@@ -128,7 +128,9 @@ class Helpers {
 
         if( strpos( $key, 'posts_' ) !== false ){
 
-          $label = ucfirst( str_replace( 'posts_', '', $key ) );
+          $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
+          $label = $com_type_obj->getComLabelOrKey($key);
+
           $new_array[ $key ] =  $label;
 
         }
@@ -220,12 +222,14 @@ class Helpers {
 
       foreach($zmtheme['default_components'] as $key => $value){
 
-        $label = ucfirst( str_replace( 'nav_', '', $key ) );
         if( $key == 'nav' || strpos( $key, 'nav_' ) !== false ){
 
           foreach($value as $key2 => $value2){
 
             if( is_object($value2) && property_exists( $value2, 'isstartobj' ) ){
+
+              $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
+              $label = $com_type_obj->getComLabelOrKey($key);
 
               $new_array[ $key.'__'.$key2 ] =  $label;
 
@@ -252,15 +256,16 @@ class Helpers {
 
       foreach($zmtheme['default_components'] as $key => $value){
 
-        $label = ucfirst( str_replace( 'offcanvas_', '', $key ) );
         if( $key == 'offcanvas' || strpos( $key, 'offcanvas_' ) !== false ){
 
           foreach($value as $key2 => $value2){
 
             if( is_object($value2) && property_exists( $value2, 'isstartobj' ) ){
 
+              $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
+              $label = $com_type_obj->getComLabelOrKey($key);
+
               $new_array[ $key.'__'.$key2 ] =  $label;
-              //echo $key.'__'.$key2;
 
             }
 

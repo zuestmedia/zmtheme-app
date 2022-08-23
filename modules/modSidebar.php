@@ -239,7 +239,11 @@ class modSidebar extends \ZMT\Theme\Modules\Module {
       if( strpos( $com_id, '_defsidebar' ) ){
         $com_id = str_replace('_defsidebar', '', $com_id );
       }
-      $this->setDisplayName( Helpers::transformObjectKeystoLabel( $com_id ) );
+
+      $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
+
+      //$this->setDisplayName( Helpers::transformObjectKeystoLabel( $com_id ) );
+      $this->setDisplayName( $com_type_obj->getComLabelOrKey($com_id) );
     }
 
     $this->registerSidebar();
