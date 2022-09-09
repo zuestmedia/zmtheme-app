@@ -27,10 +27,16 @@ class Theme {
     private $option_name_settings_status = '_set_status';
 
     private $framework = 'zm';
+
+    private $css_type = 'default';
+    private $option_name_css_type = '_css_type';
+
     private $css = NULL;
     private $css_rtl = NULL;
+
     private $js = NULL;
     private $icons = NULL;
+
     private $headscript = NULL;
     private $footerscript = NULL;
 
@@ -44,9 +50,6 @@ class Theme {
     private $menu_parent_class = 'uk-parent';
 
     private $starter_content = NULL;
-
-    private $colors = NULL;
-    private $gradients = NULL;
 
     private $head_modules = NULL;
 
@@ -200,6 +203,62 @@ class Theme {
 
     }
 
+
+    public function setCSSType($css_type) {
+
+      $this->css_type = $css_type;
+
+    }
+    public function getCSSTypeFieldName() {
+
+      return $this->getOptGroup().$this->option_name_css_type;
+
+    }
+    public function getCSSTypeFieldNamewithoutOptGroup() {
+
+      return $this->option_name_css_type;
+
+    }
+    public function getCSSTypeDefaultValue() {
+
+      return $this->css_type;
+
+    }
+    public function getCSSType() {
+      return Helpers::getOptionNew(
+        $this->getCSSTypeFieldName(),
+        $this->getCSSTypeDefaultValue(),
+        $this->getSettingsStatus(),
+        'option'
+      );
+    }
+
+    public function getCSSFileByType($css_file_string){
+
+      $result = $css_file_string;
+
+      $rtl_string = '';
+      if(is_rtl()){
+        $rtl_string = '-rtl';
+      }
+
+      $string_to_replace = $rtl_string.'.min.css';
+
+      $type = $this->getCSSType();
+      if( $type == 'dark' ){
+        $new_string_to_add = '-dark'.$rtl_string.'.min.css';
+        $result = str_replace($string_to_replace, $new_string_to_add, $css_file_string);
+      }
+
+      if( $type == 'light'){
+        $new_string_to_add = '-light'.$rtl_string.'.min.css';
+        $result = str_replace($string_to_replace, $new_string_to_add, $css_file_string);
+      }
+
+      return $result;
+
+    }
+
   /**
     * CSS Get n Set
     */
@@ -227,11 +286,11 @@ class Theme {
 
       if ( is_rtl() ) {
 
-        return $this->getCssRtlDefaultValue();
+        return $this->getCSSFileByType( $this->getCssRtlDefaultValue() );
 
       } else {
 
-        return $this->getCssDefaultValue();
+        return $this->getCSSFileByType( $this->getCssDefaultValue() );
 
       }
 
@@ -428,86 +487,6 @@ class Theme {
 
     }
 
-    public function getGradients(){
-
-      return $this->gradients;
-
-    }
-    public function setGradients($gradients){
-
-      $this->gradients = $gradients;
-
-    }
-    public function InlineGradients() {
-
-      if($this->getGradients()){
-
-        echo '<style>';
-
-        foreach( $this->getGradients() as $gradient ){
-
-          //background-gradients
-          echo '.has-'.esc_attr($gradient['slug']).'-gradient-background{background:';
-          echo esc_html($gradient['gradient']);
-          echo ';}';
-
-        }
-
-        echo '</style>';
-
-      }
-
-
-    }
-
-
-    public function getColors(){
-
-      return $this->colors;
-
-    }
-    public function setColors($colors){
-
-      $this->colors = $colors;
-
-    }
-    public function InlineColors() {
-
-      if($this->getColors()){
-
-        echo '<style>';
-
-        foreach( $this->getColors() as $color ){
-
-          //background-colors
-          echo '.has-'.esc_attr($color['slug']).'-background-color{background-color:';
-          echo esc_html($color['color']);
-          echo ';}';
-
-          //text-colors
-          echo '.has-'.esc_attr($color['slug']).'-color{color:';
-          echo esc_html($color['color']);
-          echo ';}';
-
-        }
-
-        echo '</style>';
-
-      }
-
-
-    }
-
-    public function addInlineColors(){
-
-      add_action('wp_head', array( $this, 'InlineColors' ));//to add in frontend
-      add_action('admin_head', array( $this, 'InlineColors' ));//to add in gutenberg
-
-      add_action('wp_head', array( $this, 'InlineGradients' ));//to add in frontend
-      add_action('admin_head', array( $this, 'InlineGradients' ));//to add in gutenberg
-
-    }
-
   /**
     * Add cpt to use as template blocks instead of widgets
     */
@@ -687,12 +666,6 @@ class Theme {
         add_theme_support( 'custom-spacing' );
         add_theme_support( 'custom-line-height' );
         add_theme_support( 'custom-units', 'rem', 'px' );
-        $colors = $this->getColors(); //muss so geholt werden!
-        add_theme_support( 'editor-color-palette', $colors );
-        //add_theme_support( 'editor-color-palette', array( $this, 'getColors') );
-        $gradients = $this->getGradients(); //muss so geholt werden!
-        add_theme_support( 'editor-gradient-presets', $gradients );
-        //add_theme_support( 'editor-color-palette', array( $this, 'getColors') );
 
         /**
         *
@@ -901,12 +874,6 @@ class Theme {
         * action: wp_enqueue_scripts
         */
         $this->addAssets();
-
-      /**
-        * Add InlineColors
-        * action: wp_head
-        */
-        $this->addInlineColors();
 
       /**
         * Add HeadScript (& customizer control script)

@@ -65,6 +65,7 @@ class Init {
         $zmtheme['theme']->setVersion( $theme_config_object->theme->version );
         $zmtheme['theme']->setDisplayName( $theme_config_object->theme->displayname );
         $zmtheme['theme']->setFramework( $theme_config_object->theme->framework );
+        $zmtheme['theme']->setCSSType( $theme_config_object->theme->css_type );
         $zmtheme['theme']->setCss( $theme_config_object->theme->css );
         $zmtheme['theme']->setCssRtl( $theme_config_object->theme->css_rtl );
         $zmtheme['theme']->setJs( $theme_config_object->theme->js );
@@ -76,9 +77,6 @@ class Init {
         $zmtheme['theme']->setHeadModules( $theme_config_object->theme->head_modules );
 
         $zmtheme['theme']->setStarterContent( $theme_config_object->startercontent->content );
-
-        $zmtheme['theme']->setColors( $theme_config_object->colors->color_palette_array );
-        $zmtheme['theme']->setGradients( $theme_config_object->gradients->gradient_palette_array );
 
         //child theme js
         if( is_child_theme() && isset( $theme_config_object->theme->js_array_child_theme ) ){

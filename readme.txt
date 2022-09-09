@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 0.9.5
+Version: 0.9.6
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM Theme Framework.
@@ -10,6 +10,11 @@ Build modular OOP WordPress Themes with ZM Theme Framework.
 This is the core of ZM Theme Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 0.9.6 =
+* Remove: Colors and Gradients config files, theme.json is enough now and adds css vars to head in editor and frontend
+* New: CSS Type Selection
+* Update: CssVars Order
 
 = 0.9.5 =
 * Fix: Com-Type and Module labels fixed

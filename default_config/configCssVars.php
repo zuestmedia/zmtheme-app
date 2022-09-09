@@ -29,37 +29,54 @@ class configCssVars extends BuildComponent {
     * and in theme.json
     */
     protected function colors() {
+
       $this->args['presets'] = 'default';
+
       $this->args['color_background_default'] = '#fff';
       $this->args['color_background_gradient_default'] = '#fff';
       $this->args['color_background_gradient_deg_default'] = '0deg';
       $this->args['color_background_gradient_colstop_default'] = '0%';
-      $this->args['color_background_gradient_colstop2_default'] = '100%';
-      $this->args['color_background_primary'] = '#075c97';
-      $this->args['color_background_gradient_primary'] = '#2b77b4';
-      $this->args['color_background_gradient_deg_primary'] = '0deg';
-      $this->args['color_background_gradient_colstop_primary'] = '0%';
-      $this->args['color_background_gradient_colstop2_primary'] = '100%';
-      $this->args['color_background_secondary'] = '#253946';
-      $this->args['color_background_gradient_secondary'] = '#314C5E';
-      $this->args['color_background_gradient_deg_secondary'] = '0deg';
-      $this->args['color_background_gradient_colstop_secondary'] = '0%';
-      $this->args['color_background_gradient_colstop2_secondary'] = '100%';
+      $this->args['color_background_gradient_colstop2_default'] = '0%';
+
       $this->args['color_background_muted'] = '#f8f8f8';
       $this->args['color_background_gradient_muted'] = '#f3f3f3';
       $this->args['color_background_gradient_deg_muted'] = '0deg';
       $this->args['color_background_gradient_colstop_muted'] = '0%';
-      $this->args['color_background_gradient_colstop2_muted'] = '100%';
+      $this->args['color_background_gradient_colstop2_muted'] = '0%';
+
+      $this->args['color_background_primary'] = '#075c97';
+      $this->args['color_background_gradient_primary'] = '#2b77b4';
+      $this->args['color_background_gradient_deg_primary'] = '0deg';
+      $this->args['color_background_gradient_colstop_primary'] = '0%';
+      $this->args['color_background_gradient_colstop2_primary'] = '0%';
+
+      $this->args['color_background_secondary'] = '#253946';
+      $this->args['color_background_gradient_secondary'] = '#314C5E';
+      $this->args['color_background_gradient_deg_secondary'] = '0deg';
+      $this->args['color_background_gradient_colstop_secondary'] = '0%';
+      $this->args['color_background_gradient_colstop2_secondary'] = '0%';
+
       $this->args['background_skewy_default'] = '11deg';
       $this->args['background_skewy_primary'] = '5deg';
       $this->args['background_skewy_secondary'] = '18deg';
-      $this->args['color_text_default'] = '#666';
+
       $this->args['color_text_emphasis'] = '#333';
+      $this->args['color_text_default'] = '#666';
       $this->args['color_text_muted'] = '#999';
       $this->args['color_text_inverse'] = '#ffffff';
+
       $this->args['color_text_link'] = '#1e87f0';
       $this->args['color_text_link_hover'] = '#0f6ecd';
+
       $this->args['color_border'] = '#e5e5e5';
+
+      $this->args['logo_color'] = '#075c97';
+      $this->args['logo_color_hover'] = '#075c97';
+      $this->args['logo_color_inverse'] = '#ffffff';
+      $this->args['logo_color_inverse_hover'] = '#ffffff';
+
+      $this->args['navbar_dropdown_background'] = '#f8f8f8';
+
       $this->args['color_background_success'] = '#32d296';
       $this->args['color_background_warning'] = '#faa05a';
       $this->args['color_background_danger'] = '#f0506e';
@@ -122,10 +139,6 @@ class configCssVars extends BuildComponent {
       $this->args['logo_fontsize'] = '16px';
       $this->args['logo_fontweight'] = 'normal';
       $this->args['logo_letterspacing'] = 'normal';
-      $this->args['logo_color'] = '#666';
-      $this->args['logo_color_hover'] = '#666';
-      $this->args['logo_color_inverse'] = '#ffffff';
-      $this->args['logo_color_inverse_hover'] = '#ffffff';
     }
     protected function navbar() {
       $this->args['presets'] = 'default';
@@ -136,7 +149,6 @@ class configCssVars extends BuildComponent {
       $this->args['navbar_letterspacing'] = 'normal';
       $this->args['navbar_height'] = '80px';
       $this->args['navbar_padding'] = '15px';
-      $this->args['navbar_dropdown_background'] = '#f8f8f8';
     }
 
 }
