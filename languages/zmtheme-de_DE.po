@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zmtheme-frameword-0.9.1\n"
-"POT-Creation-Date: 2022-08-22 11:50+0200\n"
-"PO-Revision-Date: 2022-08-22 11:52+0200\n"
+"POT-Creation-Date: 2022-09-10 12:55+0200\n"
+"PO-Revision-Date: 2022-09-10 12:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -15,75 +15,75 @@ msgstr ""
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: Helpers.php:359
+#: Helpers.php:364
 msgid "Front Page (front-page)"
 msgstr "Startseite (front-page)"
 
-#: Helpers.php:360
+#: Helpers.php:365
 msgid "Pages"
 msgstr "Seiten"
 
-#: Helpers.php:361
+#: Helpers.php:366
 msgid "Blog Page (home)"
 msgstr "Blog Archive (home)"
 
-#: Helpers.php:362
+#: Helpers.php:367
 msgid "Default Archive"
 msgstr "Standard Archiv"
 
-#: Helpers.php:363
+#: Helpers.php:368
 msgid "└ Category Archive"
 msgstr "Kategorie Archiv"
 
-#: Helpers.php:364
+#: Helpers.php:369
 msgid "└ Tag Archive"
 msgstr "Schlagwort Archiv"
 
-#: Helpers.php:365
+#: Helpers.php:370
 msgid "└ Author Archive"
 msgstr "Autor Archiv"
 
-#: Helpers.php:366
+#: Helpers.php:371
 msgid "└ Date Archive"
 msgstr "Datums Archiv"
 
-#: Helpers.php:375
+#: Helpers.php:380
 msgid "Taxonomy Archive"
 msgstr "Taxonomy Archiv"
 
-#: Helpers.php:387
+#: Helpers.php:392
 msgid "Post Type Archive"
 msgstr "Beitragstyp Archiv"
 
-#: Helpers.php:391
+#: Helpers.php:396
 msgid "Single Post"
 msgstr "Einzelner Beitrag"
 
-#: Helpers.php:402
+#: Helpers.php:407
 msgid "Single Post Type"
 msgstr "Einzelner Beitragstyp"
 
-#: Helpers.php:410
+#: Helpers.php:415
 msgid "Singular Template"
 msgstr "Singular Template"
 
-#: Helpers.php:414
+#: Helpers.php:419
 msgid "SearchPage"
 msgstr "Suchen Archiv"
 
-#: Helpers.php:419
+#: Helpers.php:424
 msgid "Woocommerce"
 msgstr ""
 
-#: Helpers.php:423
+#: Helpers.php:428
 msgid "bbPress"
 msgstr ""
 
-#: Helpers.php:426
+#: Helpers.php:431
 msgid "Logged in Users"
 msgstr "Eingeloggte Nutzer"
 
-#: Init.php:130
+#: Init.php:128
 msgid ""
 "Please note: To manage ZM Theme styles and settings, you need to install the "
 "Add-On ZM Plugin. If you don't want to change the theme settings, you can "
@@ -97,123 +97,127 @@ msgstr ""
 "kostenlos und es gibt unzählige nützliche Funktionen, die du nicht verpassen "
 "willst!"
 
-#: Theme.php:71
+#: Theme.php:74
 msgid "Warning: Versions are not consistent!"
 msgstr ""
 
-#: Theme.php:530 Theme.php:533 Theme.php:565
+#: Theme.php:501
+msgid "Assigned to"
+msgstr ""
+
+#: Theme.php:557 Theme.php:560 Theme.php:592
 msgid "Block Templates"
 msgstr ""
 
-#: Theme.php:531 Theme.php:555
+#: Theme.php:558 Theme.php:582
 msgid "Block Template"
 msgstr ""
 
-#: Theme.php:532
+#: Theme.php:559
 msgid "My Block Templates"
 msgstr ""
 
-#: Theme.php:534
+#: Theme.php:561
 msgid "Add new"
 msgstr ""
 
-#: Theme.php:535
+#: Theme.php:562
 msgid "Add new Block Template"
 msgstr ""
 
-#: Theme.php:536
+#: Theme.php:563
 msgid "Edit Block Template"
 msgstr ""
 
-#: Theme.php:537
+#: Theme.php:564
 msgid "New Block Template"
 msgstr ""
 
-#: Theme.php:538
+#: Theme.php:565
 msgid "View Block Template"
 msgstr ""
 
-#: Theme.php:539
+#: Theme.php:566
 msgid "View Block Templates"
 msgstr ""
 
-#: Theme.php:540
+#: Theme.php:567
 msgid "Search Block Templates"
 msgstr ""
 
-#: Theme.php:541
+#: Theme.php:568
 msgid "No Block Templates found"
 msgstr ""
 
-#: Theme.php:542
+#: Theme.php:569
 msgid "No Block Templates found in trash"
 msgstr ""
 
-#: Theme.php:543 Theme.php:561
+#: Theme.php:570 Theme.php:588
 msgid "Parent Block Template:"
 msgstr ""
 
-#: Theme.php:544
+#: Theme.php:571
 msgid "Featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:545
+#: Theme.php:572
 msgid "Set featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:546
+#: Theme.php:573
 msgid "Remove featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:547
+#: Theme.php:574
 msgid "Use as featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:548
+#: Theme.php:575
 msgid "Block Template archives"
 msgstr ""
 
-#: Theme.php:549
+#: Theme.php:576
 msgid "Insert into Block Template"
 msgstr ""
 
-#: Theme.php:550
+#: Theme.php:577
 msgid "Upload to this Block Template"
 msgstr ""
 
-#: Theme.php:551
+#: Theme.php:578
 msgid "Filter Block Templates list"
 msgstr ""
 
-#: Theme.php:552
+#: Theme.php:579
 msgid "Block Templates list navigation"
 msgstr ""
 
-#: Theme.php:553
+#: Theme.php:580
 msgid "Block Templates list"
 msgstr ""
 
-#: Theme.php:554
+#: Theme.php:581
 msgid "Block Templates attributes"
 msgstr ""
 
-#: Theme.php:556
+#: Theme.php:583
 msgid "Block Template published"
 msgstr ""
 
-#: Theme.php:557
+#: Theme.php:584
 msgid "Block Template published privately."
 msgstr ""
 
-#: Theme.php:558
+#: Theme.php:585
 msgid "Block Template reverted to draft."
 msgstr ""
 
-#: Theme.php:559
+#: Theme.php:586
 msgid "Block Template scheduled"
 msgstr ""
 
-#: Theme.php:560
+#: Theme.php:587
 msgid "Block Template updated."
 msgstr ""
 
