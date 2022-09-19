@@ -134,7 +134,10 @@ class configSectionNew extends BuildComponent {
     }
 
     protected function section_background_image(){
+      $this->args['section_background_status'] = '';
+      $this->args['section_background_url'] = NULL;
       $this->args['section_background_image'] = NULL;
+      $this->args['section_background_featured'] = 0;
       $this->args['section_background_image_size'] = 'full';
       $this->args['section_class_background_img'] = '';
       $this->args['section_class_background_pos'] = '';

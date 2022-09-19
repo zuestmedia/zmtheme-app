@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 0.9.7
+Version: 0.9.8
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM Theme Framework.
@@ -10,6 +10,12 @@ Build modular OOP WordPress Themes with ZM Theme Framework.
 This is the core of ZM Theme Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 0.9.8 =
+* New: Background Image - Options for posts featured image and external url added
+* New: Add a "MY Block Patterns" folder to your child-theme
+* Fix: default_config optimizations
+* Fix: section_content choices
 
 = 0.9.7 =
 * Update: Language Files

@@ -24,7 +24,7 @@ class BuildComponent {
   * public $section_content;
   * public $is_static_clone;
   * Arg Values (only sample)
-  * $this->args['custom_section_content'] = 'default';
+  * $this->args['custom_section_content'] = '';
   * $this->args['presets'] = 'default';
   */
 

@@ -164,20 +164,6 @@ class Render {
 
     $custom_section_content = $zmtheme[ $com_id ]->getArg('custom_section_content');
 
-    if( $custom_section_content == 'queryloop' ){
-
-      return \ZMT\Theme\Render::getQueryLoop( $com_id );
-
-    }
-    //return here if is queryloop
-
-    if( $custom_section_content == 'default' ){
-
-      return $zmtheme[ $com_id.'_defsidebar' ]->getModule();
-
-    }
-    //return here if is default
-
     if($custom_section_content){
 
       $component_type = substr($custom_section_content, 0, strpos($custom_section_content, '__'));

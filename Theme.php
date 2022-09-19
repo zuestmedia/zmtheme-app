@@ -523,7 +523,7 @@ class Theme {
 
       $post_slug = get_post_field( 'post_name', get_post() );
 
-      if( in_array( $post_slug, $zmtblockassignment ) ){
+      if( is_array($zmtblockassignment) && in_array( $post_slug, $zmtblockassignment ) ){
 
         //echo '<span style="color:green;">'; _e('Assigned to: ', 'zmtheme'); echo '</span>';
 

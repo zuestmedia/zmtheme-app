@@ -14,6 +14,10 @@ class configContainerCustomTemplateBlock extends configContainer {
       parent::module();
       parent::module_layout_helper();
 
+      parent::moduleinner();
+      $this->args['moduleinner_element'] = '';
+      parent::moduleinner_grid();
+
     }
 
 

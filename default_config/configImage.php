@@ -13,6 +13,8 @@ class configImage extends BuildModule {
     parent::module();
     parent::module_image_helper();
 
+    $this->args['module_class_margin_vertical'] = array('uk-margin');
+
     $this->args['image_size'] = 'full';
     $this->args['image_link'] = 0;
     $this->args['image_class'] = array();
@@ -27,8 +29,6 @@ class configImage extends BuildModule {
     $this->default();
 
     $this->args['module_attrs'] = '{"uk-lightbox":""}';
-
-    $this->args['module_class_margin_vertical'] = array('uk-margin');
 
     $this->args['image_link'] = 2;
 

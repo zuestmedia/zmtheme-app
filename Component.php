@@ -538,10 +538,24 @@ class Component extends Base {
         $result .= ' '.$customizer_attrs;//add space before!
       }
 
-      $background_image = $this->getArg( $element_name.'_background_image' );
-      if( $background_image ) {
+      $background_status = $this->getArg( $element_name.'_background_status' );
+      if($background_status){
 
-        $result .= Helpers::getBackgroundImage( $background_image, $this->getArg( $element_name.'_background_image_size' ) );
+        $background_featured = $this->getArg( $element_name.'_background_featured' );
+
+        if($background_status == 'file'){
+
+          $background_image = $this->getArg( $element_name.'_background_image' );
+          $result .= Helpers::getBackgroundImageNew( $background_image, $this->getArg( $element_name.'_background_image_size' ), $background_featured );
+
+        }
+
+        if($background_status == 'url'){
+
+          $background_url = $this->getArg( $element_name.'_background_url' );
+          $result .= Helpers::getBackgroundImageFromUrl( $background_url, $this->getArg( $element_name.'_background_image_size' ), $background_featured );
+
+        }
 
       }
 
@@ -562,10 +576,6 @@ class Component extends Base {
             $result = 1;
 
           } elseif( strpos( $this->getId(), '__articlelistcontainer' ) !== false ){
-
-            $result = 1;
-
-          } elseif( $this->getArg('custom_section_content') == 'queryloop' ){
 
             $result = 1;
 

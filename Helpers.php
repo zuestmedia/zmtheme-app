@@ -685,12 +685,16 @@ class Helpers {
     }
 
   /**
-    * getBackgroundImage
-    * @return string [description]
+    * getBackgroundImage...
     */
-    static function getBackgroundImage( $attachment_id, $background_image_size ) {
+    static function getBackgroundImageNew( $attachment_id, $background_image_size, $featured ) {
 
       $result = NULL;
+
+      $featured_image = Helpers::getBackgroundFeaturedImage( $featured, $background_image_size );
+      if($featured_image){
+        return $featured_image;
+      }
 
       $size = 'full';
       if($background_image_size !== NULL){
@@ -702,6 +706,47 @@ class Helpers {
       //$result = Helpers::getAttribute( $attachment_array[0], NULL, ' style="background-image: url(%s);"' );
       //adds lazy loading to images!!! aber lädt 2 mal wenn background image && chrome webmaster tools cache is deactivated!, alles gut!
       $result = Helpers::getAttribute( $attachment_array[0], NULL, ' data-src="%s" uk-img' );
+
+      return $result;
+
+    }
+
+    static function getBackgroundImageFromUrl( $url, $background_image_size, $featured ) {
+
+      $result = NULL;
+      $featured_image = NULL;
+
+      $featured_image = Helpers::getBackgroundFeaturedImage( $featured, $background_image_size );
+      if($featured_image){
+        return $featured_image;
+      }
+
+      $result = Helpers::getAttribute( $url, NULL, ' data-src="%s" uk-img' );
+
+      return $result;
+
+    }
+
+    static function getBackgroundFeaturedImage($featured,$background_image_size) {
+
+      $result = NULL;
+
+      $size = 'full';
+      if($background_image_size !== NULL){
+        $size = $background_image_size;
+      }
+
+      if($featured && is_singular()){
+
+        $url = get_the_post_thumbnail_url(null, $size);
+
+        if($url){
+
+          $result = Helpers::getAttribute( $url, NULL, ' data-src="%s" uk-img' );
+
+        }
+
+      }
 
       return $result;
 

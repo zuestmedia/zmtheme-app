@@ -30,7 +30,10 @@ class configContainer extends BuildModule {
     $this->args['moduleouter_class_color_helpers'] = array();
   }
   protected function moduleouter_background_img(){
+    $this->args['moduleouter_background_status'] = NULL;
+    $this->args['moduleouter_background_url'] = NULL;
     $this->args['moduleouter_background_image'] = NULL;
+    $this->args['moduleouter_background_featured'] = 0;
     $this->args['moduleouter_background_image_size'] = 'full';
     $this->args['moduleouter_class_background_img'] = '';
     $this->args['moduleouter_class_background_pos'] = '';

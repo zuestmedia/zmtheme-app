@@ -112,7 +112,7 @@ class Config {
 
               //add default sidebar to section if its not another component
               //TODO if sections are split only create sidebar with section_block
-              if( property_exists( $component, 'section_content' ) &&  ( $component->section_content == 'default' || $component->section_content == 'custom' ) ){
+              if( property_exists( $component, 'section_content' ) && $component->section_content == 'default' ){
 
                 $zmtheme[ $com_id.'_defsidebar' ] = new \ZMT\Theme\Modules\modSidebar($com_id.'_defsidebar', $zmtheme['theme']->getSettingsStatus() );
 
