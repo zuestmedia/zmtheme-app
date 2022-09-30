@@ -14,7 +14,7 @@ class configCommentsList extends BuildModule {
     parent::module_layout_helper();
 
     $this->args['list_wrap'] = '{"tag":"ul","attributes":{"class":"uk-list uk-list-divider"},"content":"%s","close":true}';
-    $this->args['title_wrap'] = '{"tag":"h3","attributes":{"class":"uk-h2"},"content":"%s"}';
+    $this->args['title_wrap'] = '{"tag":"h3","attributes":{"class":"uk-heading-divider"},"content":"%s"}';
     $this->args['comment_container_class'] = 'uk-comment uk-margin-top';
     $this->args['comment_body_class'] = 'uk-comment-body uk-margin';
     $this->args['avatar_size'] = 100;

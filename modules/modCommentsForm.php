@@ -18,7 +18,7 @@ class modCommentsForm extends \ZMT\Theme\Modules\Module {
     $comment_form = NULL;
     $args = array(
       'class_form'         => $form_class,
-      'title_reply_before' => '<'.$title_element.' id="reply-title" class="comment-reply-title uk-h2">',
+      'title_reply_before' => '<'.$title_element.' id="reply-title" class="comment-reply-title uk-heading-divider">',
       'title_reply_after'  => '</'.$title_element.'>',
     );
 

@@ -21,7 +21,7 @@ class BuildModule extends BuildComponent {
     $this->args['module_attrs'] = '';
   }
   protected function module_container(){
-    $this->args['module_class_container'] = 'uk-container uk-container-default';
+    $this->args['module_class_container'] = 'uk-container uk-container-small';
   }
   protected function module_background(){
     $this->args['module_class_color_background'] = 'uk-section-transparent';
@@ -48,6 +48,7 @@ class BuildModule extends BuildComponent {
     $this->args['module_class_image_background_color'] = '';
     $this->args['module_class_image_container_size'] = array();
     $this->args['module_class_margin_vertical'] = array();
+    $this->args['module_class_align'] = array();
     $this->args['module_class_card_helpers'] = array();
   }
 

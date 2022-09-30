@@ -13,7 +13,7 @@ class configQueryTerm extends BuildModule {
     $this->args['taxonomy'] = 'post_tag';
     $this->args['list_wrap'] = '{"tag":"div","attributes":{"uk-grid":"","class":"uk-grid-small uk-child-width-auto"},"content":"%s","close":true}';
     $this->args['list_item'] = 'div';
-    $this->args['link_class'] = array('uk-button uk-button-primary');
+    $this->args['link_class'] = array('uk-button uk-button-default');
     $this->args['query_args_json'] = '';
 
     parent::module();

@@ -156,7 +156,7 @@ class configSectionNew extends BuildComponent {
     protected function container(){
       $this->args['container_element'] = 'div';
       $this->args['container_class'] = '';
-      $this->args['container_class_container'] = 'uk-container uk-container-default';
+      $this->args['container_class_container'] = 'uk-container uk-container-small';
     }
 
     protected function grid(){

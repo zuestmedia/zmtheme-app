@@ -17,6 +17,7 @@ class _posts extends \ZMT\Theme\ExtendModules {
       $this->image  = new \ZMT\Theme\DefaultConfig\configImage( 'posts', 0,'articlecontainer',false);
       $this->date  = new \ZMT\Theme\DefaultConfig\configDate('inline',0,'articlecontainer',false);
       $this->taxonomy  = new \ZMT\Theme\DefaultConfig\configTaxonomyTerms('inline_category',0,'articlecontainer',false);
+        $this->taxonomy__1  = new \ZMT\Theme\DefaultConfig\configTaxonomyTerms('inline_post_tag',0,'articlecontainer');//not clonable! --> is_static_clone
       $this->authorlink  = new \ZMT\Theme\DefaultConfig\configAuthorLink('inline',0,'articlecontainer',false);
       $this->commentscounter  = new \ZMT\Theme\DefaultConfig\configCommentsCounter('inline',0,'articlecontainer',false);
       $this->editlink  = new \ZMT\Theme\DefaultConfig\configEditlink('inline',0,'articlecontainer', false);

@@ -22,6 +22,7 @@ class configTitle extends BuildModule {
     $this->default();
 
     $this->args['title_element'] = 'h1';
+    $this->args['title_class'] = array('uk-article-title');
     $this->args['linked'] = 0;
 
   }
@@ -30,8 +31,7 @@ class configTitle extends BuildModule {
 
     $this->default();
 
-    $this->args['title_element'] = 'h3';
-    $this->args['title_class'] = array('uk-article-title');
+    $this->args['title_element'] = 'h2';
     $this->args['linked'] = 1;
 
   }

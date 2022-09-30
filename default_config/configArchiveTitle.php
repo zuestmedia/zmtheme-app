@@ -11,7 +11,7 @@ class configArchiveTitle extends BuildModule {
     $this->args['presets'] = 'default';
 
     $this->args['title_element'] = 'h1';
-    $this->args['title_class'] = array();
+    $this->args['title_class'] = array('uk-heading-small');
     $this->args['title_sprintf'] = '';//use %s to get the archivetitle
 
   }

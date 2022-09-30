@@ -12,7 +12,7 @@ class configCommentsForm extends BuildModule {
 
     $this->args['title_element'] = 'h3';
     $this->args['form_class'] = 'uk-form-stacked';
-    $this->args['button_class'] = 'uk-button uk-button-primary';
+    $this->args['button_class'] = 'uk-button uk-button-default';
     $this->args['input_class'] = 'uk-input';
     $this->args['textarea_class'] = 'uk-textarea';
     $this->args['checkbox_class'] = 'uk-checkbox';

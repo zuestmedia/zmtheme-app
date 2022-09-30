@@ -23,7 +23,7 @@ class configContainer extends BuildModule {
     $this->args['moduleouter_attrs'] = '';
   }
   protected function moduleouter_section(){
-    $this->args['moduleouter_class_section'] = 'uk-section uk-section-medium';
+    $this->args['moduleouter_class_section'] = 'uk-section uk-section-small';
   }
   protected function moduleouter_background(){
     $this->args['moduleouter_class_color_background'] = 'uk-section-transparent';
@@ -72,7 +72,7 @@ class configContainer extends BuildModule {
   protected function moduleinner_grid_article_list(){
     $this->args['moduleinner_attrs_grid'] = '{"uk-grid":""}';
     $this->args['moduleinner_class_child_width'] = array('uk-child-width-1-1');
-    $this->args['moduleinner_class_grid_mods'] = array('uk-grid-divider');
+    $this->args['moduleinner_class_grid_mods'] = array();
     $this->args['moduleinner_attrs_scrollspy_animation'] = '';
   }
   protected function moduleinner_grid_offcanvas(){

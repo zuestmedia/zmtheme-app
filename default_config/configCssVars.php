@@ -70,8 +70,8 @@ class configCssVars extends BuildComponent {
 
       $this->args['color_border'] = '#e5e5e5';
 
-      $this->args['logo_color'] = '#075c97';
-      $this->args['logo_color_hover'] = '#075c97';
+      $this->args['logo_color'] = '#333';
+      $this->args['logo_color_hover'] = '#333';
       $this->args['logo_color_inverse'] = '#ffffff';
       $this->args['logo_color_inverse_hover'] = '#ffffff';
 
@@ -136,8 +136,8 @@ class configCssVars extends BuildComponent {
       $this->args['presets'] = 'default';
       $this->args['logo_fontfamily'] = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji';
       $this->args['logo_fontstyle'] = 'normal';
-      $this->args['logo_fontsize'] = '16px';
-      $this->args['logo_fontweight'] = 'normal';
+      $this->args['logo_fontsize'] = '32px';
+      $this->args['logo_fontweight'] = '600';
       $this->args['logo_letterspacing'] = 'normal';
     }
     protected function navbar() {

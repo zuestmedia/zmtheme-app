@@ -14,7 +14,7 @@ class configNavLogo extends configNav {
 
     $this->args['presets'] = 'default';
 
-    $this->args['logo_wrap'] = '[{"tag":"div","attributes":{"class":"uk-logo"},"content":"%1$s"},{"tag":"div","attributes":{"class":"uk-navbar-subtitle"},"content":"%2$s","close":true}]';
+    $this->args['logo_wrap'] = '{"tag":"div","attributes":{"class":"uk-logo"},"content":"%1$s"}';
     $this->args['linked'] = 1;
 
     $this->args['link_class'] = array('uk-link-reset');
@@ -29,6 +29,21 @@ class configNavLogo extends configNav {
   protected function navbar() {
 
     parent::navbar();
+
+  }
+
+  protected function nav_logo_and_subtitle() {
+
+    parent::nav();
+    $this->args['logo_wrap'] = '[{"tag":"div","attributes":{"class":"uk-logo"},"content":"%1$s"},{"tag":"div","attributes":{"class":"uk-navbar-subtitle"},"content":"%2$s","close":true}]';
+
+
+  }
+  protected function navbar_logo_and_subtitle() {
+
+    parent::navbar();
+    $this->args['logo_wrap'] = '[{"tag":"div","attributes":{"class":"uk-logo"},"content":"%1$s"},{"tag":"div","attributes":{"class":"uk-navbar-subtitle"},"content":"%2$s","close":true}]';
+
 
   }
 

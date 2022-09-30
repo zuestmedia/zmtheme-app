@@ -27,6 +27,20 @@ class modPostMeta extends \ZMT\Theme\Modules\Module {
 
         if(is_array($value[0])){
 
+          //todo: array wird nie als array hier ausgegeben, muss von serialized oder was auch immer umgewandelt werden...
+          //--> anpassen wenn case da.
+          //funktioniert perfekt mit single values pro custom field.
+
+          //filter array for existing values!
+          /*$values_array =  array_filter($value[0],
+            function ($a) {
+              //return $a !== null;
+              if($a){
+                return $a;
+              }
+            }
+          );*/
+
           foreach($value[0] as $single_value){
 
             if($list_item) { $html .= '<'.$list_item.'>'; }
@@ -45,7 +59,9 @@ class modPostMeta extends \ZMT\Theme\Modules\Module {
 
         } else {
 
-          $html .= sprintf( $meta_wrap, $meta_key, $value[0] );
+          if($value[0]){
+            $html = sprintf( $meta_wrap, $meta_key, $value[0] );
+          }
 
         }
 
@@ -55,11 +71,16 @@ class modPostMeta extends \ZMT\Theme\Modules\Module {
 
           if( !Helpers::stringStartsWith($meta_name,'_') ){
 
-            if($list_item) { $html .= '<'.$list_item.'>'; }
+            //same here, no array is processed because none yet is coming in
+            if( (is_array($meta_value_arr[0]) && !empty($meta_value_arr[0]) ) || ( !is_array($meta_value_arr[0]) && $meta_value_arr[0] ) ){
 
-              $html .= sprintf( $meta_wrap, $meta_name, Helpers::implodeIfArray( $meta_value_arr[0], $text_separator ) );
+              if($list_item) { $html .= '<'.$list_item.'>'; }
 
-            if($list_item) { $html .= '</'.$list_item.'>'; }
+                $html .= sprintf( $meta_wrap, $meta_name, Helpers::implodeIfArray( $meta_value_arr[0], $text_separator ) );
+
+              if($list_item) { $html .= '</'.$list_item.'>'; }
+
+            }
 
           }
 
