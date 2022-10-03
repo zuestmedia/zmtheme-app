@@ -18,7 +18,7 @@ class modSearch extends \ZMT\Theme\Modules\Module {
     }
 
     $html = NULL;
-    $html .= '<form class="'.esc_attr($formclass).'" method="get" action="'.esc_url( home_url( '/' ) ).'">';
+    $html .= '<form class="'.esc_attr($formclass).'" method="get" role="search" action="'.esc_url( home_url( '/' ) ).'">';
       $html .= \ZMT\Theme\Element::processHTMLElements(json_decode($searchicon,true));//json
       $html .= '<input class="'.esc_attr($inputclass).'"'.$autofocus_attr.' type="search" placeholder="'.esc_attr($placeholder).'" value="'.esc_attr( get_search_query() ).'" name="s">';
     $html .= '</form>';

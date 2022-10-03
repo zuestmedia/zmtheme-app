@@ -7,7 +7,7 @@ class _center extends \ZMT\Theme\ExtendModules {
   function __construct(){
 
     //Container: section
-    $this->sections = new \ZMT\Theme\DefaultConfig\configContainerSortableSections('default', false);
+    $this->sections = new \ZMT\Theme\DefaultConfig\configContainerSortableSections('main', false);
     $this->sections->isstartobj = 'sections';
 
       $this->section_nav  = new \ZMT\Theme\DefaultConfig\configSectionNewNav('sections',0,'sections',false);

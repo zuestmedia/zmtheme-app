@@ -10,7 +10,7 @@ class configCommentsForm extends BuildModule {
 
     $this->args['presets'] = 'default';
 
-    $this->args['title_element'] = 'h3';
+    $this->args['title_element'] = 'h4';
     $this->args['form_class'] = 'uk-form-stacked';
     $this->args['button_class'] = 'uk-button uk-button-default';
     $this->args['input_class'] = 'uk-input';

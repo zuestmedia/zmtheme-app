@@ -338,6 +338,16 @@ class Theme {
 
     }
 
+    public function BodySkipLinks(){
+
+      echo '<a href="#content" class="screen-reader-text uk-button uk-button-default">'.__('Skip to content', 'zmtheme').'</a>';
+
+    }
+
+    public function addBodySkipLinks(){
+      add_action('wp_body_open', array( $this, 'BodySkipLinks' ));
+    }
+
 
     public function setFooterScript($footerscript) {
 
@@ -697,12 +707,12 @@ class Theme {
 
        //removed, because of own settings and confustion when duplicates...
        //add_theme_support( 'custom-background' );
-
+/*
        //add starter content
        $startercontentarray = $this->getStarterContent(); //muss so geholt werden!
        add_theme_support( 'starter-content', $startercontentarray );
        //add_theme_support( 'starter-content', array( $this, 'getStarterContent') );//ufnktionert so nicht! falscher wert wird ausgegeben????
-
+*/
        //woocommerce
        add_theme_support( 'woocommerce' );
 
@@ -880,6 +890,12 @@ class Theme {
         * action: wp_head
         */
         $this->addHeadScript();
+
+      /**
+        * Accesibility body skip link
+        */
+        $this->addBodySkipLinks();
+
 
       /**
         * Add FooterScript

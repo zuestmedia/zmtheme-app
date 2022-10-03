@@ -7,7 +7,7 @@ class _footer extends \ZMT\Theme\ExtendModules {
   function __construct(){
 
     //sections container
-    $this->sections = new \ZMT\Theme\DefaultConfig\configContainerSortableSections('default',false);
+    $this->sections = new \ZMT\Theme\DefaultConfig\configContainerSortableSections('footer',false);
     $this->sections->isstartobj = 'sections';
 
       $this->section_nav  = new \ZMT\Theme\DefaultConfig\configSectionNewNav('sections',0,'sections',false);

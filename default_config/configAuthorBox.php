@@ -12,6 +12,8 @@ class configAuthorBox extends BuildModule {
 
     parent::module();
     parent::module_layout_helper();
+    $this->args['avatar_size'] = 96;
+    $this->args['avatar_class'] = 'uk-border-circle';
     $this->args['content_wrap'] = '[{"tag":"hr","attributes":{"class":"uk-margin-top"},"close":false}]';
     $this->args['author_box_json'] = '[{"tag":"div","attributes":{"class":"uk-grid-medium uk-flex-middle","uk-grid":""}},{"tag":"div","attributes":{"class":"uk-width-auto"},"content":"__image__","close":true},{"tag":"div","attributes":{"class":"uk-width-expand"},"content":[{"tag":"div","attributes":{"class":"uk-comment-title uk-margin-remove uk-link-reset"},"content":{"tag":"a","attributes":{"href":"__link__"},"content":"__title__","close":true},"close":true},{"tag":"p","attributes":{"class":"uk-margin-remove uk-text-small"},"content":"__text__","close":true}],"close":true}]';
 

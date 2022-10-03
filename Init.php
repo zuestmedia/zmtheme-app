@@ -125,9 +125,13 @@ class Init {
 
               $errormenu->setMenuPage('<div class="notice notice-info"><p>');
 
-                $errormenu->setMenuPage( __( 'Please note: To manage ZM Theme styles and settings, you need to install the Add-On ZM Plugin. If you don\'t want to change the theme settings, you can use this theme without installing ZM Plugin. But try it out, it\'s free and there are countless useful features you won\'t want to miss!', 'zmtheme' ) );
+                $errormenu->setMenuPage( __( 'To enable theme settings in Dashboard and Customizer you need ZM Plugin. ZM Plugin is a free WordPress extension to manage theme options and customizer settings of ZM-Theme-Framework based WordPress Themes.', 'zmtheme' ) );
 
-              $errormenu->setMenuPage('</p></div>');
+                $errormenu->setMenuPage('</p><p><a target="_blank" rel="nofollow" href="https://zmplugin.com">');
+
+                $errormenu->setMenuPage(__( 'Download ZM Plugin', 'zmtheme' ));
+
+              $errormenu->setMenuPage('</a></p></div>');
 
             $errormenu->setMenuPage('</div>');
 

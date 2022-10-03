@@ -38,12 +38,14 @@ class configImage extends BuildModule {
 
     $this->default();
 
-    $this->args['image_size'] = 'medium';
     $this->args['module_class_image_container_size'] = array('uk-height-max-small','uk-flex uk-flex-middle');
     $this->args['module_class_margin_vertical'] = array();
     $this->args['module_class_align'] = array('uk-align-right@s');
     $this->args['module_class_card_helpers'] = array('uk-overflow-hidden');
+
+    $this->args['image_size'] = 'medium';
     $this->args['image_link'] = 1;
+    $this->args['caption'] = 0;
 
   }
 

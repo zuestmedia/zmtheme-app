@@ -17,6 +17,7 @@ class CommentWalker extends Walker_Comment  {
   private $header_grid = NULL;
   private $image_class = NULL;
   private $meta_class = NULL;
+  private $meta_subnav_attrs = NULL;
   private $meta_subnav_class = NULL;
   private $author_link_wrap = NULL;
   private $body_class = NULL;
@@ -121,20 +122,22 @@ class CommentWalker extends Walker_Comment  {
 
   }
 
-        /**
-   * Set Meta Subnav Class
-   * @param mixed $meta_subnav_class
-   */
+  public function setMetaSubnavAttrs($meta_subnav_attrs) {
+
+      $this->meta_subnav_attrs = $meta_subnav_attrs;
+
+  }
+  public function getMetaSubnavAttrs() {
+
+      return $this->meta_subnav_attrs;
+
+  }
+
   public function setMetaSubnavClass($meta_subnav_class) {
 
       $this->meta_subnav_class = $meta_subnav_class;
 
   }
-
-        /**
-   * Get Meta Subnav Class
-   * @return mixed
-   */
   public function getMetaSubnavClass() {
 
       return $this->meta_subnav_class;
@@ -215,7 +218,8 @@ class CommentWalker extends Walker_Comment  {
                       <div class="<?php echo esc_attr($this->getImageClass()); ?>">
                           <?php
                           if ( 0 != $args['avatar_size'] ) {
-                              echo get_avatar( $comment, $args['avatar_size'] );
+                              //echo get_avatar( $comment, $args['avatar_size'] );
+                              echo get_avatar( $comment, $args['avatar_size'], '', '', array( 'class' => $args['zm_avatar_class'] ) );
                           }
                           ?>
 
@@ -225,7 +229,7 @@ class CommentWalker extends Walker_Comment  {
 
                         <?php printf( $this->getAuthorLinkWrap(), get_comment_author_link( $comment ) ); ?>
 
-                        <ul class="<?php echo esc_attr($this->getMetaSubnavClass()); ?>">
+                        <ul <?php echo $this->getMetaSubnavAttrs(); ?> class="<?php echo esc_attr($this->getMetaSubnavClass()); ?>">
 
                           <li>
                             <a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">

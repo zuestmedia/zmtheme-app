@@ -16,4 +16,18 @@ class configContainerSortableSections extends configContainerSortable {
 
   }
 
+  protected function header() {
+    $this->default();
+    $this->args['moduleouter_element'] = 'header';
+  }
+  protected function main() {
+    $this->default();
+    $this->args['moduleouter_element'] = 'main';
+    $this->args['moduleouter_attrs'] = '{"id":"content"}';
+  }
+  protected function footer() {
+    $this->default();
+    $this->args['moduleouter_element'] = 'footer';
+  }
+
 }

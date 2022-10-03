@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zmtheme-frameword-0.9.1\n"
-"POT-Creation-Date: 2022-09-10 12:55+0200\n"
-"PO-Revision-Date: 2022-09-10 12:55+0200\n"
+"POT-Creation-Date: 2022-10-03 23:55+0200\n"
+"PO-Revision-Date: 2022-10-03 23:55+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -14,6 +14,10 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-KeywordsList: __\n"
 "X-Poedit-SearchPath-0: .\n"
+
+#: BlockPatterns.php:32
+msgid "My Patterns"
+msgstr ""
 
 #: Helpers.php:364
 msgid "Front Page (front-page)"
@@ -85,139 +89,140 @@ msgstr "Eingeloggte Nutzer"
 
 #: Init.php:128
 msgid ""
-"Please note: To manage ZM Theme styles and settings, you need to install the "
-"Add-On ZM Plugin. If you don't want to change the theme settings, you can "
-"use this theme without installing ZM Plugin. But try it out, it's free and "
-"there are countless useful features you won't want to miss!"
+"To enable theme settings in Dashboard and Customizer you need ZM Plugin. ZM "
+"Plugin is a free WordPress extension to manage theme options and customizer "
+"settings of ZM-Theme-Framework based WordPress Themes."
 msgstr ""
-"Bitte beachten: Um die Stile und Einstellungen von ZM Theme verwalten zu "
-"können, musst du das Add-On ZM Plugin installieren. Wenn du die "
-"Einstellungen des Themes nicht ändern willst, kannst du dieses Theme auch "
-"ohne die Installation von ZM-Plugin verwenden. Aber probiere es aus, es ist "
-"kostenlos und es gibt unzählige nützliche Funktionen, die du nicht verpassen "
-"willst!"
+
+#: Init.php:132
+msgid "Download ZM Plugin"
+msgstr ""
 
 #: Theme.php:74
 msgid "Warning: Versions are not consistent!"
 msgstr ""
 
-#: Theme.php:501
+#: Theme.php:343
+msgid "Skip to content"
+msgstr ""
+
+#: Theme.php:511
 msgid "Assigned to"
 msgstr ""
 
-#: Theme.php:557 Theme.php:560 Theme.php:592
+#: Theme.php:567 Theme.php:570 Theme.php:602
 msgid "Block Templates"
 msgstr ""
 
-#: Theme.php:558 Theme.php:582
+#: Theme.php:568 Theme.php:592
 msgid "Block Template"
 msgstr ""
 
-#: Theme.php:559
+#: Theme.php:569
 msgid "My Block Templates"
 msgstr ""
 
-#: Theme.php:561
+#: Theme.php:571
 msgid "Add new"
 msgstr ""
 
-#: Theme.php:562
+#: Theme.php:572
 msgid "Add new Block Template"
 msgstr ""
 
-#: Theme.php:563
+#: Theme.php:573
 msgid "Edit Block Template"
 msgstr ""
 
-#: Theme.php:564
+#: Theme.php:574
 msgid "New Block Template"
 msgstr ""
 
-#: Theme.php:565
+#: Theme.php:575
 msgid "View Block Template"
 msgstr ""
 
-#: Theme.php:566
+#: Theme.php:576
 msgid "View Block Templates"
 msgstr ""
 
-#: Theme.php:567
+#: Theme.php:577
 msgid "Search Block Templates"
 msgstr ""
 
-#: Theme.php:568
+#: Theme.php:578
 msgid "No Block Templates found"
 msgstr ""
 
-#: Theme.php:569
+#: Theme.php:579
 msgid "No Block Templates found in trash"
 msgstr ""
 
-#: Theme.php:570 Theme.php:588
+#: Theme.php:580 Theme.php:598
 msgid "Parent Block Template:"
 msgstr ""
 
-#: Theme.php:571
+#: Theme.php:581
 msgid "Featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:572
+#: Theme.php:582
 msgid "Set featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:573
+#: Theme.php:583
 msgid "Remove featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:574
+#: Theme.php:584
 msgid "Use as featured image for this Block Template"
 msgstr ""
 
-#: Theme.php:575
+#: Theme.php:585
 msgid "Block Template archives"
 msgstr ""
 
-#: Theme.php:576
+#: Theme.php:586
 msgid "Insert into Block Template"
 msgstr ""
 
-#: Theme.php:577
+#: Theme.php:587
 msgid "Upload to this Block Template"
 msgstr ""
 
-#: Theme.php:578
+#: Theme.php:588
 msgid "Filter Block Templates list"
 msgstr ""
 
-#: Theme.php:579
+#: Theme.php:589
 msgid "Block Templates list navigation"
 msgstr ""
 
-#: Theme.php:580
+#: Theme.php:590
 msgid "Block Templates list"
 msgstr ""
 
-#: Theme.php:581
+#: Theme.php:591
 msgid "Block Templates attributes"
 msgstr ""
 
-#: Theme.php:583
+#: Theme.php:593
 msgid "Block Template published"
 msgstr ""
 
-#: Theme.php:584
+#: Theme.php:594
 msgid "Block Template published privately."
 msgstr ""
 
-#: Theme.php:585
+#: Theme.php:595
 msgid "Block Template reverted to draft."
 msgstr ""
 
-#: Theme.php:586
+#: Theme.php:596
 msgid "Block Template scheduled"
 msgstr ""
 
-#: Theme.php:587
+#: Theme.php:597
 msgid "Block Template updated."
 msgstr ""
 
@@ -262,20 +267,20 @@ msgstr "keine Kommentare"
 msgid "Comments are closed."
 msgstr "Die Kommentarfunktion ist deaktiviert."
 
-#: default_config/configCommentsList.php:21
+#: default_config/configCommentsList.php:22
 msgid "Comments"
 msgstr "Kommentare"
 
-#: default_config/configCommentsList.php:30
+#: default_config/configCommentsList.php:32
 #, php-format
 msgid "%1$s at %2$s"
 msgstr "%1$s um %2$s Uhr"
 
-#: default_config/configCommentsList.php:33
+#: default_config/configCommentsList.php:35
 msgid "Your comment is awaiting moderation."
 msgstr "Ihr Kommentar wartet auf die Freischaltung."
 
-#: default_config/configCommentsList.php:34
+#: default_config/configCommentsList.php:36
 msgid ""
 "Your comment is awaiting moderation. This is a preview, your comment will be "
 "visible after it has been approved."
@@ -283,7 +288,7 @@ msgstr ""
 "Ihr Kommentar wartet auf die Freischaltung. Dies ist eine Vorschau, ihr "
 "Kommentar wird sichtbar, nachdem er genehmigt wurde."
 
-#: default_config/configCommentsList.php:35
+#: default_config/configCommentsList.php:37
 #: default_config/configEditlink.php:34
 msgid "Edit"
 msgstr "Bearbeiten"
@@ -379,3 +384,16 @@ msgstr "Blog"
 #, php-format
 msgid "Search Results for \"%s\""
 msgstr "Suchergebnisse für \"%s“"
+
+#~ msgid ""
+#~ "Please note: To manage ZM Theme styles and settings, you need to install "
+#~ "the Add-On ZM Plugin. If you don't want to change the theme settings, you "
+#~ "can use this theme without installing ZM Plugin. But try it out, it's "
+#~ "free and there are countless useful features you won't want to miss!"
+#~ msgstr ""
+#~ "Bitte beachten: Um die Stile und Einstellungen von ZM Theme verwalten zu "
+#~ "können, musst du das Add-On ZM Plugin installieren. Wenn du die "
+#~ "Einstellungen des Themes nicht ändern willst, kannst du dieses Theme auch "
+#~ "ohne die Installation von ZM-Plugin verwenden. Aber probiere es aus, es "
+#~ "ist kostenlos und es gibt unzählige nützliche Funktionen, die du nicht "
+#~ "verpassen willst!"

@@ -25,6 +25,7 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
     $header_grid = \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getArg('header_grid'),true));//json
     $image_class = esc_attr($this->getArg('avatar_container_class'));
     $meta_class = esc_attr($this->getArg('meta_class'));
+    $meta_subnav_attrs = \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getArg('meta_subnav_attrs'),true));//json
     $meta_subnav_class = esc_attr($this->getArg('meta_subnav_class'));
     $author_link_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('author_link_wrap'),true));//json
 
@@ -34,6 +35,7 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
     $walker->setHeaderGrid($header_grid);
     $walker->setImageClass($image_class);
     $walker->setMetaClass($meta_class);
+    $walker->setMetaSubnavAttrs($meta_subnav_attrs);
     $walker->setMetaSubnavClass($meta_subnav_class);
     $walker->setAuthorLinkWrap($author_link_wrap);
     $walker->setBodyClass($body_class);
@@ -60,6 +62,7 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
       'echo'              => false,     // boolean, default is true
 
     //custom arguments for Walker_Comment
+      'zm_avatar_class' => esc_attr($this->getArg('avatar_class')),
       'zm_comment_datentime_sprintf' => esc_html($this->getArg('datentime_sprintf')),
       'zm_comment_date_format' => esc_html($this->getArg('comment_date_format')),
       'zm_comment_time_format' => esc_html($this->getArg('comment_time_format')),

@@ -18,7 +18,11 @@ class modAuthorBox extends \ZMT\Theme\Modules\Module {
       }
     }
 
-    $img = get_avatar( get_the_author_meta( 'ID', $user ) );
+    $avatar_size = esc_attr($this->getArg('avatar_size'));
+    $avatar_class = esc_attr($this->getArg('avatar_class'));
+
+    //$img = get_avatar( get_the_author_meta( 'ID', $user ) );
+    $img = get_avatar( get_the_author_meta( 'ID' ), $avatar_size, '', '', array( 'class' => $avatar_class ) ); 
     //$web_link = get_the_author_meta('user_url');
     $author_url = get_author_posts_url( get_the_author_meta( 'ID', $user ) );
     $name = get_the_author_meta( 'display_name', $user );

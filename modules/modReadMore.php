@@ -12,7 +12,7 @@ class modReadMore extends \ZMT\Theme\Modules\Module {
     $class = $this->getArg('link_class');//link class
 
     $html = NULL;
-    $html .= '<a href="'. esc_url( get_permalink( get_the_ID() ) ) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.$readmoretext.'</a>';
+    $html .= '<a href="'. esc_url( get_permalink( get_the_ID() ) ) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.$readmoretext.'<span class="screen-reader-text">: '.esc_html( get_the_title( get_the_ID() ) ).'</span></a>';
     return $html;
 
   }
