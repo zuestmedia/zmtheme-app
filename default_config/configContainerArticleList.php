@@ -25,9 +25,6 @@ class configContainerArticleList extends configContainer {
     parent::moduleinner();
     parent::moduleinner_grid_article_list();
 
-    $this->args['moduleinner_wrap'] = '{"tag":"div","attributes":{"class":""},"content":{"tag":"hr","attributes":{"class":""},"close":true},"content_end":{"tag":"hr","attributes":{"class":""},"close":true}}';
-    $this->args['moduleinner_class_grid_mods'] = array('uk-grid-divider');
-
 
 
   }
