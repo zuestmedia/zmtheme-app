@@ -361,14 +361,14 @@ class Helpers {
 
       $result = array();
 
-      $result['frontpage']    =  __( 'Front Page (front-page)', 'zmplugin' );
-      $result['page']         =  __( 'Pages', 'zmplugin' );
-      $result['blogpage']     =  __( 'Blog Page (home)', 'zmplugin' );
-      $result['archive']      =  __( 'Default Archive', 'zmplugin' );
-      $result['category']     =  __( '└ Category Archive', 'zmplugin' );
-      $result['tag']          =  __( '└ Tag Archive', 'zmplugin' );
-      $result['author']       =  __( '└ Author Archive', 'zmplugin' );
-      $result['date']         =  __( '└ Date Archive', 'zmplugin' );
+      $result['frontpage']    =  __( 'Front Page (front-page)', 'zmtheme' );
+      $result['page']         =  __( 'Pages', 'zmtheme' );
+      $result['blogpage']     =  __( 'Blog Page (home)', 'zmtheme' );
+      $result['archive']      =  __( 'Default Archive', 'zmtheme' );
+      $result['category']     =  __( '└ Category Archive', 'zmtheme' );
+      $result['tag']          =  __( '└ Tag Archive', 'zmtheme' );
+      $result['author']       =  __( '└ Author Archive', 'zmtheme' );
+      $result['date']         =  __( '└ Date Archive', 'zmtheme' );
 
       //taxonomy archives
       $args = array(
@@ -377,7 +377,7 @@ class Helpers {
       );
       $taxarr = Helpers::getCleanTaxonomies($args);
       foreach($taxarr as $key_1 => $value_1){
-        $result[ 'taxonomy_'.$key_1 ] =  '└ '.__( 'Taxonomy Archive', 'zmplugin' ).': '.$value_1;
+        $result[ 'taxonomy_'.$key_1 ] =  '└ '.__( 'Taxonomy Archive', 'zmtheme' ).': '.$value_1;
       }
 
       //get post_type_archives
@@ -389,11 +389,11 @@ class Helpers {
       );
       $posttypes_archive_arr = get_post_types($args_has_archive);
       foreach($posttypes_archive_arr as $key_2 => $value_2){
-        $result[ 'archive_'.$key_2 ] =  '└ '.__( 'Post Type Archive', 'zmplugin' ).': '.$value_2;
+        $result[ 'archive_'.$key_2 ] =  '└ '.__( 'Post Type Archive', 'zmtheme' ).': '.$value_2;
       }
 
 
-      $result['single']       =  __( 'Single Post', 'zmplugin' );
+      $result['single']       =  __( 'Single Post', 'zmtheme' );
 
 
       //get post_types
@@ -404,7 +404,7 @@ class Helpers {
       );
       $posttypesarr = get_post_types($args);
       foreach($posttypesarr as $key_3 => $value_3){
-        $result[ 'single_'.$key_3 ] =  __( 'Single Post Type', 'zmplugin' ).': '.$value_3;
+        $result[ 'single_'.$key_3 ] =  __( 'Single Post Type', 'zmtheme' ).': '.$value_3;
       }
 
 
@@ -412,23 +412,23 @@ class Helpers {
       //get singular custom Templates (same for singular page = post = posttypes)
       $singular_custom_templates = wp_get_theme()->get_page_templates();
       foreach($singular_custom_templates as $key_4 => $value_4){
-        $result[ $key_4 ] =  __( 'Singular Template', 'zmplugin' ).': '.$value_4;
+        $result[ $key_4 ] =  __( 'Singular Template', 'zmtheme' ).': '.$value_4;
       }
 
 
-      $result['searchpage']   =  __( 'SearchPage', 'zmplugin' );
-//      $result['errorpage']    =  __( 'ErrorPage', 'zmplugin' );//NOT IN USE
+      $result['searchpage']   =  __( 'SearchPage', 'zmtheme' );
+//      $result['errorpage']    =  __( 'ErrorPage', 'zmtheme' );//NOT IN USE
 
 
       if ( class_exists( 'woocommerce' ) ) {
-        $result['woocommerce'] = __( 'Woocommerce', 'zmplugin' );
+        $result['woocommerce'] = __( 'Woocommerce', 'zmtheme' );
       }
 
       if ( class_exists( 'bbPress' ) ) {
-        $result['bbPress'] = __( 'bbPress', 'zmplugin' );
+        $result['bbPress'] = __( 'bbPress', 'zmtheme' );
       }
 
-      $result['loggedin']   =  __( 'Logged in Users', 'zmplugin' );
+      $result['loggedin']   =  __( 'Logged in Users', 'zmtheme' );
 
       return $result;
 

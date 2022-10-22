@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zmtheme-frameword-0.9.1\n"
-"POT-Creation-Date: 2022-10-03 23:55+0200\n"
-"PO-Revision-Date: 2022-10-03 23:55+0200\n"
+"POT-Creation-Date: 2022-10-22 13:45+0200\n"
+"PO-Revision-Date: 2022-10-22 13:47+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: de\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: BlockPatterns.php:32
 msgid "My Patterns"
-msgstr ""
+msgstr "Meine Patterns"
 
 #: Helpers.php:364
 msgid "Front Page (front-page)"
@@ -77,11 +77,11 @@ msgstr "Suchen Archiv"
 
 #: Helpers.php:424
 msgid "Woocommerce"
-msgstr ""
+msgstr "Woocommerce"
 
 #: Helpers.php:428
 msgid "bbPress"
-msgstr ""
+msgstr "bbPress"
 
 #: Helpers.php:431
 msgid "Logged in Users"
@@ -93,138 +93,22 @@ msgid ""
 "Plugin is a free WordPress extension to manage theme options and customizer "
 "settings of ZM-Theme-Framework based WordPress Themes."
 msgstr ""
+"Um Theme-Einstellungen im Dashboard und Customizer zu aktivieren, benötigen "
+"Sie das ZM Plugin. ZM Plugin ist eine kostenlose WordPress-Erweiterung zur "
+"Verwaltung von Theme-Optionen und Customizer-Einstellungen von ZM-Theme-"
+"Framework basierten WordPress-Themes."
 
 #: Init.php:132
 msgid "Download ZM Plugin"
-msgstr ""
+msgstr "ZM Plugin herunterladen"
 
 #: Theme.php:74
 msgid "Warning: Versions are not consistent!"
-msgstr ""
+msgstr "Warnung: Die Versionen sind nicht übereinstimmend!"
 
 #: Theme.php:343
 msgid "Skip to content"
-msgstr ""
-
-#: Theme.php:511
-msgid "Assigned to"
-msgstr ""
-
-#: Theme.php:567 Theme.php:570 Theme.php:602
-msgid "Block Templates"
-msgstr ""
-
-#: Theme.php:568 Theme.php:592
-msgid "Block Template"
-msgstr ""
-
-#: Theme.php:569
-msgid "My Block Templates"
-msgstr ""
-
-#: Theme.php:571
-msgid "Add new"
-msgstr ""
-
-#: Theme.php:572
-msgid "Add new Block Template"
-msgstr ""
-
-#: Theme.php:573
-msgid "Edit Block Template"
-msgstr ""
-
-#: Theme.php:574
-msgid "New Block Template"
-msgstr ""
-
-#: Theme.php:575
-msgid "View Block Template"
-msgstr ""
-
-#: Theme.php:576
-msgid "View Block Templates"
-msgstr ""
-
-#: Theme.php:577
-msgid "Search Block Templates"
-msgstr ""
-
-#: Theme.php:578
-msgid "No Block Templates found"
-msgstr ""
-
-#: Theme.php:579
-msgid "No Block Templates found in trash"
-msgstr ""
-
-#: Theme.php:580 Theme.php:598
-msgid "Parent Block Template:"
-msgstr ""
-
-#: Theme.php:581
-msgid "Featured image for this Block Template"
-msgstr ""
-
-#: Theme.php:582
-msgid "Set featured image for this Block Template"
-msgstr ""
-
-#: Theme.php:583
-msgid "Remove featured image for this Block Template"
-msgstr ""
-
-#: Theme.php:584
-msgid "Use as featured image for this Block Template"
-msgstr ""
-
-#: Theme.php:585
-msgid "Block Template archives"
-msgstr ""
-
-#: Theme.php:586
-msgid "Insert into Block Template"
-msgstr ""
-
-#: Theme.php:587
-msgid "Upload to this Block Template"
-msgstr ""
-
-#: Theme.php:588
-msgid "Filter Block Templates list"
-msgstr ""
-
-#: Theme.php:589
-msgid "Block Templates list navigation"
-msgstr ""
-
-#: Theme.php:590
-msgid "Block Templates list"
-msgstr ""
-
-#: Theme.php:591
-msgid "Block Templates attributes"
-msgstr ""
-
-#: Theme.php:593
-msgid "Block Template published"
-msgstr ""
-
-#: Theme.php:594
-msgid "Block Template published privately."
-msgstr ""
-
-#: Theme.php:595
-msgid "Block Template reverted to draft."
-msgstr ""
-
-#: Theme.php:596
-msgid "Block Template scheduled"
-msgstr ""
-
-#: Theme.php:597
-msgid "Block Template updated."
-msgstr ""
+msgstr "Zum Inhalt springen"
 
 #: default_config/configAuthorLink.php:14
 msgid "Author:"
@@ -344,11 +228,11 @@ msgstr "Suchen"
 
 #: default_config/configPowered.php:13
 msgid "ThisThemeName"
-msgstr ""
+msgstr "ThisThemeName"
 
 #: default_config/configPowered.php:16
 msgid "Built with ZMTheme"
-msgstr ""
+msgstr "Built with ZMTheme"
 
 #: default_config/configReadMore.php:16
 msgid "Read More"
@@ -356,7 +240,7 @@ msgstr "Mehr"
 
 #: default_config/configTaxonomyTerms.php:16
 msgid "Taxonomy"
-msgstr ""
+msgstr "Taxonomy"
 
 #: default_config/configTaxonomyTerms.php:26
 msgid "Category"
@@ -369,7 +253,7 @@ msgstr "Schlagwort"
 #: default_config/configTaxonomyTerms.php:54
 #: default_config/configTaxonomyTerms.php:87
 msgid "in"
-msgstr ""
+msgstr "in"
 
 #: default_config/configTaxonomyTerms.php:63
 #: default_config/configTaxonomyTerms.php:96

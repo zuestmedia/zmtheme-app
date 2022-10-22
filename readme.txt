@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.1
+Version: 1.0.2
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -10,6 +10,12 @@ Build modular OOP WordPress Themes with ZM-Theme-Framework.
 This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.2 =
+* Update: add icons via class with MenuWalker (nav-menus)
+* Update: Language Files de_DE
+* Fix: Text-Domain Strings
+* Removed: Moved Custom Post Type for Block Templates to zmplugin
 
 = 1.0.1 =
 * Fix: configContainer & configContainerArticleList remove module_inner_attrs hr, but added option in presets

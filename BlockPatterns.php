@@ -29,7 +29,7 @@ class BlockPatterns {
 
       register_block_pattern_category(
         'zmp-my-patterns',
-        array( 'label' => __( 'My Patterns', 'zmplugin' ) )
+        array( 'label' => __( 'My Patterns', 'zmtheme' ) )
       );
 
       if(file_exists($this->dir.'/block_patterns')){

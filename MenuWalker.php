@@ -127,7 +127,50 @@ class MenuWalker extends Walker_Nav_Menu {
 
     //TODO: maybe create options in customizer... now only via class in wp/menu/ add class to items...
 
+    $args->link_before = '';
+
+    //var_dump($data_object->classes);
+
+    //check if zm-hide-label
+    $label_hidden = false;
+    $icon = NULL;
+
+    //check if has icon to add
+    if(in_array('zm-has-uk-icon', $data_object->classes)){
+
+      //$icon = NULL;
+      $ratio = 1;
+      foreach($data_object->classes as $class){
+
+        if (strpos($class, 'zm-icon-') !== false) {
+          $icon = substr($class, strpos($class,'zm-icon-') + 8);
+        }
+
+        if (strpos($class, 'zm-ratio-') !== false) {
+          $ratio = substr($class, strpos($class,'zm-ratio-') + 9);
+          $ratio = str_replace("-", ".", $ratio);
+
+        }
+
+      }
+
+      if(in_array('zm-hide-label', $data_object->classes)){
+
+        $label_hidden = true;
+
+      }
+
+      if($icon){
+
+        $args->link_before = '<i uk-icon="icon:'.$icon.';ratio:'.$ratio.';"></i> ';
+
+      }
+
+    }
+
+
     $args->link_after = '';
+
 
     //parent icon can be set via menu classes in wp dashboard
     if(in_array('zm-has-nav-parent-icon', $data_object->classes)){
@@ -140,6 +183,18 @@ class MenuWalker extends Walker_Nav_Menu {
     if( strpos( $args->menu_class, 'zm-has-nav-parent-icon') !== false && ( $depth == 0 ) && in_array('menu-item-has-children', $data_object->classes)){
 
       $args->link_after = ' <span uk-nav-parent-icon></span>';
+
+    }
+
+
+
+    if($label_hidden == true && $icon){
+
+      //add span before label
+      $args->link_before .= '<span class="screen-reader-text">';
+
+      //add span after label, but before nav-parent icon if has one
+      $args->link_after = '</span>'.$args->link_after;
 
     }
 
