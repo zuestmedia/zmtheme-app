@@ -25,7 +25,7 @@ class configContainerArticleList extends configContainer {
     parent::moduleinner();
     parent::moduleinner_grid_article_list();
 
-    $this->args['moduleinner_wrap'] = '{"tag":"hr","attributes":{"class":"uk-margin-medium-bottom"},"close":true}';
+    $this->args['moduleinner_wrap'] = '{"tag":"hr","attributes":{"class":"uk-margin-medium-bottom"},"close":false}';
 
 
 

@@ -29,6 +29,10 @@ class configArticleContainer extends configContainer {
     parent::module_background();
     parent::module_body();
 
+    //add via preset featured image with overlayed content box
+    $this->args['imageoverlay_wrap'] = '';
+    $this->args['imageoverlay_size'] = 'large';//thumbnail,medium,large,full //depends on imageoverlay_wrap so must be after...
+
 
 
   }

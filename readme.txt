@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.3
+Version: 1.0.4
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -10,6 +10,10 @@ Build modular OOP WordPress Themes with ZM-Theme-Framework.
 This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.4 =
+* New: ArticleContainer imageoverlay -wrap and -size args added and new module function to display overlays
+* Fix: Element -> wraps with hr or img need close:false, so no closing tag is added (ContainerArticleList, Commentspagination)
 
 = 1.0.3 =
 * Update: CommentWalker
