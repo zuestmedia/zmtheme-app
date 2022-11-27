@@ -45,240 +45,6 @@ class Helpers {
 
     }
 
-  /**
-    * Get Filenames from Folder TemplateParts
-    */
-    static function getTemplatePartsChoices( $default_label = 'Default' ) {
-
-      $array = scandir( get_template_directory().'/template-parts' );
-      $new_array = array();
-
-      foreach($array as $key => $value){
-
-        if ($value != '.' && $value != '..'){
-
-          $name = str_replace('-', ' ', $value);
-          $name = ucwords( str_replace('.php', '', $name) );
-
-          $new_array[ $value ] =  $name;
-
-        }
-
-      }
-
-      $new_array[ 'default' ] =  $default_label;
-
-      return $new_array;
-
-    }
-
-  /**
-    * Get Preset Choices
-    */
-    static function getPresetChoices( $preset_key = NULL, $default_label = '⬤ Default', $reset_to_default_label = '↺ Reset to Default' ) {
-
-      $new_array = array();
-
-      global $zmtheme;
-
-      $new_array[ 'default' ] =  $default_label;
-
-      if($preset_key){
-
-        if( property_exists( $zmtheme['default_presets'], $preset_key ) ){
-
-          foreach( $zmtheme['default_presets']->$preset_key as $key => $value ){
-
-            $new_array[ $preset_key.'__'.$key ] =  '★ '.Helpers::transformObjectKeystoLabel($key);
-
-          }
-
-        }
-
-      }
-
-      //sort array by ASC
-      asort($new_array);
-
-      //prepends the default value after sorting
-      $new_array = array('default' => $default_label) + $new_array;
-
-      $new_array[ 'reset_to_default' ] =  $reset_to_default_label;
-
-      return $new_array;
-
-    }
-
-  /**
-    * Get PostTypesObjects Choices
-    */
-    static function getPostsTemplateObjectsChoices( $default_label = 'Posts' ) {
-
-      $new_array = array();
-
-      global $zmtheme;
-
-      foreach($zmtheme['default_components'] as $key => $value){
-
-        if($key == 'posts'){
-
-          $new_array[ 'posts' ] =  $default_label;
-
-        }
-
-        if( strpos( $key, 'posts_' ) !== false ){
-
-          $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
-          $label = $com_type_obj->getComLabelOrKey($key);
-
-          $new_array[ $key ] =  $label;
-
-        }
-
-      }
-
-      return $new_array;
-
-    }
-  /**
-    * Get PostTypesObjects Choices
-    */
-    static function getCustomSectionContentChoices( $default_label = 'Default', $query_loop_label = 'QueryLoop' ) {
-
-      $new_array = array();
-
-      global $zmtheme;
-
-      $new_array[ 'default' ] =  $default_label;
-      $new_array[ 'queryloop' ] =  $query_loop_label;
-
-      foreach($zmtheme['default_components'] as $key => $value){
-
-        $label = ucfirst( str_replace( 'nav_', '', $key ) );
-        $label = ucfirst( str_replace( 'offcanvas_', '', $key ) );
-        $label = ucfirst( str_replace( 'comgroup_', '', $key ) );
-        if( $key == 'nav' || strpos( $key, 'nav_' ) !== false || $key == 'offcanvas' || strpos( $key, 'offcanvas_' ) !== false || strpos( $key, 'comgroup_' ) !== false ||  $key == 'extensions' ){
-
-          foreach($value as $key2 => $value2){
-
-            if( is_object($value2) && ( property_exists( $value2, 'isstartobj' ) || $key == 'extensions' ) ){
-
-              if($key == 'extensions'){ $label = ucfirst($key2); }
-
-              $new_array[ $key.'__'.$key2 ] =  $label;
-
-            }
-
-          }
-
-        }
-
-      }
-
-      return $new_array;
-
-    }
-  /**
-    * Get PostTypesObjects Choices
-    */
-    static function getCustomSectionContentExtensionsChoices() {
-
-      $new_array = array();
-
-      global $zmtheme;
-
-      foreach($zmtheme['default_components'] as $key => $value){
-
-        $label = ucfirst( str_replace( 'comgroup_', '', $key ) );
-        if(strpos( $key, 'comgroup_' ) !== false ||  $key == 'extensions' ){
-
-          foreach($value as $key2 => $value2){
-
-            if( is_object($value2) && ( property_exists( $value2, 'isstartobj' ) || $key == 'extensions' ) ){
-
-              if($key == 'extensions'){ $label = ucfirst($key2); }
-
-              $new_array[ $key.'__'.$key2 ] =  $label;
-
-            }
-
-          }
-
-        }
-
-      }
-
-      return $new_array;
-
-    }
-  /**
-    * Get PostTypesObjects Choices
-    */
-    static function getCustomSectionContentNavChoices() {
-
-      $new_array = array();
-
-      global $zmtheme;
-
-      foreach($zmtheme['default_components'] as $key => $value){
-
-        if( $key == 'nav' || strpos( $key, 'nav_' ) !== false ){
-
-          foreach($value as $key2 => $value2){
-
-            if( is_object($value2) && property_exists( $value2, 'isstartobj' ) ){
-
-              $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
-              $label = $com_type_obj->getComLabelOrKey($key);
-
-              $new_array[ $key.'__'.$key2 ] =  $label;
-
-            }
-
-          }
-
-        }
-
-      }
-
-      return $new_array;
-
-    }
-
-  /**
-    * Get PostTypesObjects Choices
-    */
-    static function getOffcanvasChoices() {
-
-      $new_array = array();
-
-      global $zmtheme;
-
-      foreach($zmtheme['default_components'] as $key => $value){
-
-        if( $key == 'offcanvas' || strpos( $key, 'offcanvas_' ) !== false ){
-
-          foreach($value as $key2 => $value2){
-
-            if( is_object($value2) && property_exists( $value2, 'isstartobj' ) ){
-
-              $com_type_obj = new \ZMT\Theme\ComponentTypeLabel();
-              $label = $com_type_obj->getComLabelOrKey($key);
-
-              $new_array[ $key.'__'.$key2 ] =  $label;
-
-            }
-
-          }
-
-        }
-
-      }
-
-      return $new_array;
-
-    }
-
     static function checkDefComsObjExists( $obj_key, $default_key ){
       global $zmtheme;
       $result = $default_key;
@@ -286,152 +52,6 @@ class Helpers {
         $result = $obj_key;
       }
       return $result;
-    }
-
-    static function getTemplateBlockChoices( $default_label = '- Select a block template -' ){
-
-      $args = array(
-        'post_type'   => 'zm_blocks',
-        'numberposts'   => -1,
-      );
-
-      $posts_array = get_posts($args);
-
-      $new_array = array();
-
-      $new_array[ '0' ] =  $default_label;
-
-      if ( $posts_array ) {
-
-          foreach ( $posts_array  as $post ) {
-              $new_array[ $post->post_name ] =  $post->post_title;
-          }
-
-      }
-
-      return $new_array;
-
-    }
-
-    static function getTaxonomiesChoices(){
-
-      $args = array(
-        'public'   => true
-      );
-
-      $taxonomies = Helpers::getCleanTaxonomies($args);
-
-      $new_array = array();
-
-      if ( $taxonomies ) {
-
-          foreach ( $taxonomies  as $taxonomy ) {
-              $new_array[ $taxonomy ] =  Helpers::transformObjectKeystoLabel($taxonomy);
-          }
-
-      }
-
-      return $new_array;
-
-    }
-
-    static function getCleanTaxonomies( $args ){
-
-      $taxonomies = get_taxonomies( $args );
-
-      unset($taxonomies['post_format']);
-
-      if ( class_exists( 'bbPress' ) ) {
-        unset($taxonomies['topic-tag']);// do not use: 'topic-tag' (bbpress)
-      }
-
-      if ( class_exists( 'woocommerce' ) ) {
-        unset(
-          $taxonomies['product_cat'],// do not use: 'product_cat' (woocommerce)
-          $taxonomies['product_tag'],// do not use: 'product_tag' (woocommerce)
-          $taxonomies['product_shipping_class']// do not use: 'product_shipping_class' (woocommerce)
-        );
-      }
-
-      return $taxonomies;
-
-    }
-
-    static function getViewConditionsChoices(){
-
-      $result = array();
-
-      $result['frontpage']    =  __( 'Front Page (front-page)', 'zmtheme' );
-      $result['page']         =  __( 'Pages', 'zmtheme' );
-      $result['blogpage']     =  __( 'Blog Page (home)', 'zmtheme' );
-      $result['archive']      =  __( 'Default Archive', 'zmtheme' );
-      $result['category']     =  __( '└ Category Archive', 'zmtheme' );
-      $result['tag']          =  __( '└ Tag Archive', 'zmtheme' );
-      $result['author']       =  __( '└ Author Archive', 'zmtheme' );
-      $result['date']         =  __( '└ Date Archive', 'zmtheme' );
-
-      //taxonomy archives
-      $args = array(
-        'public' => true,
-        '_builtin' => false, //only not builtin posttypes!
-      );
-      $taxarr = Helpers::getCleanTaxonomies($args);
-      foreach($taxarr as $key_1 => $value_1){
-        $result[ 'taxonomy_'.$key_1 ] =  '└ '.__( 'Taxonomy Archive', 'zmtheme' ).': '.$value_1;
-      }
-
-      //get post_type_archives
-      $args_has_archive = array(
-        'public' => true,
-        '_builtin' => false, //only not builtin posttypes!
-        'has_archive' => true, //only posttypes with archive!
-        'capability_type' => 'post', //only post like posttypes... not forums or woocommerce...
-      );
-      $posttypes_archive_arr = get_post_types($args_has_archive);
-      foreach($posttypes_archive_arr as $key_2 => $value_2){
-        $result[ 'archive_'.$key_2 ] =  '└ '.__( 'Post Type Archive', 'zmtheme' ).': '.$value_2;
-      }
-
-
-      $result['single']       =  __( 'Single Post', 'zmtheme' );
-
-
-      //get post_types
-      $args = array(
-        'public' => true,
-        '_builtin' => false, //without builtin posttypes!
-        'capability_type' => 'post', //only post like posttypes... not forums or woocommerce...
-      );
-      $posttypesarr = get_post_types($args);
-      foreach($posttypesarr as $key_3 => $value_3){
-        $result[ 'single_'.$key_3 ] =  __( 'Single Post Type', 'zmtheme' ).': '.$value_3;
-      }
-
-
-
-      //get singular custom Templates (same for singular page = post = posttypes)
-      $singular_custom_templates = wp_get_theme()->get_page_templates();
-      foreach($singular_custom_templates as $key_4 => $value_4){
-        $result[ $key_4 ] =  __( 'Singular Template', 'zmtheme' ).': '.$value_4;
-      }
-
-
-      $result['searchpage']   =  __( 'SearchPage', 'zmtheme' );
-//      $result['errorpage']    =  __( 'ErrorPage', 'zmtheme' );//NOT IN USE
-
-
-      if ( class_exists( 'woocommerce' ) ) {
-        $result['woocommerce'] = __( 'Woocommerce', 'zmtheme' );
-      }
-
-      if ( class_exists( 'bbPress' ) ) {
-        $result['bbPress'] = __( 'bbPress', 'zmtheme' );
-      }
-
-      $result['loggedin']   =  __( 'Logged in Users', 'zmtheme' );
-
-      return $result;
-
     }
 
     static function modifyTaxandPostTypeSlugtoObject($old_name){
@@ -485,12 +105,29 @@ class Helpers {
     */
     static function LoadTextDomainbeforeConfigFiles(){
 
-     //load_theme_textdomain( Helpers::getTextDomain() , get_template_directory().'/core/languages' );
      load_theme_textdomain( Helpers::getTextDomain(), get_template_directory().'/languages' );
 
-     //load zmtheme framework textdomain!
-     $locale = get_locale();
-     load_textdomain( 'zmtheme', get_template_directory().'/app/languages/zmtheme-'.$locale.'.mo' );
+   }
+
+ /**
+   * Function to get translated textstrings by key from textstrings.php
+   */
+   static function getTrStr( $key, $dummy = "Text String" ){
+
+     global $zmtheme;
+
+     if ( property_exists( $zmtheme['default_config'], 'textstrings' ) ) {
+
+       $textstrings = $zmtheme['default_config']->textstrings;
+
+       if( property_exists( $textstrings, $key ) ){
+
+         return $textstrings->$key;
+
+       }
+
+     }
+
 
    }
 
@@ -788,6 +425,43 @@ class Helpers {
       }
 
       return $result;
+
+    }
+
+
+    static function convertHEXtoRGBA( $hex, $opacity = 1 ) {
+
+    /**
+      *
+      * color_text_inverse is saved as hex color but needed in cssvar in form of a part of rgba style!
+      *
+      * https://mekshq.com/how-to-convert-hexadecimal-color-code-to-rgb-or-rgba-using-php/
+      *
+      * background / color: #ffffff !important;     --> ": #ffffff"            --> rgba(var, 1)
+      * rgba(255, 255, 255, 0.5)                    --> "255, 255, 255"        --> rgba(var, 0.5)
+      *
+      * ==> rgba( var(--color_text_inverse, 255, 255, 255), 1 );
+      *
+      */
+      $hex = str_replace( '#', '', $hex );
+
+      // if in 3 digit format
+      if( strlen( $hex ) == 3) {
+
+        $r = hexdec( substr( $hex, 0, 1 ) . substr( $hex, 0, 1 ) );
+        $g = hexdec( substr( $hex, 1, 1 ) . substr( $hex, 1, 1 ) );
+        $b = hexdec( substr( $hex, 2, 1 ) . substr( $hex, 2, 1 ) );
+
+      } else {
+
+        $r = hexdec( substr( $hex, 0, 2 ) );
+        $g = hexdec( substr( $hex, 2, 2 ) );
+        $b = hexdec( substr( $hex, 4, 2 ) );
+
+      }
+
+      //return 'rgba( '.$r.', '.$g.', '.$b.', '.$opacity.' )';
+      return $r.', '.$g.', '.$b;
 
     }
 

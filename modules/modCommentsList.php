@@ -20,7 +20,7 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
     $article_class = esc_attr($this->getArg('comment_container_class'));
     $body_class = esc_attr($this->getArg('comment_body_class'));
     $avatar_size = esc_attr($this->getArg('avatar_size'));
-    $title = esc_html($this->getArg('title'));
+    $title = esc_html(\ZMT\Theme\Helpers::getTrStr('Comments'));
     $header_class = esc_attr($this->getArg('header_class'));
     $header_grid = \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getArg('header_grid'),true));//json
     $image_class = esc_attr($this->getArg('avatar_container_class'));
@@ -28,6 +28,8 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
     $meta_subnav_attrs = \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getArg('meta_subnav_attrs'),true));//json
     $meta_subnav_class = esc_attr($this->getArg('meta_subnav_class'));
     $author_link_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('author_link_wrap'),true));//json
+
+    $author_link_wrap = str_replace('__says__',esc_html(\ZMT\Theme\Helpers::getTrStr('says')),$author_link_wrap);//replace variable
 
     $walker = new \ZMT\Theme\CommentWalker();
     $walker->setArticleClass($article_class);
@@ -63,12 +65,12 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
 
     //custom arguments for Walker_Comment
       'zm_avatar_class' => esc_attr($this->getArg('avatar_class')),
-      'zm_comment_datentime_sprintf' => esc_html($this->getArg('datentime_sprintf')),
+      'zm_comment_datentime_sprintf' => esc_html(\ZMT\Theme\Helpers::getTrStr('s_at_s')),
       'zm_comment_date_format' => esc_html($this->getArg('comment_date_format')),
       'zm_comment_time_format' => esc_html($this->getArg('comment_time_format')),
-      'zm_moderation_note_1' => esc_html($this->getArg('moderation_note_1')),
-      'zm_moderation_note_2' => esc_html($this->getArg('moderation_note_2')),
-      'zm_edit' => esc_html($this->getArg('link_text'))
+      'zm_moderation_note_1' => esc_html(\ZMT\Theme\Helpers::getTrStr('Yourcommentisawaitin')),
+      'zm_moderation_note_2' => esc_html(\ZMT\Theme\Helpers::getTrStr('Yourcommentisawaitin_long')),
+      'zm_edit' => esc_html(\ZMT\Theme\Helpers::getTrStr('Edit'))
 
   );
 

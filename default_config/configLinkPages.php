@@ -17,11 +17,10 @@ class configLinkPages extends BuildModule {
     parent::module_layout_helper_article();
     $this->args['module_class_text_helpers_string'] = array('uk-text-right', 'uk-text-small');
 
-    $this->args['before'] = __( 'Continue Reading: ' , 'zmtheme' );
+    $this->args['content_wrap'] = '{"tag":"nav","attributes":{"aria-label":"__label__","class":"uk-link-text"},"content":{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label__","close":true},"content_end":""}';
+
     $this->args['next_or_number'] = 'number';
     $this->args['text_separator'] = ', ';
-    $this->args['prev_text'] = __( 'Previous page'  , 'zmtheme' );
-    $this->args['next_text'] = __( 'Next page'  , 'zmtheme' );
 
   }
 

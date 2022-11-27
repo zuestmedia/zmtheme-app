@@ -373,17 +373,8 @@ class Render {
 
     $zm_query = new WP_Query( $query_args );
     if ( $zm_query->have_posts() ) {
-        //$i = 0;
+
         while ( $zm_query->have_posts() ) {
-
-            /* -- old separator --
-            $i++;
-
-            if ( $i > 1 ) {
-              if( array_key_exists( $posts_key.'__separator', $zmtheme ) ){
-                 $content .= $zmtheme[ $posts_key.'__separator' ]->getModule();
-              }
-            }*/
 
             $zm_query->the_post();
 
@@ -451,17 +442,8 @@ class Render {
     $content = NULL;
 
     if ( have_posts() ) {
-  		//$i = 0;
+      
   		while ( have_posts() ) {
-
-        /* -- old separator --
-        $i++;
-
-  			if ( $i > 1 ) {
-          if( array_key_exists( $posts_key.'__separator', $zmtheme ) ){
-  				   $content .= $zmtheme[ $posts_key.'__separator' ]->getModule();
-          }
-  			}*/
 
   			the_post();
 

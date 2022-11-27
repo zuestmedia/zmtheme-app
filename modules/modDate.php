@@ -14,7 +14,7 @@ class modDate extends \ZMT\Theme\Modules\Module {
 
     $html = NULL;
 
-    $html .= get_the_date( $format, get_the_ID() );
+    $html .= '<time datetime="'.get_the_date( 'c', get_the_ID() ).'">'.get_the_date( $format, get_the_ID() ).'</time>';
 
     if($html && $linked) {
 
@@ -28,11 +28,27 @@ class modDate extends \ZMT\Theme\Modules\Module {
         get_post_time( 'm', false, get_the_ID() )
       );
 
-      $html = '<a href="'. esc_url($link) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.esc_html($html).'</a>';
+      $html = '<a href="'. esc_url($link) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.$html.'</a>';
 
     }
 
     return $html;
+
+  }
+
+  public function getModule() {
+
+    $result = parent::getModule();
+
+    $label = esc_html( \ZMT\Theme\Helpers::getTrStr('Date_label') );//Post Date:
+
+    $result = str_replace(
+      array( '__label__' ),
+      array(  $label, ),
+      $result
+    );
+
+    return $result;
 
   }
 

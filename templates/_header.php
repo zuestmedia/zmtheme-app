@@ -29,7 +29,7 @@ class _header extends \ZMT\Theme\ExtendModules {
       $this->section_extensions->com_status = 0;
 
       $this->section_offcanvas  = new \ZMT\Theme\DefaultConfig\configSectionNewOffcanvas('sections',0,'sections',false);
-      $this->section_offcanvas->com_status = 0;
+      //$this->section_offcanvas->com_status = 0;
 
 
 

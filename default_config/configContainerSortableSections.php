@@ -24,6 +24,7 @@ class configContainerSortableSections extends configContainerSortable {
     $this->default();
     $this->args['moduleouter_element'] = 'main';
     $this->args['moduleouter_attrs'] = '{"id":"content"}';
+    $this->args['moduleouter_class_color_background'] = 'uk-section-default';
   }
   protected function footer() {
     $this->default();

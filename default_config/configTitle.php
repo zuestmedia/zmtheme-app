@@ -13,7 +13,7 @@ class configTitle extends BuildModule {
     $this->args['title_element'] = 'h1';
     $this->args['title_class'] = array();
     $this->args['linked'] = 0;
-    $this->args['link_class'] = array('uk-link-reset');
+    $this->args['link_class'] = array('uk-link-heading');
 
   }
 

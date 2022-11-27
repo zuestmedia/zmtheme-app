@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.2
+Version: 1.0.3
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -10,6 +10,19 @@ Build modular OOP WordPress Themes with ZM-Theme-Framework.
 This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.3 =
+* Update: CommentWalker
+* Remove: BlockPatterns.php
+* Update: Helpers.php - move functions to ZMPlugin
+* Update: TranslationStrings for submodule translations of zmtheme-app (git-submodule)
+* Update: MenuWalker Accessibility & added Subtitle (Menu Description)
+* Update: Only one Textdomain!
+* New: ThemeJSON class -> update theme.json programmatically with pallette and gradient colors
+* Update: Accessibility & Textstrings (Translations) updated mod and config of Authorbox, Autorlink, CommentsCounter, CommentsForms, ...
+* Update: Accessibility CSSVars Colors
+* Update: Templates - offcanvas below menu, taxonomy cat moved to top
+
 
 = 1.0.2 =
 * Update: add icons via class with MenuWalker (nav-menus)

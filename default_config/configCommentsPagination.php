@@ -12,9 +12,7 @@ class configCommentsPagination extends BuildModule {
 
     $this->args['show_all']  = 0;
     $this->args['prev_next'] = 0;
-    $this->args['prev_text'] = __( 'Previous'  , 'zmtheme' );
-    $this->args['next_text'] = __( 'Next'  , 'zmtheme' );
-    $this->args['list_wrap'] = '{"tag":"ul","attributes":{"class":"uk-pagination"},"content":"%s","close":true}';
+    $this->args['list_wrap'] = '[{"tag":"hr","close":true},{"tag":"nav","attributes":{"aria-label":"__label__"},"content":[{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label__","close":true},{"tag":"ul","attributes":{"class":"uk-pagination"},"content":"%s","close":true}],"close":true}]';
 
     parent::module();
     parent::module_layout_helper();

@@ -9,7 +9,7 @@ class configNav extends BuildModule {
     $this->args['module_element'] = 'div';
     $this->args['module_class'] = '';
 
-    $this->args['module_class_visibility'] = array();    
+    $this->args['module_class_visibility'] = array();
     $this->args['module_class_width'] = array();
 
     $this->args['moduleinner_element'] = '';

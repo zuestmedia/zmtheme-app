@@ -11,7 +11,7 @@ class configContainerSortableNav extends configContainerSortable {
     $this->args['presets'] = 'default';
 
     parent::module();
-    $this->args['module_element'] = 'nav';
+    $this->args['module_element'] = 'div';
 
     parent::module_background();
     parent::module_body();

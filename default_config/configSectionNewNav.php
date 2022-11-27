@@ -8,7 +8,6 @@ class configSectionNewNav extends configSectionNew {
     $this->args['presets'] = 'default';
     $this->section_content = 'custom';//if custom, needs custom_section_content!
     $this->args['custom_section_content'] = 'nav__navcontainer';//is the default nav
-    $this->args['section_class_color_background'] = 'uk-section-muted';
     $this->args['section_class_section'] = 'uk-section uk-padding-remove-vertical';
   }
 

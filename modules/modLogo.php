@@ -27,7 +27,7 @@ class modLogo extends \ZMT\Theme\Modules\Module {
 
           if( $linked ) {
 
-            $html .= '<a href="'.esc_url( get_home_url() ).'/"'.\ZMT\Theme\Helpers::getAttribute($link_class,NULL,' class="%s" ').'>'.$logotext.'</a>';
+            $html .= '<a href="'.esc_url( get_home_url() ).'/"'.\ZMT\Theme\Helpers::getAttribute($link_class,NULL,' class="%s" ').' rel="home">'.$logotext.'</a>';
 
           } else {
 

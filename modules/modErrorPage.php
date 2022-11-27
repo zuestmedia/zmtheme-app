@@ -6,8 +6,13 @@ class modErrorPage extends \ZMT\Theme\Modules\Module {
 
   public function getContent() {
 
-    $title = esc_html($this->getArg('title'));
-    $text = esc_html($this->getArg('text'));
+    $title = esc_html( \ZMT\Theme\Helpers::getTrStr('PageNotFound') );
+    $text = esc_html( \ZMT\Theme\Helpers::getTrStr('PageNotFound_long') );
+
+    $home = esc_html( \ZMT\Theme\Helpers::getTrStr('Home') );
+
+    $home_url = '<a href="'.esc_url( get_home_url() ).'/">'.$home.'</a>';
+
     $element = esc_html($this->getArg('title_element'));
     $class = $this->getArg('title_class');
 
@@ -17,7 +22,7 @@ class modErrorPage extends \ZMT\Theme\Modules\Module {
     }
     if($text) {
 
-      $text = sprintf($text, home_url() );
+      $text = sprintf($text, $home_url );
 
       $html .= '<p>'.$text.'</p>';
     }

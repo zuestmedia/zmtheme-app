@@ -10,9 +10,10 @@ class modCommentsCounter extends \ZMT\Theme\Modules\Module {
 
     if(comments_open()){
 
-      $no_com = esc_html($this->getArg('no_comments'));//sprintf()
-      $one_com = esc_html($this->getArg('one_comment'));//sprintf()
-      $more_com = esc_html($this->getArg('more_than_one_comment'));//sprintf()
+      $no_com = esc_html( \ZMT\Theme\Helpers::getTrStr('nocomments') );//sprintf()
+      $one_com = esc_html( \ZMT\Theme\Helpers::getTrStr('n_comment') );//sprintf()
+      $more_com = esc_html( \ZMT\Theme\Helpers::getTrStr('n_comments') );//sprintf()
+
       $linked = $this->getArg('linked');// 0 = no link, 1 = all linked
       $class = $this->getArg('link_class');// linkclass
 
@@ -43,6 +44,22 @@ class modCommentsCounter extends \ZMT\Theme\Modules\Module {
     }
 
     return NULL;
+
+  }
+
+  public function getModule() {
+
+    $result = parent::getModule();
+
+    $label = esc_html( \ZMT\Theme\Helpers::getTrStr('CommentsCounter_label') );//Author:
+
+    $result = str_replace(
+      array( '__label__' ),
+      array(  $label, ),
+      $result
+    );
+
+    return $result;
 
   }
 

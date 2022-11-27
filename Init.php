@@ -89,6 +89,9 @@ class Init {
         */
         $zmtheme['theme']->initTheme(); //am Schluss, wenn Theme settings gemacht sind! können alle actions und filters usw (vor)geladen werden
 
+        //add color palette and gradients to theme.json and needed css to head (gradients)
+        new \ZMT\Theme\ThemeJSON();
+
         //prepares global default_components objects
         new \ZMT\Theme\Prepare( $zmtheme['theme']->getOptGroup(), $zmtheme['theme']->getSettingsStatus());
 
@@ -125,11 +128,11 @@ class Init {
 
               $errormenu->setMenuPage('<div class="notice notice-info"><p>');
 
-                $errormenu->setMenuPage( __( 'To enable theme settings in Dashboard and Customizer you need ZM Plugin. ZM Plugin is a free WordPress extension to manage theme options and customizer settings of ZM-Theme-Framework based WordPress Themes.', 'zmtheme' ) );
+                $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('Toenablethemesettings') ) );
 
                 $errormenu->setMenuPage('</p><p><a target="_blank" rel="nofollow" href="https://zmplugin.com">');
 
-                $errormenu->setMenuPage(__( 'Download ZM Plugin', 'zmtheme' ));
+                $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('DownloadZMPlugin') ) );
 
               $errormenu->setMenuPage('</a></p></div>');
 

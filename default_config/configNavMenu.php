@@ -39,7 +39,9 @@ class configNavMenu extends configNav {
 
     parent::nav();
 
-    $this->args['menu_ul_class'] = 'uk-nav';
+    $this->args['module_element'] = 'div';
+
+    $this->args['menu_ul_class'] = 'uk-nav uk-nav-default';
 
     $this->args['menu_walker_wrap_first'] = '{"tag":"ul","attributes":{"class":"uk-nav-sub"}}';
 
@@ -49,6 +51,8 @@ class configNavMenu extends configNav {
   protected function navbar() {
 
     parent::navbar();
+
+    $this->args['moduleinner_element'] = 'div';
 
     $this->args['menu_ul_class'] = 'uk-navbar-nav zm-has-nav-parent-icon';
 

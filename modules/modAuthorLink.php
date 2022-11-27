@@ -32,11 +32,27 @@ class modAuthorLink extends \ZMT\Theme\Modules\Module {
 
     if( $html && $linked && $url ) {
 
-      $html = '<a href="'. esc_url($url) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.$html.'</a>';
+      $html = '<a rel="author" href="'. esc_url($url) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.$html.'</a>';
 
     }
 
     return $html;
+
+  }
+
+  public function getModule() {
+
+    $result = parent::getModule();
+
+    $label = esc_html( \ZMT\Theme\Helpers::getTrStr('AuthorLink_label') );//Author:
+
+    $result = str_replace(
+      array( '__label__' ),
+      array(  $label, ),
+      $result
+    );
+
+    return $result;
 
   }
 

@@ -44,19 +44,21 @@ class modArchiveTitle extends \ZMT\Theme\Modules\Module {
 
       $title = sprintf( $sprintf , get_the_archive_title() );
 
+      remove_filter( 'get_the_archive_title', array( $this, 'setArchiveTitle' ) );
+
     } else {
 
       //no filter!
       //default titles when empty field = default for all archives
       if ( is_home() ) {
-          $title = __('Blog','zmtheme');
+          $title = esc_html( \ZMT\Theme\Helpers::getTrStr('Blog') );
           $page_for_posts = get_option( 'page_for_posts' );//gets id of blog page
           if($page_for_posts && !is_front_page()){
             $title = get_the_title($page_for_posts);
           }
       } elseif ( is_search() ) {
           $title = get_search_query();
-          $title = sprintf( __( 'Search Results for "%s"'  , 'zmtheme' ), $title );
+          $title = sprintf( \ZMT\Theme\Helpers::getTrStr('SearchResultsfor_n'), $title );
       } else {
         //most default archive_title
         $title = get_the_archive_title();

@@ -21,7 +21,13 @@ class modImage extends \ZMT\Theme\Modules\Module {
     $captionformat = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('caption_wrap'),true));//json
     $linked = $this->getArg('image_link');
 
-    $img = get_the_post_thumbnail( get_the_ID(), $size, array('class' => $class) );
+    $args = array('class' => $class);
+
+    if($linked == 1){
+      $args['alt'] = get_the_title( get_the_ID() );
+    }
+
+    $img = get_the_post_thumbnail( get_the_ID(), $size, $args );
     $url = wp_get_attachment_url(get_post_thumbnail_id());
 
     $redirurl = NULL;
@@ -61,7 +67,7 @@ class modImage extends \ZMT\Theme\Modules\Module {
 
     }
 
-    if( $html && $linked ) { $html = '<a href="'. esc_url($redirurl) .'" data-caption="'. $captiontext .'">'. $html .'</a>'; }
+    if( $html && $linked ) { $html = '<a style="display:block" href="'. esc_url($redirurl) .'" data-caption="'. $captiontext .'">'. $html .'</a>'; }
 
     if( $html && $caption ) { $html .= $caption; }
 

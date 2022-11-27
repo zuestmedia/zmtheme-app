@@ -10,28 +10,23 @@ class configEditlink extends BuildModule {
 
     $this->args['presets'] = 'default';
 
-    $this->args['module_element'] = 'span';
+    parent::module();
+    parent::module_layout_helper_article();
+
+    //$this->args['content_wrap'] = '{"tag":"span","content":" "}';//leerschlag vor edit...
+    $this->args['content_wrap'] = '{"tag":"span","content":{"tag":"i","attributes":{"uk-icon":"icon:pencil","class":"uk-margin-small-right","aria-hidden":"true"},"close":true},"content_end":""}';
 
     $this->args['link_class'] = array();
-    $this->args['link_text'] = __( 'Edit This'  , 'zmtheme' );
 
   }
 
   protected function inline() {
 
-    $this->args['presets'] = 'default';
+    $this->default();
 
-    /*$this->args['module_element'] = 'div';
-    $this->args['module_class'] = 'uk-display-inline uk-text-small';*/
+    $this->args['module_class_text_helpers_string'] = array('uk-display-inline', 'uk-text-small', 'uk-margin-right');
 
-    parent::module();
-    parent::module_layout_helper_article();
-    $this->args['module_class_text_helpers_string'] = array('uk-display-inline', 'uk-text-small');
-
-    $this->args['content_wrap'] = '{"tag":"span","content":" "}';//leerschlag vor edit...
-
-    $this->args['link_class'] = array();
-    $this->args['link_text'] = __( 'Edit'  , 'zmtheme' );
+    $this->args['link_class'] = array('uk-link-text');
 
   }
 

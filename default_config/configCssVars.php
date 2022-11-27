@@ -32,6 +32,8 @@ class configCssVars extends BuildComponent {
 
       $this->args['presets'] = 'default';
 
+      $this->args['color_background_body'] = '#fff';
+
       $this->args['color_background_default'] = '#fff';
       $this->args['color_background_gradient_default'] = '#fff';
       $this->args['color_background_gradient_deg_default'] = '0deg';
@@ -39,47 +41,45 @@ class configCssVars extends BuildComponent {
       $this->args['color_background_gradient_colstop2_default'] = '0%';
 
       $this->args['color_background_muted'] = '#f8f8f8';
-      $this->args['color_background_gradient_muted'] = '#f3f3f3';
+      $this->args['color_background_gradient_muted'] = '#f8f8f8';
       $this->args['color_background_gradient_deg_muted'] = '0deg';
       $this->args['color_background_gradient_colstop_muted'] = '0%';
       $this->args['color_background_gradient_colstop2_muted'] = '0%';
 
-      $this->args['color_background_primary'] = '#075c97';
-      $this->args['color_background_gradient_primary'] = '#2b77b4';
+      $this->args['color_background_primary'] = '#666666';
+      $this->args['color_background_gradient_primary'] = '#666666';
       $this->args['color_background_gradient_deg_primary'] = '0deg';
       $this->args['color_background_gradient_colstop_primary'] = '0%';
       $this->args['color_background_gradient_colstop2_primary'] = '0%';
 
-      $this->args['color_background_secondary'] = '#253946';
-      $this->args['color_background_gradient_secondary'] = '#314C5E';
+      $this->args['color_background_secondary'] = '#333333';
+      $this->args['color_background_gradient_secondary'] = '#333333';
       $this->args['color_background_gradient_deg_secondary'] = '0deg';
       $this->args['color_background_gradient_colstop_secondary'] = '0%';
       $this->args['color_background_gradient_colstop2_secondary'] = '0%';
 
-      $this->args['background_skewy_default'] = '11deg';
-      $this->args['background_skewy_primary'] = '5deg';
-      $this->args['background_skewy_secondary'] = '18deg';
-
-      $this->args['color_text_emphasis'] = '#333';
-      $this->args['color_text_default'] = '#666';
-      $this->args['color_text_muted'] = '#999';
+      $this->args['color_text_emphasis'] = '#111111';
+      $this->args['color_text_default'] = '#222222';
+      $this->args['color_text_muted'] = '#444444';
       $this->args['color_text_inverse'] = '#ffffff';
 
-      $this->args['color_text_link'] = '#1e87f0';
-      $this->args['color_text_link_hover'] = '#0f6ecd';
+      $this->args['color_text_link'] = '#3a5199';
+      $this->args['color_text_link_hover'] = '#294086';
 
       $this->args['color_border'] = '#e5e5e5';
 
-      $this->args['logo_color'] = '#333';
-      $this->args['logo_color_hover'] = '#333';
-      $this->args['logo_color_inverse'] = '#ffffff';
-      $this->args['logo_color_inverse_hover'] = '#ffffff';
+      $this->args['logo_color'] = '#111111';
+      $this->args['logo_color_hover'] = '#111111';
+
+      $this->args['navbar_item_color'] = '#444444';//global-muted-color
+      $this->args['navbar_item_color_hover'] = '#222222';//global-color
+      $this->args['navbar_item_color_active_onclick'] = '#111111';//global-emphasis-color
 
       $this->args['navbar_dropdown_background'] = '#f8f8f8';
 
-      $this->args['color_background_success'] = '#32d296';
-      $this->args['color_background_warning'] = '#faa05a';
-      $this->args['color_background_danger'] = '#f0506e';
+      $this->args['color_background_success'] = '#107720';
+      $this->args['color_background_warning'] = '#aa5102';
+      $this->args['color_background_danger'] = '#ce1010';
     }
     protected function body() {
       $this->args['presets'] = 'default';
@@ -101,7 +101,7 @@ class configCssVars extends BuildComponent {
     }
     protected function heading() {
       $this->args['presets'] = 'default';
-      $this->args['heading_font_family'] = '"DejaVu Sans Mono", Menlo, Consolas, "Liberation Mono", Monaco, "Lucida Console", monospace';
+      $this->args['heading_font_family'] = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji';
       $this->args['heading_text_transform'] = 'none';
       $this->args['heading_font_weight'] = 'normal';
       $this->args['heading_letter_spacing'] = 'normal';
@@ -136,6 +136,7 @@ class configCssVars extends BuildComponent {
       $this->args['presets'] = 'default';
       $this->args['logo_fontfamily'] = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji';
       $this->args['logo_fontstyle'] = 'normal';
+      $this->args['logo_text_transform'] = 'none';
       $this->args['logo_fontsize'] = '32px';
       $this->args['logo_fontweight'] = '600';
       $this->args['logo_letterspacing'] = 'normal';
@@ -144,6 +145,7 @@ class configCssVars extends BuildComponent {
       $this->args['presets'] = 'default';
       $this->args['navbar_fontfamily'] = '-apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, Noto Sans, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji';
       $this->args['navbar_fontstyle'] = 'normal';
+      $this->args['navbar_text_transform'] = 'none';
       $this->args['navbar_fontsize'] = '16px';
       $this->args['navbar_fontweight'] = 'normal';
       $this->args['navbar_letterspacing'] = 'normal';

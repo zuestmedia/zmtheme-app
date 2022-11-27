@@ -19,7 +19,6 @@ class configContainerSortableCommentsContainer extends configContainerSortable {
     $this->args['module_attrs'] = '{"id":"comments"}';
     parent::module_background();
     parent::module_body();
-    $this->args['module_class_margin_vertical'] = array('uk-margin-large-top');
 
   }
 

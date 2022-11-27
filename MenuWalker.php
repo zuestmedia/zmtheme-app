@@ -162,7 +162,7 @@ class MenuWalker extends Walker_Nav_Menu {
 
       if($icon){
 
-        $args->link_before = '<i uk-icon="icon:'.$icon.';ratio:'.$ratio.';"></i> ';
+        $args->link_before = '<i aria-hidden="true" uk-icon="icon:'.esc_attr($icon).';ratio:'.esc_attr($ratio).';"></i> ';
 
       }
 
@@ -175,14 +175,14 @@ class MenuWalker extends Walker_Nav_Menu {
     //parent icon can be set via menu classes in wp dashboard
     if(in_array('zm-has-nav-parent-icon', $data_object->classes)){
 
-      $args->link_after = ' <span uk-nav-parent-icon></span>';
+      $args->link_after = ' <span aria-hidden="true" uk-nav-parent-icon></span>';
 
     }
 
     //parent icon will be set via class in presets menu_ul_class! (used in nav-accordion and navbar)
     if( strpos( $args->menu_class, 'zm-has-nav-parent-icon') !== false && ( $depth == 0 ) && in_array('menu-item-has-children', $data_object->classes)){
 
-      $args->link_after = ' <span uk-nav-parent-icon></span>';
+      $args->link_after = ' <span aria-hidden="true" uk-nav-parent-icon></span>';
 
     }
 
@@ -195,6 +195,14 @@ class MenuWalker extends Walker_Nav_Menu {
 
       //add span after label, but before nav-parent icon if has one
       $args->link_after = '</span>'.$args->link_after;
+
+    }
+
+    if( $data_object->description ){
+
+      $args->link_before = '<div>'.$args->link_before;
+
+      $args->link_after .= '<div class="uk-navbar-subtitle">'.esc_html($data_object->description).'</div></div>';
 
     }
 

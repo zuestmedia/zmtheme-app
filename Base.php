@@ -25,7 +25,7 @@ class Base {
 
   /**
     * args
-    * @var string
+    * @var array
     * @access private
     */
     private $args = array();

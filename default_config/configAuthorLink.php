@@ -6,24 +6,17 @@ class configAuthorLink extends BuildModule {
 
   public $type = 'AuthorLink';
 
+/**
+  * Available Text-Variables: __content_before__
+  */
   protected function default() {
 
     $this->args['presets'] = 'default';
 
-    $this->args['module_element'] = 'div';
-    $this->args['content_wrap'] = '{"tag":"b","content":" '.__('Author:', 'zmtheme').' ","close":true}';
+    parent::module();
+    parent::module_layout_helper_article();
 
-    $this->args['linked'] = 1;
-    $this->args['link_class'] = array();
-
-  }
-
-  protected function articlemeta() {
-
-    $this->args['presets'] = 'default';
-
-    $this->args['module_element'] = 'span';
-    $this->args['content_wrap'] = '{"tag":"span","content":" '.__('written by', 'zmtheme').' ","close":true}';
+    $this->args['content_wrap'] = '{"tag":"span","content":[{"tag":"i","attributes":{"uk-icon":"icon:user","class":"uk-margin-small-right","aria-hidden":"true"},"close":true},{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label__","close":true}],"content_end":""}';
 
     $this->args['linked'] = 1;
     $this->args['link_class'] = array();
@@ -32,16 +25,11 @@ class configAuthorLink extends BuildModule {
 
   protected function inline() {
 
-    $this->args['presets'] = 'default';
+    $this->default();
 
-    parent::module();
-    parent::module_layout_helper_article();
-    $this->args['module_class_text_helpers_string'] = array('uk-display-inline', 'uk-text-small');
-    
-    $this->args['content_wrap'] = '{"tag":"span","content":" '.__('written by', 'zmtheme').' ","close":true}';
+    $this->args['module_class_text_helpers_string'] = array('uk-display-inline', 'uk-text-small', 'uk-margin-right');
 
-    $this->args['linked'] = 1;
-    $this->args['link_class'] = array();
+    $this->args['link_class'] = array('uk-link-text');
 
   }
 

@@ -71,7 +71,7 @@ class Theme {
 
     public function versionErrorNotice() {
 
-      echo '<div class="notice-warning notice"><p>'.__( 'Warning: Versions are not consistent!', 'zmtheme' ).'</p></div>';
+      echo '<div class="notice-warning notice"><p>'.esc_html( \ZMT\Theme\Helpers::getTrStr('WarningVersionsare') ).'</p></div>';
 
     }
 
@@ -340,7 +340,7 @@ class Theme {
 
     public function BodySkipLinks(){
 
-      echo '<a href="#content" class="screen-reader-text uk-button uk-button-default">'.__('Skip to content', 'zmtheme').'</a>';
+      echo '<a href="#content" class="screen-reader-text">'.esc_html( \ZMT\Theme\Helpers::getTrStr('Skiptocontent') ).'</a>';
 
     }
 
@@ -402,7 +402,6 @@ class Theme {
     ////not in use --> see helper and init.php!
     public function TextDomain(){
 
-      //load_theme_textdomain( Helpers::getTextDomain() , get_template_directory().'/core/languages' );
       load_theme_textdomain( Helpers::getTextDomain(), get_template_directory().'/languages' );
 
     }
@@ -510,7 +509,7 @@ class Theme {
 
       //add_theme_support( 'post-formats' , array( 'aside', 'link', 'image', 'gallery', 'video', 'audio', 'quote', 'status' ) );
       add_theme_support( 'post-thumbnails' );
-      add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption' ) );
+      add_theme_support( 'html5', array( 'comment-list', 'comment-form', 'search-form', 'gallery', 'caption', 'style', 'script', 'navigation-widgets' ) );
       add_theme_support( 'title-tag' );
 
       add_post_type_support( 'page', 'excerpt' );
@@ -536,6 +535,9 @@ class Theme {
         add_theme_support( 'custom-spacing' );
         add_theme_support( 'custom-line-height' );
         add_theme_support( 'custom-units', 'rem', 'px', '%', 'em', 'vh', 'vw' );
+
+        //new
+        add_theme_support( 'responsive-embeds' );
 
 
         //new

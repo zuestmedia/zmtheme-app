@@ -14,19 +14,19 @@ class _singular extends \ZMT\Theme\ExtendModules {
     $this->articlecontainer->isstartobj = 'articlecontainer';
 
       //active by default
+      $this->taxonomy  = new \ZMT\Theme\DefaultConfig\configTaxonomyTerms('category',0,'articlecontainer',false);
       $this->title  = new \ZMT\Theme\DefaultConfig\configTitle('singular', 0,'articlecontainer',false);
       $this->date  = new \ZMT\Theme\DefaultConfig\configDate('inline',0,'articlecontainer',false);//pages are not listed in date-archives!!! so no link!
-      $this->taxonomy  = new \ZMT\Theme\DefaultConfig\configTaxonomyTerms('inline_category',0,'articlecontainer',false);
-        $this->taxonomy__1  = new \ZMT\Theme\DefaultConfig\configTaxonomyTerms('inline_post_tag',0,'articlecontainer');//not clonable! --> is_static_clone
       $this->authorlink  = new \ZMT\Theme\DefaultConfig\configAuthorLink('inline',0,'articlecontainer',false);
+        $this->taxonomy__1  = new \ZMT\Theme\DefaultConfig\configTaxonomyTerms('inline_post_tag',0,'articlecontainer');//not clonable! --> is_static_clone
       $this->commentscounter  = new \ZMT\Theme\DefaultConfig\configCommentsCounter('inline',0,'articlecontainer',false);
       $this->editlink  = new \ZMT\Theme\DefaultConfig\configEditlink('inline',0,'articlecontainer', false);
       $this->image  = new \ZMT\Theme\DefaultConfig\configImage( 'singular', 0,'articlecontainer',false);
       $this->the_content  = new \ZMT\Theme\DefaultConfig\configTheContent( 'singular', 0,'articlecontainer',false);
       $this->linkpages  = new \ZMT\Theme\DefaultConfig\configLinkPages( 'default', 0,'articlecontainer', false );
       $this->authorbox  = new \ZMT\Theme\DefaultConfig\configAuthorBox( 'default', 0,'articlecontainer', false );
-      $this->comments  = new \ZMT\Theme\DefaultConfig\configContainerComments( 'default', 0, 'articlecontainer', false );
       $this->articlelinks  = new \ZMT\Theme\DefaultConfig\configLastNextArticleLink( 'default', 0,'articlecontainer', false );
+      $this->comments  = new \ZMT\Theme\DefaultConfig\configContainerComments( 'default', 0, 'articlecontainer', false );
 
       //inactive by default
       /*$this->separator = new \ZMT\Theme\DefaultConfig\configSeparator('default',0,'articlecontainer', false );

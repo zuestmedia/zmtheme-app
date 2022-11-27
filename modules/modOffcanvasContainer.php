@@ -20,4 +20,20 @@ class modOffcanvasContainer extends modContainerSortable {
 
   }
 
+  public function getModule() {
+
+    $result = parent::getModule();
+
+    $label_close = esc_html( \ZMT\Theme\Helpers::getTrStr('OffcanvasContainer_label_close') );//Author:
+
+    $result = str_replace(
+      array( '__label_close__' ),
+      array(  $label_close, ),
+      $result
+    );
+
+    return $result;
+
+  }
+
 }

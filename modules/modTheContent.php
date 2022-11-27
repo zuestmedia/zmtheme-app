@@ -38,11 +38,13 @@ class modTheContent extends \ZMT\Theme\Modules\Module {
 
     if( $excerpt ) {
 
+      add_filter( 'excerpt_length', array( $this, 'customExcerptLength' ) , 999 );
+
       $theexcerpt = get_the_excerpt( get_the_ID() );
 
-      if( $theexcerpt ){
+      remove_filter( 'excerpt_length', array( $this, 'customExcerptLength' ) );
 
-        add_filter( 'excerpt_length', array( $this, 'customExcerptLength' ) , 999 );
+      if( $theexcerpt ){
 
         return $theexcerpt;
 

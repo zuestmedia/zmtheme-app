@@ -111,7 +111,29 @@ class modMenu extends \ZMT\Theme\Modules\Module {
 
       $html = '<'.$headingelement.\ZMT\Theme\Helpers::getAttribute($headingclass,NULL,' class="%s" ').'>'.$title.'</'.$headingelement.'>';
 
+    } elseif( $title ) {
+
+      $html = '<span class="screen-reader-text">'.$title.'</span>';
+
     }
+
+    return $html;
+
+  }
+
+  public function getNavWrapper($html){
+
+    $arialabel = NULL;
+
+    $arialabel = \ZMT\Theme\Helpers::getTrStr('Menu_default_label');
+
+    $menutitle = $this->getMenuTitle();
+
+    if($menutitle){
+      $arialabel = $menutitle;
+    }
+
+    $html = '<nav aria-label="'.esc_html($arialabel).'">'.$html.'</nav>';
 
     return $html;
 
@@ -206,15 +228,24 @@ class modMenu extends \ZMT\Theme\Modules\Module {
 
         }
 
-        $menutitle = $this->getMenuTitleHTML();
+      $result = NULL;
 
-        if( $menutitle ){
+      $menutitle = $this->getMenuTitleHTML();
 
-          return '<div>'.$menutitle.wp_nav_menu($args).'</div>';
+      if( $menutitle ){
 
-        }
+        $result = $menutitle.wp_nav_menu($args);
 
-      return wp_nav_menu($args);
+      } else {
+
+        $result = wp_nav_menu($args);
+
+      }
+
+      //nav wrapper
+      $result = $this->getNavWrapper($result);//add nav and aria label from menu name!
+
+      return $result;
 
     //}
 

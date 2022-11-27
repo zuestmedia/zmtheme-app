@@ -6,11 +6,11 @@ class modLinkPages extends \ZMT\Theme\Modules\Module {
 
   public function getContent() {
 
-    $prae = $this->getArg('before');
+    $prae = esc_html( \ZMT\Theme\Helpers::getTrStr('ContinueReading') );
     $next_or_number = $this->getArg('next_or_number');
     $separator = esc_html($this->getArg('text_separator'));
-    $prev_text = esc_html($this->getArg('prev_text'));
-    $next_text = esc_html($this->getArg('next_text'));
+    $prev_text = esc_html( \ZMT\Theme\Helpers::getTrStr('Previouspage') );
+    $next_text = esc_html( \ZMT\Theme\Helpers::getTrStr('Nextpage') );
 
     $html = NULL;
 
@@ -37,6 +37,22 @@ class modLinkPages extends \ZMT\Theme\Modules\Module {
     }
 
     return $html;
+
+  }
+
+  public function getModule() {
+
+    $result = parent::getModule();
+
+    $label = esc_html( \ZMT\Theme\Helpers::getTrStr('LinkPages_label') );//Author:
+
+    $result = str_replace(
+      array( '__label__' ),
+      array(  $label, ),
+      $result
+    );
+
+    return $result;
 
   }
 

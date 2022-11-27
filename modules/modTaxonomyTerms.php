@@ -31,7 +31,7 @@ class modTaxonomyTerms extends \ZMT\Theme\Modules\Module {
 
         if($element) { $html .= '<'.$element.'>'; }
 
-          if($linked) {  $html .= '<a href="'. get_term_link( $term->term_id ) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'; }
+          if($linked) {  $html .= '<a rel="tag" href="'. get_term_link( $term->term_id ) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'; }
 
             $html .= $term->name;
 
@@ -46,6 +46,26 @@ class modTaxonomyTerms extends \ZMT\Theme\Modules\Module {
     }
 
     return $html;
+
+  }
+
+  public function getModule() {
+
+    $result = parent::getModule();
+
+    $taxonomy_details = get_taxonomy( $this->getArg('taxonomy') );
+    $label = NULL;
+    if($taxonomy_details !== false){
+      $label = $taxonomy_details->labels->name;
+    }
+
+    $result = str_replace(
+      array( '__label__' ),
+      array(  $label, ),
+      $result
+    );
+
+    return $result;
 
   }
 

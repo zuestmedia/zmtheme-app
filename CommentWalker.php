@@ -243,7 +243,7 @@ class CommentWalker extends Walker_Comment  {
                             </a>
                           </li>
                           <?php
-                          comment_reply_link(
+                        /* comment_reply_link(
                               array_merge(
                                   $args,
                                   array(
@@ -254,7 +254,7 @@ class CommentWalker extends Walker_Comment  {
                                       'after'     => '</li>',
                                   )
                               )
-                          );
+                          ); */
                           ?>
                           <?php //edit_comment_link( 'Edit', '<li class="edit-link">', '</li>' ); ?>
                           <?php edit_comment_link( $args['zm_edit'], '<li class="edit-link">', '</li>' ); ?>
@@ -274,6 +274,25 @@ class CommentWalker extends Walker_Comment  {
                 <div class="<?php echo esc_attr($this->getBodyClass()); ?>">
                     <?php comment_text(); ?>
                 </div><!-- .comment-content -->
+
+
+                <?php
+                $replylink_html = get_comment_reply_link(
+                    array_merge(
+                        $args,
+                        array(
+                            'add_below' => 'div-comment',
+                            'depth'     => $depth,
+                            'max_depth' => $args['max_depth'],
+                            'before'    => '<div class="reply">',
+                            'after'     => '</div>',
+                        )
+                    )
+                );
+                $replylink_html = str_replace("class='comment-reply-link'","class='comment-reply-link uk-button uk-button-small uk-button-default'",$replylink_html);
+                echo $replylink_html;
+                ?>
+
 
             </article><!-- .comment-body -->
         <?php

@@ -10,45 +10,22 @@ class configCommentsCounter extends BuildModule {
 
     $this->args['presets'] = 'default';
 
-    $this->args['module_element'] = 'div';
+    parent::module();
+    parent::module_layout_helper_article();
+
+    $this->args['content_wrap'] = '{"tag":"span","content":[{"tag":"i","attributes":{"uk-icon":"icon:comments","class":"uk-margin-small-right","aria-hidden":"true"},"close":true},{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label__","close":true}],"content_end":""}';
 
     $this->args['linked'] = 1;
     $this->args['link_class'] = array();
-    $this->args['no_comments'] = __( 'No Comments' , 'zmtheme' );
-    $this->args['one_comment'] = __( '%s Comment'  , 'zmtheme' );
-    $this->args['more_than_one_comment'] = __( '%s Comments' , 'zmtheme' );
-
-  }
-
-  protected function articlemeta() {
-
-    $this->args['presets'] = 'default';
-
-    $this->args['module_element'] = 'span';
-    $this->args['content_wrap'] = '{"tag":"span","content":" '.__('having', 'zmtheme').' ","close":true}';
-
-    $this->args['linked'] = 1;
-    $this->args['link_class'] = array();
-    $this->args['no_comments'] = __( 'no Comments' , 'zmtheme' );
-    $this->args['one_comment'] = __( '%s Comment'  , 'zmtheme' );
-    $this->args['more_than_one_comment'] = __( '%s Comments' , 'zmtheme' );
 
   }
   protected function inline() {
 
-    $this->args['presets'] = 'default';
+    $this->default();
 
-    parent::module();
-    parent::module_layout_helper_article();
-    $this->args['module_class_text_helpers_string'] = array('uk-display-inline', 'uk-text-small');
+    $this->args['module_class_text_helpers_string'] = array('uk-display-inline', 'uk-text-small', 'uk-margin-right');
 
-    $this->args['content_wrap'] = '{"tag":"span","content":" '.__('having', 'zmtheme').' ","close":true}';
-
-    $this->args['linked'] = 1;
-    $this->args['link_class'] = array();
-    $this->args['no_comments'] = __( 'no Comments' , 'zmtheme' );
-    $this->args['one_comment'] = __( '%s Comment'  , 'zmtheme' );
-    $this->args['more_than_one_comment'] = __( '%s Comments' , 'zmtheme' );
+    $this->args['link_class'] = array('uk-link-text');
 
   }
 
