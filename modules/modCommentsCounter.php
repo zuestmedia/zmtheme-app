@@ -10,9 +10,9 @@ class modCommentsCounter extends \ZMT\Theme\Modules\Module {
 
     if(comments_open()){
 
-      $no_com = esc_html( \ZMT\Theme\Helpers::getTrStr('nocomments') );//sprintf()
-      $one_com = esc_html( \ZMT\Theme\Helpers::getTrStr('n_comment') );//sprintf()
-      $more_com = esc_html( \ZMT\Theme\Helpers::getTrStr('n_comments') );//sprintf()
+      $no_com = \ZMT\Theme\Helpers::getTrStr('nocomments');//sprintf()
+      $one_com = \ZMT\Theme\Helpers::getTrStr('n_comment');//sprintf()
+      $more_com = \ZMT\Theme\Helpers::getTrStr('n_comments');//sprintf()
 
       $linked = $this->getArg('linked');// 0 = no link, 1 = all linked
       $class = $this->getArg('link_class');// linkclass
@@ -29,13 +29,13 @@ class modCommentsCounter extends \ZMT\Theme\Modules\Module {
 
       if($com_text) {
 
-        $html .= $com_text;
+        $html .= esc_html( $com_text );
 
       }
 
       if($html && $url && $linked) {
 
-        $html = '<a href="'. esc_url($url) .'#comments"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.$html.'</a>';
+        $html = '<a href="'. esc_url($url) .'#comments"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'.esc_html( $html ).'</a>';
 
       }
 

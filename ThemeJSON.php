@@ -167,23 +167,17 @@ class ThemeJSON {
 
       $cssvars_colors = $zmtheme['default_components']->globals->colors->args;
 
-      /**
-        * adds background color (or via pseudo element)
-        * if has uk-flex; use background color! but has no skewy then!
-        * with skewy --> use after pseudo (note: flex verhindert before und after)
-        * card & button --> muted is default !
-        */
         $css = '<style>
 
           .uk-section-default.zmgradient,
           .uk-tile-default.zmgradient,
           .uk-background-default.zmgradient {
             background: linear-gradient(
-              var(--color_background_gradient_deg_default, '.$cssvars_colors['color_background_gradient_deg_default'].'),
-              var(--color_background_default, '.$cssvars_colors['color_background_default'].')
-              var(--color_background_gradient_colstop_default, '.$cssvars_colors['color_background_gradient_colstop_default'].'),
-              var(--color_background_gradient_default, '.$cssvars_colors['color_background_gradient_default'].')
-              var(--color_background_gradient_colstop2_default, '.$cssvars_colors['color_background_gradient_colstop2_default'].')
+              var(--color_background_gradient_deg_default, '.esc_attr( $cssvars_colors['color_background_gradient_deg_default'] ).'),
+              var(--color_background_default, '.esc_attr( $cssvars_colors['color_background_default'] ).')
+              var(--color_background_gradient_colstop_default, '.esc_attr( $cssvars_colors['color_background_gradient_colstop_default'] ).'),
+              var(--color_background_gradient_default, '.esc_attr( $cssvars_colors['color_background_gradient_default'] ).')
+              var(--color_background_gradient_colstop2_default, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_default'] ).')
             );
           }
           .uk-section-primary.zmgradient,
@@ -192,11 +186,11 @@ class ThemeJSON {
           .uk-tile-primary.zmgradient,
           .uk-background-primary.zmgradient{
             background: linear-gradient(
-              var(--color_background_gradient_deg_muted, '.$cssvars_colors['color_background_gradient_deg_muted'].'),
-              var(--color_background_muted, '.$cssvars_colors['color_background_muted'].')
-              var(--color_background_gradient_colstop_muted, '.$cssvars_colors['color_background_gradient_colstop_muted'].'),
-              var(--color_background_gradient_muted, '.$cssvars_colors['color_background_gradient_muted'].')
-              var(--color_background_gradient_colstop2_muted, '.$cssvars_colors['color_background_gradient_colstop2_muted'].')
+              var(--color_background_gradient_deg_muted, '.esc_attr( $cssvars_colors['color_background_gradient_deg_muted'] ).'),
+              var(--color_background_muted, '.esc_attr( $cssvars_colors['color_background_muted'] ).')
+              var(--color_background_gradient_colstop_muted, '.esc_attr( $cssvars_colors['color_background_gradient_colstop_muted'] ).'),
+              var(--color_background_gradient_muted, '.esc_attr( $cssvars_colors['color_background_gradient_muted'] ).')
+              var(--color_background_gradient_colstop2_muted, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_muted'] ).')
             );
           }
           .uk-section-secondary.zmgradient,
@@ -205,11 +199,11 @@ class ThemeJSON {
           .uk-tile-secondary.zmgradient,
           .uk-background-secondary.zmgradient{
             background: linear-gradient(
-              var(--color_background_gradient_deg_primary, '.$cssvars_colors['color_background_gradient_deg_primary'].'),
-              var(--color_background_primary, '.$cssvars_colors['color_background_primary'].')
-              var(--color_background_gradient_colstop_primary, '.$cssvars_colors['color_background_gradient_colstop_primary'].'),
-              var(--color_background_gradient_primary, '.$cssvars_colors['color_background_gradient_primary'].')
-              var(--color_background_gradient_colstop2_primary, '.$cssvars_colors['color_background_gradient_colstop2_primary'].')
+              var(--color_background_gradient_deg_primary, '.esc_attr( $cssvars_colors['color_background_gradient_deg_primary'] ).'),
+              var(--color_background_primary, '.esc_attr( $cssvars_colors['color_background_primary'] ).')
+              var(--color_background_gradient_colstop_primary, '.esc_attr( $cssvars_colors['color_background_gradient_colstop_primary'] ).'),
+              var(--color_background_gradient_primary, '.esc_attr( $cssvars_colors['color_background_gradient_primary'] ).')
+              var(--color_background_gradient_colstop2_primary, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_primary'] ).')
             );
           }
           .uk-section-muted.zmgradient,
@@ -218,11 +212,11 @@ class ThemeJSON {
           .uk-tile-muted.zmgradient,
           .uk-background-muted.zmgradient{
             background: linear-gradient(
-              var(--color_background_gradient_deg_secondary, '.$cssvars_colors['color_background_gradient_deg_secondary'].'),
-              var(--color_background_secondary, '.$cssvars_colors['color_background_secondary'].')
-              var(--color_background_gradient_colstop_secondary, '.$cssvars_colors['color_background_gradient_colstop_secondary'].'),
-              var(--color_background_gradient_secondary, '.$cssvars_colors['color_background_gradient_secondary'].')
-              var(--color_background_gradient_colstop2_secondary, '.$cssvars_colors['color_background_gradient_colstop2_secondary'].')
+              var(--color_background_gradient_deg_secondary, '.esc_attr( $cssvars_colors['color_background_gradient_deg_secondary'] ).'),
+              var(--color_background_secondary, '.esc_attr( $cssvars_colors['color_background_secondary'] ).')
+              var(--color_background_gradient_colstop_secondary, '.esc_attr( $cssvars_colors['color_background_gradient_colstop_secondary'] ).'),
+              var(--color_background_gradient_secondary, '.esc_attr( $cssvars_colors['color_background_gradient_secondary'] ).')
+              var(--color_background_gradient_colstop2_secondary, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_secondary'] ).')
             );
           }
 

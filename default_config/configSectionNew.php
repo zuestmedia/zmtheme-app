@@ -122,7 +122,6 @@ class configSectionNew extends BuildComponent {
       $this->args['section_class_section'] = 'uk-section uk-section-small';
       $this->args['section_class_color_background'] = 'uk-section-transparent';
       $this->args['section_class_color_helpers'] = array();
-      $this->args['section_class_skewy'] = '';
     }
 
     protected function section_main_inner(){

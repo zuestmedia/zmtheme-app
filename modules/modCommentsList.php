@@ -17,17 +17,17 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
 
     $list_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('list_wrap'),true));//json
     $title_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('title_wrap'),true));//json
-    $article_class = esc_attr($this->getArg('comment_container_class'));
-    $body_class = esc_attr($this->getArg('comment_body_class'));
-    $avatar_size = esc_attr($this->getArg('avatar_size'));
-    $title = esc_html(\ZMT\Theme\Helpers::getTrStr('Comments'));
-    $header_class = esc_attr($this->getArg('header_class'));
-    $header_grid = \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getArg('header_grid'),true));//json
-    $image_class = esc_attr($this->getArg('avatar_container_class'));
-    $meta_class = esc_attr($this->getArg('meta_class'));
-    $meta_subnav_attrs = \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getArg('meta_subnav_attrs'),true));//json
-    $meta_subnav_class = esc_attr($this->getArg('meta_subnav_class'));
-    $author_link_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('author_link_wrap'),true));//json
+    $title = \ZMT\Theme\Helpers::getTrStr('Comments');
+
+    $article_class = $this->getArg('comment_container_class');
+    $body_class = $this->getArg('comment_body_class');
+    $header_class = $this->getArg('header_class');
+    $header_grid = $this->getArg('header_grid');//json
+    $image_class = $this->getArg('avatar_container_class');
+    $meta_class = $this->getArg('meta_class');
+    $meta_subnav_attrs = $this->getArg('meta_subnav_attrs');//json
+    $meta_subnav_class = $this->getArg('meta_subnav_class');
+    $author_link_wrap = $this->getArg('author_link_wrap');//json
 
     $author_link_wrap = str_replace('__says__',esc_html(\ZMT\Theme\Helpers::getTrStr('says')),$author_link_wrap);//replace variable
 
@@ -44,7 +44,7 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
 
     $comment_list_title = NULL;
     if($title_wrap){
-      $comment_list_title = sprintf( $title_wrap, $title );
+      $comment_list_title = sprintf( $title_wrap, esc_html( $title ) );
     }
 
     $args = array(
@@ -56,7 +56,7 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
       //'type'              => 'all',
       //'page'              => '',
       //'per_page'          => '',
-      'avatar_size'       => $avatar_size,
+      'avatar_size'       => $this->getArg('avatar_size'),
       //'reverse_top_level' => null,
       //'reverse_children'  => '',
       'format'            => 'html5', // or 'xhtml' if no 'HTML5' theme support
@@ -64,13 +64,13 @@ class modCommentsList extends \ZMT\Theme\Modules\Module {
       'echo'              => false,     // boolean, default is true
 
     //custom arguments for Walker_Comment
-      'zm_avatar_class' => esc_attr($this->getArg('avatar_class')),
-      'zm_comment_datentime_sprintf' => esc_html(\ZMT\Theme\Helpers::getTrStr('s_at_s')),
-      'zm_comment_date_format' => esc_html($this->getArg('comment_date_format')),
-      'zm_comment_time_format' => esc_html($this->getArg('comment_time_format')),
-      'zm_moderation_note_1' => esc_html(\ZMT\Theme\Helpers::getTrStr('Yourcommentisawaitin')),
-      'zm_moderation_note_2' => esc_html(\ZMT\Theme\Helpers::getTrStr('Yourcommentisawaitin_long')),
-      'zm_edit' => esc_html(\ZMT\Theme\Helpers::getTrStr('Edit'))
+      'zm_avatar_class' => $this->getArg('avatar_class'),
+      'zm_comment_datentime_sprintf' => \ZMT\Theme\Helpers::getTrStr('s_at_s'),
+      'zm_comment_date_format' => $this->getArg('comment_date_format'),
+      'zm_comment_time_format' => $this->getArg('comment_time_format'),
+      'zm_moderation_note_1' => \ZMT\Theme\Helpers::getTrStr('Yourcommentisawaitin'),
+      'zm_moderation_note_2' => \ZMT\Theme\Helpers::getTrStr('Yourcommentisawaitin_long'),
+      'zm_edit' => \ZMT\Theme\Helpers::getTrStr('Edit')
 
   );
 

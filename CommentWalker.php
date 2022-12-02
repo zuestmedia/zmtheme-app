@@ -208,17 +208,16 @@ class CommentWalker extends Walker_Comment  {
         }
 
         ?>
-        <<?php echo $tag; ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+        <<?php echo esc_attr( $tag ); ?> id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
             <article id="div-comment-<?php comment_ID(); ?>" class="<?php echo esc_attr($this->getArticleClass()); ?>">
 
                 <header class="<?php echo esc_attr($this->getHeaderClass()); ?>">
 
-                  <div <?php echo $this->getHeaderGrid(); ?>>
+                  <div <?php echo \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getHeaderGrid(),true)); ?>>
 
                       <div class="<?php echo esc_attr($this->getImageClass()); ?>">
                           <?php
                           if ( 0 != $args['avatar_size'] ) {
-                              //echo get_avatar( $comment, $args['avatar_size'] );
                               echo get_avatar( $comment, $args['avatar_size'], '', '', array( 'class' => $args['zm_avatar_class'] ) );
                           }
                           ?>
@@ -227,9 +226,9 @@ class CommentWalker extends Walker_Comment  {
 
                       <div class="<?php echo esc_attr($this->getMetaClass()); ?>">
 
-                        <?php printf( $this->getAuthorLinkWrap(), get_comment_author_link( $comment ) ); ?>
+                        <?php printf( \ZMT\Theme\Element::processHTMLElements(json_decode($this->getAuthorLinkWrap(),true)), get_comment_author_link( $comment ) ); ?>
 
-                        <ul <?php echo $this->getMetaSubnavAttrs(); ?> class="<?php echo esc_attr($this->getMetaSubnavClass()); ?>">
+                        <ul <?php echo \ZMT\Theme\Helpers::renderAttrs(json_decode($this->getMetaSubnavAttrs(),true)); ?> class="<?php echo esc_attr($this->getMetaSubnavClass()); ?>">
 
                           <li>
                             <a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
@@ -237,7 +236,7 @@ class CommentWalker extends Walker_Comment  {
                                     <?php
                                         /* translators: 1: Comment date, 2: Comment time. */
                                         //printf( '%1$s at %2$s', get_comment_date( '', $comment ), get_comment_time() );
-                                        printf( $args['zm_comment_datentime_sprintf'], get_comment_date( $args['zm_comment_date_format'], $comment ), get_comment_time($args['zm_comment_time_format']) );
+                                        esc_html( printf( $args['zm_comment_datentime_sprintf'], get_comment_date( $args['zm_comment_date_format'], $comment ), get_comment_time($args['zm_comment_time_format']) ) );
                                     ?>
                                 </time>
                             </a>
@@ -257,10 +256,10 @@ class CommentWalker extends Walker_Comment  {
                           ); */
                           ?>
                           <?php //edit_comment_link( 'Edit', '<li class="edit-link">', '</li>' ); ?>
-                          <?php edit_comment_link( $args['zm_edit'], '<li class="edit-link">', '</li>' ); ?>
+                          <?php edit_comment_link( esc_html( $args['zm_edit'] ), '<li class="edit-link">', '</li>' ); ?>
                           <?php if ( '0' == $comment->comment_approved ) : ?>
                             <li>
-                              <em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
+                              <em class="comment-awaiting-moderation"><?php echo esc_html( $moderation_note ); ?></em>
                             </li>
                           <?php endif; ?>
                         </ul>
