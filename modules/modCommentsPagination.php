@@ -7,12 +7,12 @@ class modCommentsPagination extends \ZMT\Theme\Modules\Module {
   public function getContent() {
 
     $list_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('list_wrap'),true));//json
-    $label = esc_html( \ZMT\Theme\Helpers::getTrStr('CommentsPagination_label') );//Comments navigation
-    $list_wrap = str_replace('__label__', $label, $list_wrap );
+    $label = \ZMT\Theme\Helpers::getTrStr('CommentsPagination_label');//Comments navigation
+    $list_wrap = str_replace('__label__', esc_attr( $label ), $list_wrap );
     $show_all = $this->getArg('show_all');
     $prev_next = $this->getArg('prev_next');
-    $prev_text = esc_html( \ZMT\Theme\Helpers::getTrStr('Previous') );
-    $next_text = esc_html( \ZMT\Theme\Helpers::getTrStr('Next') );
+    $prev_text = \ZMT\Theme\Helpers::getTrStr('Previous');
+    $next_text = \ZMT\Theme\Helpers::getTrStr('Next');
 
     $html = NULL;
 

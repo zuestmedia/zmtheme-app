@@ -12,7 +12,7 @@ class modOffcanvasContainer extends modContainerSortable {
 
     if( strpos( $attr, 'uk-offcanvas' ) !== false || strpos( $attr, 'uk-modal' ) !== false || strpos( $attr, 'togglecontainer' ) !== false ){
 
-      $result .= ' id="'.esc_attr($this->getId()).'"';
+      $result .= ' id="'.esc_attr( $this->getId() ).'"';
 
     }
 
@@ -24,11 +24,11 @@ class modOffcanvasContainer extends modContainerSortable {
 
     $result = parent::getModule();
 
-    $label_close = esc_html( \ZMT\Theme\Helpers::getTrStr('OffcanvasContainer_label_close') );//Author:
+    $label_close = \ZMT\Theme\Helpers::getTrStr('OffcanvasContainer_label_close');//Author:
 
     $result = str_replace(
       array( '__label_close__' ),
-      array(  $label_close, ),
+      array(  esc_html( $label_close ) ),
       $result
     );
 

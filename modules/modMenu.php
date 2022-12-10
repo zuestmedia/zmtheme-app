@@ -100,20 +100,20 @@ class modMenu extends \ZMT\Theme\Modules\Module {
 
   public function getMenuTitleHTML() {
 
-    $headingelement = esc_html($this->getArg('menutitle_element'));
+    $headingelement = $this->getArg('menutitle_element');
     $headingclass = $this->getArg('menutitle_class');
 
-    $title = esc_html($this->getMenuTitle());
+    $title = $this->getMenuTitle();
 
     $html = NULL;
 
     if( $title && $headingelement ){
 
-      $html = '<'.$headingelement.\ZMT\Theme\Helpers::getAttribute($headingclass,NULL,' class="%s" ').'>'.$title.'</'.$headingelement.'>';
+      $html = '<'.esc_attr( $headingelement ).\ZMT\Theme\Helpers::getAttribute($headingclass,NULL,' class="%s" ').'>'.esc_html( $title ).'</'.esc_attr( $headingelement ).'>';
 
     } elseif( $title ) {
 
-      $html = '<span class="screen-reader-text">'.$title.'</span>';
+      $html = '<span class="screen-reader-text">'.esc_html( $title ).'</span>';
 
     }
 

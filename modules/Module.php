@@ -3,7 +3,6 @@
 namespace ZMT\Theme\Modules;
 
 use ZMT\Theme\View as View;
-use ZMT\Theme\Helpers as Helpers;
 
 class Module extends \ZMT\Theme\Component {
 
@@ -219,7 +218,7 @@ class Module extends \ZMT\Theme\Component {
       $mostinner_el = $this->getMostInnerElement();
       if( $mostinner_el !== 'hide'){
 
-        $result .= $this->getModuleElementsEnd();
+        $result .= $this->getModuleElementsEnd($mostinner_el);
 
       }
 

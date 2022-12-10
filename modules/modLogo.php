@@ -11,11 +11,11 @@ class modLogo extends \ZMT\Theme\Modules\Module {
     $linked = $this->getArg('linked');
     $link_class = $this->getArg('link_class');
 
-    $blogname = esc_html(get_bloginfo( 'name' ));
-    $blogdesc = esc_html(get_bloginfo( 'description' ));
+    $blogname = get_bloginfo( 'name' );
+    $blogdesc = get_bloginfo( 'description' );
 
     $html = NULL;
-    $logotext = NULL;
+    $logotext_html = NULL;
     if ( has_custom_logo() ) {
       $html .= get_custom_logo();
     }
@@ -23,15 +23,15 @@ class modLogo extends \ZMT\Theme\Modules\Module {
 
       if( $blogname || $blogdesc ){
 
-          $logotext = sprintf($textwrap,$blogname,$blogdesc);
+          $logotext_html = sprintf($textwrap, esc_html( $blogname ), esc_html( $blogdesc ) );
 
           if( $linked ) {
 
-            $html .= '<a href="'.esc_url( get_home_url() ).'/"'.\ZMT\Theme\Helpers::getAttribute($link_class,NULL,' class="%s" ').' rel="home">'.$logotext.'</a>';
+            $html .= '<a href="'.esc_url( get_home_url() ).'/"'.\ZMT\Theme\Helpers::getAttribute($link_class,NULL,' class="%s" ').' rel="home">'.$logotext_html.'</a>';
 
           } else {
 
-            $html .= $logotext;
+            $html .= $logotext_html;
 
           }
 

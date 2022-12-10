@@ -18,8 +18,8 @@ class modAuthorBox extends \ZMT\Theme\Modules\Module {
       }
     }
 
-    $avatar_size = esc_attr($this->getArg('avatar_size'));
-    $avatar_class = esc_attr($this->getArg('avatar_class'));
+    $avatar_size = $this->getArg('avatar_size');
+    $avatar_class = $this->getArg('avatar_class');
 
     //$img = get_avatar( get_the_author_meta( 'ID', $user ) );
     $img = get_avatar( get_the_author_meta( 'ID' ), $avatar_size, '', '', array( 'class' => $avatar_class ) ); 

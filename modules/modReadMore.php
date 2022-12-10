@@ -8,7 +8,7 @@ class modReadMore extends \ZMT\Theme\Modules\Module {
 
   public function getContent() {
 
-    $readmoretext = esc_html( \ZMT\Theme\Helpers::getTrStr('ReadMore') );//Read More...
+    $readmoretext = \ZMT\Theme\Helpers::getTrStr('ReadMore');//Read More...
     $readmorehtml = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('read_more_wrap'),true));//json
 
     if($readmorehtml){
@@ -17,7 +17,7 @@ class modReadMore extends \ZMT\Theme\Modules\Module {
           '__readmoretext__'
         ),
         array(
-          $readmoretext
+          esc_html( $readmoretext )
         ),
         $readmorehtml
       );

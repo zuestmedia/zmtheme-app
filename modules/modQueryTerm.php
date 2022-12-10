@@ -30,7 +30,7 @@ class modQueryTerm extends \ZMT\Theme\Modules\Module {
       $tax_str = $term->taxonomy;
     }
 
-    $result = ' uk-filter-control="filter: .'.$tax_str.'-'.$term->slug.'; group: data-'.$tax_str.'"';
+    $result = ' uk-filter-control="filter: .'.esc_attr( $tax_str ).'-'.esc_attr( $term->slug ).'; group: data-'.esc_attr( $tax_str ).'"';
 
     return $result;
 
@@ -40,7 +40,7 @@ class modQueryTerm extends \ZMT\Theme\Modules\Module {
 
     $taxonomy = $this->getArg('taxonomy');
     $list_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('list_wrap'),true));//json
-    $list_item = esc_html($this->getArg('list_item'));
+    $list_item = $this->getArg('list_item');
     $link_class = $this->getArg('link_class');// linkclass
 
     $query_args_json = $this->getArg('query_args_json');
@@ -65,9 +65,19 @@ class modQueryTerm extends \ZMT\Theme\Modules\Module {
 
         foreach ( $term_query->terms as $term ) {
 
-          if($list_item) { $html .= '<'.$list_item.$this->get_tax_term_class($term).'>'; }
-            $html .= '<a href="'. get_term_link($term) .'"'. Helpers::getAttribute($link_class,NULL,' class="%s"') .'>' .$term->name. '</a>';
-          if($list_item) { $html .= '</'.$list_item.'>'; }
+          if($list_item) { $html .= '<'.esc_attr( $list_item ).$this->get_tax_term_class($term).'>'; }
+
+            $termlink = get_term_link( $term );
+
+            if(!is_string($termlink)){
+
+              $termlink = '#errorintaxonomyterms';
+
+            }
+
+            $html .= '<a href="'. esc_attr( $termlink ) .'"'. Helpers::getAttribute($link_class,NULL,' class="%s"') .'>' .esc_html( $term->name ). '</a>';
+          
+            if($list_item) { $html .= '</'.esc_attr( $list_item ).'>'; }
 
         }
 

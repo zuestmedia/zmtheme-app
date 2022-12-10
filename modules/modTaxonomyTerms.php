@@ -8,9 +8,9 @@ class modTaxonomyTerms extends \ZMT\Theme\Modules\Module {
 
   public function getContent() {
 
-    $element = esc_html($this->getArg('list_item'));
+    $element = $this->getArg('list_item');
     $class = $this->getArg('link_class');
-    $separator = esc_html($this->getArg('text_separator'));
+    $separator = $this->getArg('text_separator');
     $linked = $this->getArg('linked');// 0 = no link, 1 = all linked
     $taxonomy = $this->getArg('taxonomy');
 
@@ -25,19 +25,31 @@ class modTaxonomyTerms extends \ZMT\Theme\Modules\Module {
 
         if($count > 0){
 
-          $html .= $separator;
+          $html .= esc_html($separator);
 
         }
 
-        if($element) { $html .= '<'.$element.'>'; }
+        if($element) { $html .= '<'.esc_attr( $element ).'>'; }
 
-          if($linked) {  $html .= '<a rel="tag" href="'. get_term_link( $term->term_id ) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'; }
+          if($linked) {  
 
-            $html .= $term->name;
+            $termlink = get_term_link( $term->term_id );
+
+            if(!is_string($termlink)){
+
+              $termlink = '#errorintaxonomyterms';
+
+            }
+            
+            $html .= '<a rel="tag" href="'. esc_attr( $termlink ) .'"'.Helpers::getAttribute($class,NULL,' class="%s"').'>'; 
+          
+          }
+
+            $html .= esc_html( $term->name );
 
           if($linked) {  $html .= '</a>'; }
 
-        if($element) { $html .= '</'.$element.'>'; }
+        if($element) { $html .= '</'.esc_attr( $element ).'>'; }
 
         $count++;
 

@@ -128,17 +128,17 @@ class modSidebar extends \ZMT\Theme\Modules\Module {
 
     $result = NULL;
 
-    $widget_element = esc_html($this->getArg('widget_element'));
+    $widget_element = $this->getArg('widget_element');
     if($widget_element) {
 
-      $result .= '<'.$widget_element.Helpers::getAttribute($this->getElementAttributesByPraefix('widget'),NULL,' class="%s"').'>';
+      $result .= '<'.esc_attr( $widget_element ).Helpers::getAttribute($this->getElementAttributesByPraefix('widget'),NULL,' class="%s"').'>';
 
     }
 
-      $widgetinner_element = esc_html($this->getArg('widgetinner_element'));
+      $widgetinner_element = $this->getArg('widgetinner_element');
       if($widgetinner_element) {
 
-        $result .= '<'.$widgetinner_element.Helpers::getAttribute($this->getElementAttributesByPraefix('widgetinner'),NULL,' class="%s"').'>';
+        $result .= '<'.esc_attr( $widgetinner_element ).Helpers::getAttribute($this->getElementAttributesByPraefix('widgetinner'),NULL,' class="%s"').'>';
 
       }
 
@@ -150,17 +150,17 @@ class modSidebar extends \ZMT\Theme\Modules\Module {
 
     $result = NULL;
 
-      $widgetinner_element = esc_html($this->getArg('widgetinner_element'));
+      $widgetinner_element = $this->getArg('widgetinner_element');
       if($widgetinner_element) {
 
-        $result .= '</'.$widgetinner_element.'>';
+        $result .= '</'.esc_attr( $widgetinner_element ).'>';
 
       }
 
-    $widget_element = esc_html($this->getArg('widget_element'));
+    $widget_element = $this->getArg('widget_element');
     if($widget_element) {
 
-      $result .= '</'.$widget_element.'>';
+      $result .= '</'.esc_attr( $widget_element ).'>';
 
     }
 

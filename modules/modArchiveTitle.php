@@ -32,9 +32,9 @@ class modArchiveTitle extends \ZMT\Theme\Modules\Module {
 
   public function getContent() {
 
-    $element = esc_attr( $this->getArg('title_element') );
-    $class = esc_attr( $this->getArg('title_class') );
-    $sprintf = esc_html( $this->getArg('title_sprintf') );
+    $element = $this->getArg('title_element');
+    $class = $this->getArg('title_class');
+    $sprintf = $this->getArg('title_sprintf');
 
     $title = NULL;
 
@@ -42,7 +42,7 @@ class modArchiveTitle extends \ZMT\Theme\Modules\Module {
 
       add_filter( 'get_the_archive_title', array( $this, 'setArchiveTitle' ) );
 
-      $title = sprintf( $sprintf , get_the_archive_title() );
+      $title = sprintf( esc_html( $sprintf ) , get_the_archive_title() );
 
       remove_filter( 'get_the_archive_title', array( $this, 'setArchiveTitle' ) );
 
@@ -68,7 +68,7 @@ class modArchiveTitle extends \ZMT\Theme\Modules\Module {
 
     //title can not be escaped because has span around value eg, 'Category: <span>uncategorized</span>'
     if($title && $element){
-      $title = '<'.$element.\ZMT\Theme\Helpers::getAttribute( $class, NULL, ' class="%s"' ).'>'.$title.'</'.$element.'>';
+      $title = '<'.esc_attr( $element ).\ZMT\Theme\Helpers::getAttribute( $class, NULL, ' class="%s"' ).'>'.$title.'</'.esc_attr( $element ).'>';
     }
 
     return $title;

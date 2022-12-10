@@ -7,11 +7,11 @@ class modEditLink extends \ZMT\Theme\Modules\Module {
   public function getContent() {
 
     //$text = esc_html($this->getArg('link_text'));
-    $text = esc_html( \ZMT\Theme\Helpers::getTrStr('Edit') );
-    $class = esc_attr($this->getArg('link_class'));
+    $text = \ZMT\Theme\Helpers::getTrStr('Edit');
+    $class = $this->getArg('link_class');
 
     if(is_customize_preview()){
-      return '<a class="'.$class.'">'.$text.'</a>';
+      return '<a class="'.esc_attr( $class ).'">'.esc_html( $text ).'</a>';
     }
 
     ob_start();

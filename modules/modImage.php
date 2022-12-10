@@ -15,8 +15,8 @@ class modImage extends \ZMT\Theme\Modules\Module {
    */
    public function getContent() {
 
-    $size = esc_html($this->getArg('image_size'));//thumbnail,medium,large,full
-    $class = esc_attr($this->getArg('image_class'));
+    $size = $this->getArg('image_size');//thumbnail,medium,large,full
+    $class = $this->getArg('image_class');
     $captionstatus = $this->getArg('caption');//0=off 1=on
     $captionformat = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('caption_wrap'),true));//json
     $linked = $this->getArg('image_link');
@@ -49,7 +49,7 @@ class modImage extends \ZMT\Theme\Modules\Module {
 
       if($captiontext) {
 
-        $caption = sprintf( $captionformat, $captiontext);
+        $caption = sprintf( $captionformat, esc_attr( $captiontext ));
 
       }
 
@@ -67,7 +67,7 @@ class modImage extends \ZMT\Theme\Modules\Module {
 
     }
 
-    if( $html && $linked ) { $html = '<a style="display:block" href="'. esc_url($redirurl) .'" data-caption="'. $captiontext .'">'. $html .'</a>'; }
+    if( $html && $linked ) { $html = '<a style="display:block" href="'. esc_url($redirurl) .'" data-caption="'.esc_attr( $captiontext ).'">'. $html .'</a>'; }
 
     if( $html && $caption ) { $html .= $caption; }
 

@@ -6,25 +6,25 @@ class modErrorPage extends \ZMT\Theme\Modules\Module {
 
   public function getContent() {
 
-    $title = esc_html( \ZMT\Theme\Helpers::getTrStr('PageNotFound') );
-    $text = esc_html( \ZMT\Theme\Helpers::getTrStr('PageNotFound_long') );
+    $title = \ZMT\Theme\Helpers::getTrStr('PageNotFound');
+    $text = \ZMT\Theme\Helpers::getTrStr('PageNotFound_long');
 
-    $home = esc_html( \ZMT\Theme\Helpers::getTrStr('Home') );
+    $home = \ZMT\Theme\Helpers::getTrStr('Home');
 
-    $home_url = '<a href="'.esc_url( get_home_url() ).'/">'.$home.'</a>';
+    $home_url_html = '<a href="'.esc_url( get_home_url() ).'/">'.esc_html( $home ).'</a>';
 
-    $element = esc_html($this->getArg('title_element'));
+    $element = $this->getArg('title_element');
     $class = $this->getArg('title_class');
 
     $html = NULL;
     if($title) {
-      $html .= '<'.$element.\ZMT\Theme\Helpers::getAttribute($class,NULL,' class="%s" ').'>'.$title.'</'.$element.'>';
+      $html .= '<'.esc_attr( $element ).\ZMT\Theme\Helpers::getAttribute($class,NULL,' class="%s" ').'>'.esc_html( $title ).'</'.esc_attr( $element ).'>';
     }
     if($text) {
 
-      $text = sprintf($text, $home_url );
+      $text = sprintf($text, $home_url_html );
 
-      $html .= '<p>'.$text.'</p>';
+      $html .= '<p>'.esc_html( $text ).'</p>';
     }
     if($html == NULL){
       $html .= '<h1 class="uk-heading-medium">404 - Page Not Found</h1>';

@@ -11,11 +11,11 @@ class modPostMeta extends \ZMT\Theme\Modules\Module {
   */
   public function getContent() {
 
-    $meta_key = esc_html($this->getArg('meta_key'));
+    $meta_key = $this->getArg('meta_key');
     $meta_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('meta_wrap'),true));//json
     $list_wrap = \ZMT\Theme\Element::processHTMLElements(json_decode($this->getArg('list_wrap'),true));//json
-    $list_item = esc_html($this->getArg('list_item'));
-    $text_separator = esc_html($this->getArg('text_separator'));
+    $list_item = $this->getArg('list_item');
+    $text_separator = $this->getArg('text_separator');
 
     $html = NULL;
 
@@ -43,11 +43,11 @@ class modPostMeta extends \ZMT\Theme\Modules\Module {
 
           foreach($value[0] as $single_value){
 
-            if($list_item) { $html .= '<'.$list_item.'>'; }
+            if($list_item) { $html .= '<'.esc_attr( $list_item ).'>'; }
 
-              $html .= sprintf( $meta_wrap, $meta_key, $single_value );
+              $html .= sprintf( $meta_wrap, esc_html( $meta_key ), esc_html( $single_value ) );
 
-            if($list_item) { $html .= '</'.$list_item.'>'; }
+            if($list_item) { $html .= '</'.esc_attr( $list_item ).'>'; }
 
           }
 
@@ -60,7 +60,7 @@ class modPostMeta extends \ZMT\Theme\Modules\Module {
         } else {
 
           if($value[0]){
-            $html = sprintf( $meta_wrap, $meta_key, $value[0] );
+            $html = sprintf( $meta_wrap, esc_html( $meta_key ), esc_html( $value[0] ) );
           }
 
         }
@@ -74,11 +74,11 @@ class modPostMeta extends \ZMT\Theme\Modules\Module {
             //same here, no array is processed because none yet is coming in
             if( (is_array($meta_value_arr[0]) && !empty($meta_value_arr[0]) ) || ( !is_array($meta_value_arr[0]) && $meta_value_arr[0] ) ){
 
-              if($list_item) { $html .= '<'.$list_item.'>'; }
+              if($list_item) { $html .= '<'.esc_attr( $list_item ).'>'; }
 
-                $html .= sprintf( $meta_wrap, $meta_name, Helpers::implodeIfArray( $meta_value_arr[0], $text_separator ) );
+                $html .= sprintf( $meta_wrap, esc_html( $meta_name ), esc_html( Helpers::implodeIfArray( $meta_value_arr[0], esc_html( $text_separator ) ) ) );
 
-              if($list_item) { $html .= '</'.$list_item.'>'; }
+              if($list_item) { $html .= '</'.esc_attr( $list_item ).'>'; }
 
             }
 
