@@ -18,16 +18,23 @@ class modErrorPage extends \ZMT\Theme\Modules\Module {
 
     $html = NULL;
     if($title) {
+
       $html .= '<'.esc_attr( $element ).\ZMT\Theme\Helpers::getAttribute($class,NULL,' class="%s" ').'>'.esc_html( $title ).'</'.esc_attr( $element ).'>';
+
     }
+    
     if($text) {
 
-      $text = sprintf($text, $home_url_html );
+      $text_html = sprintf( esc_html( $text ), $home_url_html );
 
-      $html .= '<p>'.esc_html( $text ).'</p>';
+      $html .= '<p>'.$text_html.'</p>';
+
     }
+
     if($html == NULL){
+
       $html .= '<h1 class="uk-heading-medium">404 - Page Not Found</h1>';
+
     }
 
     return $html;

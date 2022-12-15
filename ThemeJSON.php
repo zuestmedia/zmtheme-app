@@ -180,11 +180,11 @@ class ThemeJSON {
               var(--color_background_gradient_colstop2_default, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_default'] ).')
             );
           }
-          .uk-section-primary.zmgradient,
-          .uk-card-primary.zmgradient,
-          .uk-button-primary.zmgradient,
-          .uk-tile-primary.zmgradient,
-          .uk-background-primary.zmgradient{
+          .uk-section-muted.zmgradient,
+          .uk-card-default.zmgradient,
+          .uk-button-default.zmgradient,
+          .uk-tile-muted.zmgradient,
+          .uk-background-muted.zmgradient{            
             background: linear-gradient(
               var(--color_background_gradient_deg_muted, '.esc_attr( $cssvars_colors['color_background_gradient_deg_muted'] ).'),
               var(--color_background_muted, '.esc_attr( $cssvars_colors['color_background_muted'] ).')
@@ -193,11 +193,11 @@ class ThemeJSON {
               var(--color_background_gradient_colstop2_muted, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_muted'] ).')
             );
           }
-          .uk-section-secondary.zmgradient,
-          .uk-card-secondary.zmgradient,
-          .uk-button-secondary.zmgradient,
-          .uk-tile-secondary.zmgradient,
-          .uk-background-secondary.zmgradient{
+          .uk-section-primary.zmgradient,
+          .uk-card-primary.zmgradient,
+          .uk-button-primary.zmgradient,
+          .uk-tile-primary.zmgradient,
+          .uk-background-primary.zmgradient{
             background: linear-gradient(
               var(--color_background_gradient_deg_primary, '.esc_attr( $cssvars_colors['color_background_gradient_deg_primary'] ).'),
               var(--color_background_primary, '.esc_attr( $cssvars_colors['color_background_primary'] ).')
@@ -206,11 +206,11 @@ class ThemeJSON {
               var(--color_background_gradient_colstop2_primary, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_primary'] ).')
             );
           }
-          .uk-section-muted.zmgradient,
-          .uk-card-default.zmgradient,
-          .uk-button-default.zmgradient,
-          .uk-tile-muted.zmgradient,
-          .uk-background-muted.zmgradient{
+          .uk-section-secondary.zmgradient,
+          .uk-card-secondary.zmgradient,
+          .uk-button-secondary.zmgradient,
+          .uk-tile-secondary.zmgradient,
+          .uk-background-secondary.zmgradient{            
             background: linear-gradient(
               var(--color_background_gradient_deg_secondary, '.esc_attr( $cssvars_colors['color_background_gradient_deg_secondary'] ).'),
               var(--color_background_secondary, '.esc_attr( $cssvars_colors['color_background_secondary'] ).')
