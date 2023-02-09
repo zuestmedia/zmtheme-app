@@ -340,9 +340,15 @@ class Helpers {
 
       $attachment_array = wp_get_attachment_image_src( $attachment_id, $size );
 
-      //$result = Helpers::getAttribute( $attachment_array[0], NULL, ' style="background-image: url(%s);"' );
-      //adds lazy loading to images!!! aber lädt 2 mal wenn background image && chrome webmaster tools cache is deactivated!, alles gut!
-      $result = Helpers::getAttribute( $attachment_array[0], NULL, ' data-src="%s" uk-img' );
+      if($attachment_array !== false){
+
+        //$result = Helpers::getAttribute( $attachment_array[0], NULL, ' style="background-image: url(%s);"' );
+        //adds lazy loading to images!!! aber lädt 2 mal wenn background image && chrome webmaster tools cache is deactivated!, alles gut!
+        $result = Helpers::getAttribute( $attachment_array[0], NULL, ' data-src="%s" uk-img' );
+
+      }
+
+      
 
       return $result;
 

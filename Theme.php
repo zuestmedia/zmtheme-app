@@ -79,6 +79,8 @@ class Theme {
 
       if(is_admin()){
 
+        $versionofstylecss = NULL;
+
         //if is a child theme, get version of parent theme to check against!!
         if(is_child_theme()){
 
@@ -365,7 +367,6 @@ class Theme {
 
   /**
     * Get JS array
-    * @return string
     */
     public function getJsArray() {
 
@@ -374,7 +375,6 @@ class Theme {
     }
   /**
     * Set JS array
-    * @param string $js_prop_array
     */
     public function setJsArray($js_array) {
 

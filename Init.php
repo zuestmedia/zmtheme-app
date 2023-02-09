@@ -130,7 +130,7 @@ class Init {
 
                 $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('Toenablethemesettings') ) );
 
-                $errormenu->setMenuPage('</p><p><a target="_blank" rel="nofollow" href="https://zmplugin.com">');
+                $errormenu->setMenuPage('</p><p><a target="_blank" rel="nofollow" href="https://zuestmedia.com/plugins/">');
 
                 $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('DownloadZMPlugin') ) );
 

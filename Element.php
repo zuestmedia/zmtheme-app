@@ -723,7 +723,7 @@ class Element {
 
     /*
     <div class="uk-text-small uk-text-center">
-      <a href="https://zmtheme.com" class="uk-link-reset" target="_blank" rel="nofollow">
+      <a href="https://zuestmedia.com" class="uk-link-reset" target="_blank" rel="nofollow">
         ThisThemeName
       </a>
        | Built with ZMTheme
@@ -731,7 +731,7 @@ class Element {
     */
 
     /*
-    [{"tag":"div","attributes":{"class":"uk-text-small uk-text-center"}},{"tag":"a","attributes":{"class":"uk-link-reset","href":"https://zmtheme.com","target":"_blank","rel":"nofollow"},"content":"Modular","close":true,"content_end":" | Built with ZMTheme"}]
+    [{"tag":"div","attributes":{"class":"uk-text-small uk-text-center"}},{"tag":"a","attributes":{"class":"uk-link-reset","href":"https://zuestmedia.com","target":"_blank","rel":"nofollow"},"content":"Modular","close":true,"content_end":" | Built with ZMTheme"}]
     */
 
       return array(
@@ -747,7 +747,7 @@ class Element {
                       'tag' => 'a',
                       'attributes' => array(
                         'class' => 'uk-link-reset',
-                        'href' => 'https://zmtheme.com',
+                        'href' => 'https://zuestmedia.com',
                         'target' => '_blank',
                         'rel' => 'nofollow',
                       ),
