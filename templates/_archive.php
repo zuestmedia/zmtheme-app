@@ -4,6 +4,21 @@ namespace ZMT\Theme\Templates;
 
 class _archive extends \ZMT\Theme\ExtendModules {
 
+  public $archivecontainer;
+    public $archivetitle;
+    public $archivedescription;
+    public $articlelistcontainer;
+    public $pagination;
+    public $queryterm;
+    public $termmeta;
+    
+    public $custom_container;
+    public $custom_widget;
+    public $custom_block_template;
+    public $custom_html;
+    public $custom_nav;
+    public $custom_queryloop;
+
   function __construct(){
 
     //container

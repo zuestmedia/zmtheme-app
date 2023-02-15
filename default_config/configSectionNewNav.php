@@ -4,6 +4,8 @@ namespace ZMT\Theme\DefaultConfig;
 
 class configSectionNewNav extends configSectionNew {
 
+  public $section_content;
+
   protected function default_config() {
     $this->args['presets'] = 'default';
     $this->section_content = 'custom';//if custom, needs custom_section_content!

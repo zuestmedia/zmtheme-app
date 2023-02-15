@@ -4,6 +4,35 @@ namespace ZMT\Theme\Templates;
 
 class _center extends \ZMT\Theme\ExtendModules {
 
+  public $sections;
+    public $section_nav;
+    public $section_block_template;
+    public $section_widget;
+    public $section_queryloop;
+    public $section_html;
+    public $section_extensions;
+    public $section_offcanvas;
+
+  public $main;
+    public $main_section_nav;
+    public $main_section_block_template;
+    public $main_section_widget;
+    public $main_section_queryloop;
+    public $main_section_html;
+    public $main_section_extensions;
+    public $main_section_offcanvas;
+
+  public $content;
+    public $content_section_nav;
+    public $content_section_block_template;
+    public $content_section_widget;
+    public $content_section_queryloop;
+    public $content_section_html;
+    public $content_section_extensions;
+    public $content_section_offcanvas;
+
+  public $index;
+
   function __construct(){
 
     //Container: section

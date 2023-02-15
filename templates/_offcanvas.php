@@ -4,6 +4,16 @@ namespace ZMT\Theme\Templates;
 
 class _offcanvas extends \ZMT\Theme\ExtendModules {
 
+  public $offcanvascontainer;
+    public $site_logo;
+    public $menu;
+    public $search;
+    public $widget;
+    
+    public $custom_container;
+    public $custom_html;
+    public $custom_queryloop;
+
   function __construct(){
 
     //sections container

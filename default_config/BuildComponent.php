@@ -11,6 +11,13 @@ class BuildComponent {
 
   public $args = array();
 
+  public $com_status = 1;
+  public $com_lock_status = false;
+
+  public $isstartobj = NULL;//is checked with isset...
+  public $is_static_clone = NULL;//is checked with isset...
+  public $is_virtual_com = NULL;//is checked with isset...
+
 /**
   * Available Options
   * Object Values (property exists check!) do not set NULL, only set if value

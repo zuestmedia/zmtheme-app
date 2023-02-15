@@ -4,6 +4,8 @@ namespace ZMT\Theme\DefaultConfig;
 
 trait traitWidget {
 
+  public $sidebar;
+
   protected function widget_area() {
 
     // ---> add in section widget!! $this->sidebar['module_element'] = 'hide';//needed to use grid from section!!!!!!! otherwise one div around sidebars in customizer

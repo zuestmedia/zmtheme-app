@@ -4,6 +4,15 @@ namespace ZMT\Theme\Templates;
 
 class _footer extends \ZMT\Theme\ExtendModules {
 
+  public $sections;
+    public $section_nav;
+    public $section_block_template;
+    public $section_widget;
+    public $section_queryloop;
+    public $section_html;
+    public $section_extensions;
+    public $section_offcanvas;
+
   function __construct(){
 
     //sections container

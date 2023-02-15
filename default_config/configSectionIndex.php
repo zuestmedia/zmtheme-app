@@ -6,10 +6,12 @@ class configSectionIndex extends BuildComponent {
 
   public $type = 'Section';
 
-    protected function default() {
+  public $section_content;
 
-      $this->section_content = 'get_archive_or_singular';
+  protected function default() {
 
-    }
+    $this->section_content = 'get_archive_or_singular';
+
+  }
 
 }

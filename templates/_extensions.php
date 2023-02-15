@@ -4,6 +4,9 @@ namespace ZMT\Theme\Templates;
 
 class _extensions extends \ZMT\Theme\ExtendModules {
 
+  public $woocommerce;
+  public $bbpress;
+
   function __construct(){
 
     if ( class_exists( 'woocommerce' ) ) {

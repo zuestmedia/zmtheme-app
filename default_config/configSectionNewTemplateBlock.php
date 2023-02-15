@@ -4,6 +4,8 @@ namespace ZMT\Theme\DefaultConfig;
 
 class configSectionNewTemplateBlock extends configSectionNew {
 
+  public $section_content;
+
   protected function default_config() {
     $this->args['presets'] = 'default';
     $this->section_content = 'block_template';

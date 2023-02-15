@@ -4,6 +4,25 @@ namespace ZMT\Theme\Templates;
 
 class _posts extends \ZMT\Theme\ExtendModules {
 
+  public $template;
+  public $articlecontainer;
+    //modules in articlecontainer
+    public $taxonomy;
+    public $title;
+    public $image;
+    public $date;
+    public $authorlink;
+    public $taxonomy__1;
+    public $commentscounter;
+    public $editlink;
+    public $the_content;
+    public $readmore;
+    public $postmeta;
+    
+    public $custom_container;
+    public $custom_widget;
+    public $custom_html;
+
   function __construct(){
 
     //no setting; must have file for post types to be able to choose static templates

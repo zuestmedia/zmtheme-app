@@ -4,6 +4,32 @@ namespace ZMT\Theme\Templates;
 
 class _singular extends \ZMT\Theme\ExtendModules {
 
+  public $template;
+  public $articlecontainer;
+    //modules in articlecontainer
+    public $taxonomy;
+    public $title;
+    public $date;
+    public $authorlink;
+    public $taxonomy__1;
+    public $commentscounter;
+    public $editlink;
+    public $image;
+    public $the_content;
+    public $linkpages;
+    public $authorbox;
+    public $articlelinks;
+    public $comments;
+    public $postmeta;
+    
+    public $custom_container;
+    public $custom_widget;
+    public $custom_block_template;
+    public $custom_html;
+    public $custom_nav;
+    public $custom_queryloop;
+
+
   function __construct(){
 
     //no setting; must have file for post types to be able to choose static templates

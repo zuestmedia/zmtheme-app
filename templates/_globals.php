@@ -4,6 +4,12 @@ namespace ZMT\Theme\Templates;
 
 class _globals extends \ZMT\Theme\ExtendModules {
 
+  public $colors;
+  public $body;
+  public $heading;
+  public $logo;
+  public $navbar;
+
   function __construct(){
 
     $this->colors = new \ZMT\Theme\DefaultConfig\configCssVars('colors');

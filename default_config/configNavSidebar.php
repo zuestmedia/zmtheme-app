@@ -6,6 +6,8 @@ class configNavSidebar extends configNav {
 
   public $type = 'Sidebar';
 
+  public $sidebar;
+
   protected function default() {
 
     parent::default();

@@ -17,7 +17,7 @@ class Namespaces {
     * singlevalue: '\ZMT\Theme\Child\Config\\'
     * or
     * multiplevalue: array( '\ZMT\Theme\Child\Config\\', '\ZMT\Theme\Child\Config2\\' )
-    * @var string or array
+    * @var mixed
     * @access private
     */
     private $alt_namespacees = NULL;

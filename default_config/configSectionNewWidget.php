@@ -6,6 +6,8 @@ class configSectionNewWidget extends configSectionNew {
 
   use traitWidget;
 
+  public $section_content;
+
   protected function default_config() {
     //parent::sidebar();
     $this->widget_area();

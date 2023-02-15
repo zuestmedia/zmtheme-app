@@ -6,6 +6,8 @@ class configTemplate extends BuildComponent {
 
   public $type = 'Template';
 
+  public $section_content;
+
   function __construct( $key = 'default' ){
 
   /**

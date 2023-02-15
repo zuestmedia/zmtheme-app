@@ -11,6 +11,9 @@ class ComponentTypeLabel {
   * $com_type_obj->getComLabelOrKey($key) // get directly key or value
   */
 
+    public $settings_status;
+    public $opt_group;
+
     function __construct(){
 
       global $zmtheme;

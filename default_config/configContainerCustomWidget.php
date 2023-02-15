@@ -6,6 +6,8 @@ class configContainerCustomWidget extends configContainer {
 
   use traitWidget;
 
+  public $section_content;
+
   protected function default() {
 
     $this->args['presets'] = 'default';

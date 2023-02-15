@@ -4,6 +4,13 @@ namespace ZMT\Theme\Templates;
 
 class _errorpage extends \ZMT\Theme\ExtendModules {
 
+  public $errorpagecontainer;
+    public $errorpage;
+    public $search;
+
+    public $custom_container;
+    public $custom_html;
+
   function __construct(){
 
     //sections container

@@ -4,6 +4,8 @@ namespace ZMT\Theme\DefaultConfig;
 
 class configSectionNewHTML extends configSectionNew {
 
+  public $section_content;
+
   protected function default_config() {
     $this->args['presets'] = 'default';
     $this->section_content = 'get_static_html';//if custom, needs custom_section_content!

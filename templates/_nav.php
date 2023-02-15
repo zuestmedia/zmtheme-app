@@ -4,6 +4,19 @@ namespace ZMT\Theme\Templates;
 
 class _nav extends \ZMT\Theme\ExtendModules {
 
+  public $navcontainer;
+    public $site_logo;
+    public $menu;
+    public $offcanvas_toggle;
+    public $search;
+    public $widget;
+
+    public $navcontainer_inner;
+    
+    public $custom_container;
+    public $custom_html;
+    public $custom_queryloop;
+
   function __construct(){
 
     //sections container

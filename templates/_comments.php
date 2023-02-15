@@ -4,6 +4,14 @@ namespace ZMT\Theme\Templates;
 
 class _comments extends \ZMT\Theme\ExtendModules {
 
+  public $commentscontainer;
+    public $commentslist;
+    public $commentspagination;
+    public $commentsform;
+
+    public $custom_container;
+    public $custom_html;
+
   function __construct(){
 
     //sortable container
