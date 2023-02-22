@@ -80,6 +80,11 @@ class Helpers {
       return basename( Helpers::getThemeUrl() );
 
     }
+    static function getChildSlug() {
+
+      return basename( Helpers::getChildThemeUrl() );
+
+    }
 
   /**
     * GetTextDomain
@@ -106,6 +111,10 @@ class Helpers {
     static function LoadTextDomainbeforeConfigFiles(){
 
      load_theme_textdomain( Helpers::getTextDomain(), get_template_directory().'/languages' );
+
+     if( is_child_theme() ){
+      load_child_theme_textdomain( Helpers::getChildSlug(), get_stylesheet_directory().'/languages' );
+     }
 
    }
 
