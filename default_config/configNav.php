@@ -38,7 +38,8 @@ class configNav extends BuildModule {
     $this->args['module_class_flex_horizontal'] = '';
 
     $this->args['moduleinner_element'] = 'div';
-    $this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
+    //$this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
+    $this->args['moduleinner_class'] = 'uk-padding-remove-horizontal';
 
   }
 

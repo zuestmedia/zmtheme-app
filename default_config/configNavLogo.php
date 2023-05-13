@@ -30,18 +30,20 @@ class configNavLogo extends configNav {
 
     parent::navbar();
 
+    $this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
+
   }
 
   protected function nav_logo_and_subtitle() {
 
-    parent::nav();
+    $this->nav();
     $this->args['logo_wrap'] = '[{"tag":"div","attributes":{"class":"uk-logo"},"content":"%1$s"},{"tag":"div","attributes":{"class":"uk-navbar-subtitle"},"content":"%2$s","close":true}]';
 
 
   }
   protected function navbar_logo_and_subtitle() {
 
-    parent::navbar();
+    $this->navbar();
     $this->args['logo_wrap'] = '[{"tag":"div","attributes":{"class":"uk-logo"},"content":"%1$s"},{"tag":"div","attributes":{"class":"uk-navbar-subtitle"},"content":"%2$s","close":true}]';
 
 

@@ -10,7 +10,7 @@ class configNavMenu extends configNav {
 
     parent::default();
 
-    $this->args['module_class_text_align'] = '';
+    $this->args['module_class_text_align'] = '';    
 
     $this->args['presets'] = 'default';
 
@@ -53,6 +53,10 @@ class configNavMenu extends configNav {
     parent::navbar();
 
     $this->args['moduleinner_element'] = 'div';
+
+    $this->args['moduleinner_class'] = 'uk-padding-remove-horizontal'; //without uk-navbar-item!!!!
+
+    $this->args['moduleinner_wrap'] = '';
 
     $this->args['menu_ul_class'] = 'uk-navbar-nav zm-has-nav-parent-icon';
 

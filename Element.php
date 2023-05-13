@@ -231,7 +231,7 @@ class Element {
 
       ),
 
-      );
+    );
 
   }
   static function processHTMLElementTestArrayMenuItemsWrap(){
@@ -521,7 +521,7 @@ class Element {
                     </form>
                 </div>
                 <div class="uk-width-auto">
-                    <a class="uk-navbar-dropdown-close" href="#" uk-close></a>
+                    <a class="uk-drop-close" href="#" uk-close></a>
                 </div>
             </div>
 
@@ -566,7 +566,7 @@ class Element {
                         'attributes' => array(
                           'href' => '#',
                           'uk-close' => '',
-                          'class' => 'uk-navbar-dropdown-close',
+                          'class' => 'uk-drop-close',
                         ),
                         'close' => true,
                       ),

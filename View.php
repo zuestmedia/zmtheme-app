@@ -21,7 +21,7 @@ class View {
   static function checkStatus( $status, $conditions_array = array() ){
 
     $result = 1;
-    if($status == NULL) {//default = display
+    if( $status == NULL || $status == '' || $status == 0 ) {//default = display
 
       $result = 1;
 

@@ -4,6 +4,8 @@ namespace ZMT\Theme\DefaultConfig;
 
 class configContainerArticleList extends configContainer {
 
+  public $section_content;
+
   protected function default() {
 
     $this->section_content = 'get_the_post';
@@ -27,6 +29,8 @@ class configContainerArticleList extends configContainer {
 
     $this->args['moduleinner_wrap'] = '{"tag":"hr","attributes":{"class":"uk-margin-medium-bottom"},"close":false}';
 
+    // TODO add this class to most inner element of query container: zmt-ajax-post-reload-container --> id adds button to load more posts to end of container
+    //$this->args['moduleinner_class_ajaxreload'] = '';//must be at most inner element!!! --> uses get inner content loop with args
 
 
   }

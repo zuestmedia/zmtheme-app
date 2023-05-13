@@ -33,6 +33,7 @@ class configNavSidebar extends configNav {
   protected function navbar() {
 
     parent::navbar();
+    $this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
     $this->args['moduleinner_wrap'] = '';
 
   }

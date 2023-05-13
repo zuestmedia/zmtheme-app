@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.10
+Version: 1.0.11
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -10,6 +10,12 @@ Build modular OOP WordPress Themes with ZM-Theme-Framework.
 This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.11 =
+* Fix: default_config nav and navbar components updated due to uikit update to 3.16.17 (uk-navbar-item & dropdown)
+* Fix: View status check conditions added
+* Fix: Navbar parent icon
+* Fix: Config check is_object added
 
 = 1.0.10 =
 * Fix: load child textdomain if is child theme 
