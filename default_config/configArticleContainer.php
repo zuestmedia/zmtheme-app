@@ -24,7 +24,7 @@ class configArticleContainer extends configContainer {
         $this->args['module_class_disabled'] = 'zm-wp-block-width';
     //!!!!!!!!
 
-    $this->args['module_element'] = 'article';//if not set, no article classes are added
+    $this->args['module_element'] = 'div';//if not set, no article classes are added
     $this->args['module_class'] = 'uk-article';
     parent::module_background();
     parent::module_body();
@@ -33,8 +33,19 @@ class configArticleContainer extends configContainer {
     $this->args['imageoverlay_wrap'] = '';
     $this->args['imageoverlay_size'] = 'large';//thumbnail,medium,large,full //depends on imageoverlay_wrap so must be after...
 
+  }
 
+  protected function singular() {
 
+    $this->default();
+
+  }
+
+  protected function posts() {
+
+    $this->default();
+
+    $this->args['moduleouter_element'] = 'article';//if not set, no article classes are added
   }
 
 }

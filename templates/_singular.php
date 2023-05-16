@@ -36,7 +36,7 @@ class _singular extends \ZMT\Theme\ExtendModules {
     $this->template = new \ZMT\Theme\DefaultConfig\configTemplate();
 
     //articlecontainer
-    $this->articlecontainer = new \ZMT\Theme\DefaultConfig\configArticleContainer('default', false); //must be named articlecontainer!!!
+    $this->articlecontainer = new \ZMT\Theme\DefaultConfig\configArticleContainer('singular', false); //must be named articlecontainer!!!
     $this->articlecontainer->isstartobj = 'articlecontainer';
 
       //active by default

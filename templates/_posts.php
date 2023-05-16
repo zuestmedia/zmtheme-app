@@ -29,7 +29,7 @@ class _posts extends \ZMT\Theme\ExtendModules {
     $this->template = new \ZMT\Theme\DefaultConfig\configTemplate();
 
     //articlecontainer
-    $this->articlecontainer = new \ZMT\Theme\DefaultConfig\configArticleContainer('default', false); //must be named articlecontainer!!!
+    $this->articlecontainer = new \ZMT\Theme\DefaultConfig\configArticleContainer('posts', false); //must be named articlecontainer!!!
     $this->articlecontainer->isstartobj = 'articlecontainer';
 
       $this->taxonomy  = new \ZMT\Theme\DefaultConfig\configTaxonomyTerms('category',0,'articlecontainer',false);

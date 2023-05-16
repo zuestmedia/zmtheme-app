@@ -21,8 +21,13 @@ class _offcanvas extends \ZMT\Theme\ExtendModules {
     $this->offcanvascontainer->isstartobj = 'offcanvascontainer';
 
       $this->site_logo  = new \ZMT\Theme\DefaultConfig\configNavLogo( 'nav', 0, 'offcanvascontainer',false );
+      $this->site_logo->com_status = 0;
+
       $this->menu  = new \ZMT\Theme\DefaultConfig\configNavMenu( 'nav', 0, 'offcanvascontainer',false );
+      $this->menu->com_status = 0;
+
       $this->search  = new \ZMT\Theme\DefaultConfig\configNavSearch( 'nav', 0, 'offcanvascontainer',false );
+      $this->search->com_status = 0;
 
       $this->widget  = new \ZMT\Theme\DefaultConfig\configNavSidebar( 'nav', 0, 'offcanvascontainer',false );
       $this->widget->com_status = 0;

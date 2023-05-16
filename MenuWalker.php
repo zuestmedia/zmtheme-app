@@ -175,12 +175,26 @@ class MenuWalker extends Walker_Nav_Menu {
     //parent icon can be set via menu classes in wp dashboard
     if(in_array('zm-has-nav-parent-icon', $data_object->classes)){
 
-      $args->link_after = ' <span aria-hidden="true" uk-navbar-parent-icon></span>';
+      $args->link_after = ' <span aria-hidden="true" uk-nav-parent-icon></span>';
 
     }
 
     //parent icon will be set via class in presets menu_ul_class! (used in nav-accordion and navbar)
     if( strpos( $args->menu_class, 'zm-has-nav-parent-icon') !== false && ( $depth == 0 ) && in_array('menu-item-has-children', $data_object->classes)){
+
+      $args->link_after = ' <span aria-hidden="true" uk-nav-parent-icon></span>';
+
+    }
+
+    //parent icon can be set via menu classes in wp dashboard
+    if(in_array('zm-has-navbar-parent-icon', $data_object->classes)){
+
+      $args->link_after = ' <span aria-hidden="true" uk-navbar-parent-icon></span>';
+
+    }
+
+    //parent icon will be set via class in presets menu_ul_class! (used in nav-accordion and navbar)
+    if( strpos( $args->menu_class, 'zm-has-navbar-parent-icon') !== false && ( $depth == 0 ) && in_array('menu-item-has-children', $data_object->classes)){
 
       $args->link_after = ' <span aria-hidden="true" uk-navbar-parent-icon></span>';
 

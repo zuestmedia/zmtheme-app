@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.11
+Version: 1.0.12
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -11,6 +11,12 @@ This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPr
 
 == Changelog ==
 
+= 1.0.12 =
+* New: NavbarDropdownNav as default mobile menu
+* Fix: uk-nav- / uk-navbar- / uk-drop-  -parent-icon
+* Fix: ArticleContainer singular (div) and posts (article)
+* Update: default_templates _offcanvas (remove modules due to new mobile menu), _singular (articlecontainer), _posts (articlecontainer)
+ 
 = 1.0.11 =
 * Fix: default_config nav and navbar components updated due to uikit update to 3.16.17 (uk-navbar-item & dropdown)
 * Fix: View status check conditions added

@@ -58,13 +58,64 @@ class configNavMenu extends configNav {
 
     $this->args['moduleinner_wrap'] = '';
 
-    $this->args['menu_ul_class'] = 'uk-navbar-nav zm-has-nav-parent-icon';
+    $this->args['menu_ul_class'] = 'uk-navbar-nav zm-has-navbar-parent-icon';
 
     /*$this->args['menu_walker_wrap_first'] = '[{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"boundary: .uk-navbar-nav; boundary-align: true; pos: bottom-justify;offset:0;"}},{"tag":"ul","attributes":{"class":"uk-nav uk-navbar-dropdown-nav"}}]';*/
     /*$this->args['menu_walker_wrap_first'] = '[{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"boundary-align: true; pos: bottom-justify;offset:0;"}},{"tag":"ul","attributes":{"class":"uk-nav uk-navbar-dropdown-nav"}}]';*/
     //uk-drop is not necessary on default dropdown...
     $this->args['menu_walker_wrap_first'] = '[{"tag":"div","attributes":{"class":"uk-navbar-dropdown"}},{"tag":"ul","attributes":{"class":"uk-nav uk-navbar-dropdown-nav"}}]';
 
+  }
+
+  protected function navbar_dropdown_nav() {
+
+    parent::navbar();
+
+    /*
+    <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
+    <div class="uk-navbar-dropdown">
+        <ul class="uk-nav uk-navbar-dropdown-nav">
+            <li class="uk-active"><a href="#">Active</a></li>
+            <li><a href="#">Item</a></li>
+            <li><a href="#">Item</a></li>
+        </ul>
+    </div>
+    
+
+    $result = array(
+
+      array(
+          'tag' => 'a',
+          'attributes' => array(
+            'href' => '#',
+            'class' => 'uk-navbar-toggle uk-navbar-toggle-animate',
+            'uk-navbar-toggle-icon' => '',
+          ),
+          'close' => true,
+      ),
+
+      array(
+          'tag' => 'div',
+          'attributes' => array(
+            'class' => 'uk-navbar-dropdown',
+            //'uk-drop' => 'mode: click; cls-drop: uk-navbar-dropdown; boundary: .uk-navbar',
+            'uk-drop' => 'mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false',
+          ),
+      ),
+
+    );
+
+    [{"tag":"a","attributes":{"href":"#","class":"uk-navbar-toggle uk-navbar-toggle-animate","uk-navbar-toggle-icon":""},"close":true},{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false"}}]
+
+    */
+    
+    $this->args['moduleinner_wrap'] = '[{"tag":"a","attributes":{"href":"#","class":"uk-navbar-toggle uk-navbar-toggle-animate","uk-navbar-toggle-icon":""},"close":true},{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false"}}]'; 
+
+    $this->args['menu_ul_class'] = 'uk-nav uk-navbar-dropdown-nav';
+
+    $this->args['menu_walker_wrap_first'] = '{"tag":"ul","attributes":{"class":"uk-nav-sub"}}'; // simple nav
+
+    
   }
 
 
