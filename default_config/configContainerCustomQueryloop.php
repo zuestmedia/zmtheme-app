@@ -15,6 +15,10 @@ class configContainerCustomQueryloop extends configContainer {
     $this->args['query_args_json'] = '{"post_type":"post"}';
     $this->args['posts_templates_object'] = 'posts';
 
+    $this->args['ajax_posts_loading'] = 1;
+    $this->args['ajax_posts_loading_container_class'] = 'uk-width-1-1 uk-text-center';
+    $this->args['ajax_posts_loading_button_class'] = 'uk-button uk-button-default uk-width-medium';
+
     //$this->args['moduleouter_element'] = 'div';
     parent::module();//as surrounding div for grids / slider
     parent::module_layout_helper();

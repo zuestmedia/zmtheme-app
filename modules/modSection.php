@@ -26,28 +26,10 @@ class modSection extends \ZMT\Theme\Component {
   }
 
 /**
-  * Section Content Type
-  */
-  private $section_content_type = NULL;
-
-/**
   * Create / add Items of Container / Section only once!!!
   */
   private $oncecreating = 1;
 
-/**
-  * Set, Get Most Outer Element of Module
-  */
-  public function setSectionContentType($section_content_type) {
-
-    $this->section_content_type = $section_content_type;
-
-  }
-  public function getSectionContentType() {
-
-    return $this->section_content_type;
-
-  }
 /**
   * Set, Get Most Outer Element of Module
   */

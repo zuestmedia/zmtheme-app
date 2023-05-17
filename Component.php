@@ -74,6 +74,23 @@ class Component extends Base {
     */
     private $content = NULL;
 
+    
+  /**
+    * Section Content Type
+    */
+    private $section_content_type = NULL;
+
+    public function setSectionContentType($section_content_type) {
+  
+      $this->section_content_type = $section_content_type;
+  
+    }
+    public function getSectionContentType() {
+  
+      return $this->section_content_type;
+  
+    }
+
   /**
     * OptGroup Präfix Getters n Setters
     *
@@ -426,9 +443,6 @@ class Component extends Base {
         //'_zmquery_id' after (suffix) so its no danger to exchange zmquery_id_posts and zmquery_id_posts_theme --> posts_zmquery_id / posts_theme_zmquery_id
         return $this->getArg('posts_templates_object').'_zmquery_id';
 
-        // TODO ajax reload post class add here (deactivate is_customize_preview in getCustomizerPostQueryInnerContainerClass to get classes)
-        //return $this->getArg('posts_templates_object').'_zmquery_id zmt-ajax-post-reload-container '.$this->getId();
-
       }
 
       return NULL;
@@ -578,16 +592,16 @@ class Component extends Base {
 
             $result = 1;
 
+          } elseif( get_class($this) == 'ZMT\Theme\Modules\modContainer' && ( $this->getSectionContentType() == 'get_the_post' || $this->getSectionContentType() == 'get_query_loop' ) ){
+
+            $result = 1;
+
           } elseif( strpos( $this->getId(), '__articlelistcontainer' ) !== false ){
 
             $result = 1;
 
-          } elseif( get_class($this) == 'ZMT\Theme\Modules\modQueryLoop' ){
-
-            $result = 1;
-
-          }
-
+          } 
+          
         }
 
       }

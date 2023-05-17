@@ -605,6 +605,31 @@ class Theme {
       }
 
     }
+    static function LocalizeScript($js_slug,$localize_array){
+
+      if(is_array($localize_array) && array_key_exists('var_name',$localize_array)){
+
+        $data = array();
+        if(array_key_exists('translations',$localize_array) && is_array($localize_array['translations'])){
+          $data = $localize_array['translations'];
+        }
+
+        global $wp_query; 
+
+        //auto add admin-php and nonce security!
+        $data['homeurl'] = get_home_url();
+        $data['ajaxurl'] = admin_url( 'admin-ajax.php' );
+        $data['ajaxnonce'] = wp_create_nonce( 'zmt_global_ajax_validation' );
+  
+        wp_localize_script( 
+          $js_slug,
+          $localize_array['var_name'],
+          $data
+        );
+
+      }      
+
+    }
 
 
     /**
@@ -623,6 +648,12 @@ class Theme {
 
           //Call to static function... (wäre auch mit this möglich, aber so korrekter)
           self::EnqueueScript($innerarray['js_slug'],$js_url,$js_deps,$js_ver,$js_in_footer);
+
+          if(array_key_exists('js_localize',$innerarray)){
+
+            self::LocalizeScript($innerarray['js_slug'],$innerarray['js_localize']);
+
+          }
 
         }
 
@@ -643,6 +674,12 @@ class Theme {
 
           //Call to static function... (wäre auch mit this möglich, aber so korrekter)
           self::EnqueueScript($innerarray['js_slug'],$js_url,$js_deps,$js_ver,$js_in_footer);
+
+          if(array_key_exists('js_localize',$innerarray)){
+
+            self::LocalizeScript($innerarray['js_slug'],$innerarray['js_localize']);
+
+          }
 
         }
 

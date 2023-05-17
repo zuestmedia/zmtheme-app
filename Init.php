@@ -101,6 +101,9 @@ class Init {
         //add modules to head
         new \ZMT\Theme\Head();
 
+        //add ajax posts loader
+        new \ZMT\Theme\AjaxPostsLoader();
+
     }
 
     public function initThemeSettings(){
