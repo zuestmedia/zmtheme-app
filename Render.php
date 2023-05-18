@@ -406,7 +406,7 @@ class Render {
       }
 
       //ajax post loading
-      $content .= \ZMT\Theme\Render::AjaxPostLoadingButton($init_obj,$zm_query,false);//no fallback, because if ajax has javascript!
+      $content .= \ZMT\Theme\Render::AjaxPostLoadingButton($init_obj,$zm_query,false);//no fallback, only archives have nav pages
 
     } 
 
@@ -499,7 +499,7 @@ class Render {
       }
 
       //ajax post loading
-      $content .= \ZMT\Theme\Render::AjaxPostLoadingButton($init_obj,$zm_query);
+      $content .= \ZMT\Theme\Render::AjaxPostLoadingButton($init_obj,$zm_query,false);//no fallback, only archives have nav pages
 
     } 
 

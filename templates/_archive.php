@@ -31,11 +31,13 @@ class _archive extends \ZMT\Theme\ExtendModules {
       $this->archivetitle  = new \ZMT\Theme\DefaultConfig\configArchiveTitle('default',0,'archivecontainer',false);
       $this->archivedescription  = new \ZMT\Theme\DefaultConfig\configArchiveDescription( 'default', 0,'archivecontainer',false );
       $this->articlelistcontainer  = new \ZMT\Theme\DefaultConfig\configContainerArticleList( 'default', 0,'archivecontainer',false );
-      $this->pagination  = new \ZMT\Theme\DefaultConfig\configPagination( 'default', 0,'archivecontainer',false );
 
       //inactive by default
       /*$this->separator = new \ZMT\Theme\DefaultConfig\configSeparator('default',0,'archivecontainer',false );
       $this->separator->com_status = 0;*/
+      
+      $this->pagination  = new \ZMT\Theme\DefaultConfig\configPagination( 'default', 0,'archivecontainer',false );
+      $this->pagination->com_status = 0;
 
       $this->queryterm  = new \ZMT\Theme\DefaultConfig\configQueryTerm( 'default', 0,'archivecontainer',false );
       $this->queryterm->com_status = 0;

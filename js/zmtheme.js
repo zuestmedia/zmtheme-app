@@ -143,9 +143,9 @@ jQuery(document).ready(function($) {
 			
 			event.preventDefault();
       
-      $(this).closest('.zmt-ajax-posts-load-container').find('.zmt-ajax-posts-load-button').hide();
-      $(this).closest('.zmt-ajax-posts-load-container').find('.zmt-ajax-posts-loading-button').show();
-	
+			$(this).closest('.zmt-ajax-posts-load-container').find('.zmt-ajax-posts-load-button').hide();
+			$(this).closest('.zmt-ajax-posts-load-container').find('.zmt-ajax-posts-loading-button').show();
+			
 			var query_data = {
 				query: JSON.stringify($(this).closest('.zmt-ajax-posts-load-container').data('zmt-query')),//important to stringify data, so array datatypes are kept... and clean
 				maxpages: $(this).closest('.zmt-ajax-posts-load-container').data('zmt-maxpages'),
@@ -167,17 +167,22 @@ jQuery(document).ready(function($) {
 						
 					if(response.success == true){   
 
-            //makes fade effect wo replaced container
-            $('.' + response.data.comid+'-ajax-button-container').replaceWith(function() {
-              return $(response.data.html).hide().fadeIn();
-            });
+						//get articlelistcontainer before replacing '-ajax-button-container'
+						var articlelistcontainer = $('.' + response.data.comid+'-ajax-button-container').parent();
 
-            //display container with button
-            $('.zmt-ajax-posts-load-container').show(600);
+						//makes fade effect wo replaced container
+						$('.' + response.data.comid+'-ajax-button-container').replaceWith(function() {
+							return $(response.data.html).hide().fadeIn();
+						});
 
-            $('html, body').animate({
-              scrollTop: $('#' + response.data.next_post_id ).offset().top
-            }, 800);
+						//display container with button
+						$('.zmt-ajax-posts-load-container').show(600);
+
+						//find scrolltoelement based on actual articlelistcontainer where replacement happened.
+						var scrolltoelement = articlelistcontainer.find('#' + response.data.next_post_id);
+						$('html, body').animate({
+							scrollTop: scrolltoelement.offset().top
+						}, 800);
 						
 					}
 	

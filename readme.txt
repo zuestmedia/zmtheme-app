@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.14
+Version: 1.0.15
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -10,6 +10,10 @@ Build modular OOP WordPress Themes with ZM-Theme-Framework.
 This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.15 =
+* Fix: small fixes on AJAX Posts Loading Script and fallback nav only shown in archives
+* Remove: pagination module for archives is now optionally available but not by default activated (replaced by ajax posts loading)
 
 = 1.0.14 =
 * New: AJAX Posts Loading in default WP Query and Custom Queries in section and module
