@@ -42,6 +42,20 @@ class View {
 
       }
 
+    } elseif($status == '3') {//custom
+
+      $result = 1;
+      if($conditions_array) {
+
+      //  $result = self::checkConditions($conditions_array);
+        $inverse_check = self::checkConditions2($conditions_array);
+
+        if($inverse_check == 1){
+          $result = NULL;
+        }
+
+      }
+
     }
 
     return $result;
@@ -132,7 +146,7 @@ class View {
       */
       global $template;
       if( basename( $template ) == 'bbpress.php' ){
-        return 'bbPress';
+        return 'bbpress';//lowercase!!!
       }
     }
 
@@ -147,22 +161,22 @@ class View {
 
     if (!empty($conditions_array)) {
 
-      //check if logged in user content only!
+      //check if logged in user content only!      
+      
       if (in_array( 'loggedin', $conditions_array )) {
-        if(is_user_logged_in() == false){
-          return $result;
+        if(is_user_logged_in()){
+          $result = 1;
         }
+        //return $result;//do not return, --> if no others match, returns 1 at the end!
       }
 
-      //check first if is woo or bbp
+      //check first if is woo or bbp, they meet myabe also default conditions if not checked before
       $wooorbbp = self::isWooorbbP( $conditions_array );
       if( $wooorbbp !== false ){
 
         if (in_array( $wooorbbp, $conditions_array )) {
-          $result = 1;
+          return 1;
         }
-
-        return $result;
 
       }
 
