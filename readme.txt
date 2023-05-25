@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.16
+Version: 1.0.17
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -10,6 +10,10 @@ Build modular OOP WordPress Themes with ZM-Theme-Framework.
 This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.17 =
+* Update: View / display settings updated -> loggedin: as single condition valid for all pages / if has other conditions than loggedin, loggedin valid only together with other conditions 
+* Remove: section_offcanvas is not anymore set by default
 
 = 1.0.16 =
 * Update: View / display settings updated -> "hide if" display conditions added

@@ -1,4 +1,4 @@
-/*! ZMTheme.js | ZMTheme.com 2021 !*/
+/*! ZMTheme.js | zuestmedia.com !*/
 
 jQuery(document).ready(function($) {
 

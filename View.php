@@ -37,8 +37,19 @@ class View {
       $result = NULL;
       if($conditions_array) {
 
-      //  $result = self::checkConditions($conditions_array);
-        $result = self::checkConditions2($conditions_array);
+        // returns 0 = if not logged in, 1 = if loggedin is unique condition 2 = if loggedin and other conditions
+        $loggedin = self::checkLoginStatus($conditions_array);
+
+        //returns 0 = if not matched condition, 1 = if matched condition
+        $conditions = self::checkConditions2($conditions_array);
+
+        if($loggedin == 1){
+          $result = 1;
+        } elseif($loggedin == 2 && $conditions == 1){
+          $result = 1;
+        } elseif($conditions == 1 && !in_array( 'loggedin', $conditions_array ) ){
+          $result = 1;
+        }
 
       }
 
@@ -47,8 +58,20 @@ class View {
       $result = 1;
       if($conditions_array) {
 
-      //  $result = self::checkConditions($conditions_array);
-        $inverse_check = self::checkConditions2($conditions_array);
+        // returns 0 = if not logged in, 1 = if loggedin is unique condition 2 = if loggedin and other conditions
+        $loggedin = self::checkLoginStatus($conditions_array);
+
+        //returns 0 = if not matched condition, 1 = if matched condition
+        $conditions = self::checkConditions2($conditions_array);
+
+        $inverse_check = 0;
+        if($loggedin == 1){
+          $inverse_check = 1;
+        } elseif($loggedin == 2 && $conditions == 1){
+          $inverse_check = 1;
+        } elseif($conditions == 1 && !in_array( 'loggedin', $conditions_array ) ){
+          $inverse_check = 1;
+        }
 
         if($inverse_check == 1){
           $result = NULL;
@@ -160,15 +183,6 @@ class View {
     $result = NULL;
 
     if (!empty($conditions_array)) {
-
-      //check if logged in user content only!      
-      
-      if (in_array( 'loggedin', $conditions_array )) {
-        if(is_user_logged_in()){
-          $result = 1;
-        }
-        //return $result;//do not return, --> if no others match, returns 1 at the end!
-      }
 
       //check first if is woo or bbp, they meet myabe also default conditions if not checked before
       $wooorbbp = self::isWooorbbP( $conditions_array );
@@ -295,6 +309,28 @@ class View {
       return $result;
 
     }
+
+  }
+
+  static function checkLoginStatus($conditions_array){
+
+    $result = 0;
+
+    if (!empty($conditions_array)) {
+
+      if (in_array( 'loggedin', $conditions_array )) {
+        if(is_user_logged_in()){
+          if(count($conditions_array) == 1){
+            $result = 1;//return 1 if is the only condition, so on all loggedin or not loggedin users is shown or hidden
+          } else{
+            $result = 2;//return 2 if has also other conditions to check!
+          }         
+        }        
+      }
+
+    }
+
+    return $result;
 
   }
 
