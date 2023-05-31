@@ -14,7 +14,7 @@ class configContainerArticleList extends configContainer {
 
     $this->args['posts_templates_object'] = 'posts';
 
-    $this->args['ajax_posts_loading'] = 1;
+    $this->args['ajax_posts_loading'] = 0;
     $this->args['ajax_posts_loading_container_class'] = 'uk-width-1-1 uk-text-center';
     $this->args['ajax_posts_loading_button_class'] = 'uk-button uk-button-default uk-width-medium';
 
@@ -32,9 +32,6 @@ class configContainerArticleList extends configContainer {
     parent::moduleinner_grid_article_list();
 
     $this->args['moduleinner_wrap'] = '{"tag":"hr","attributes":{"class":"uk-margin-medium-bottom"},"close":false}';
-
-    // TODO add this class to most inner element of query container: zmt-ajax-post-reload-container --> id adds button to load more posts to end of container
-    //$this->args['moduleinner_class_ajaxreload'] = '';//must be at most inner element!!! --> uses get inner content loop with args
 
 
   }

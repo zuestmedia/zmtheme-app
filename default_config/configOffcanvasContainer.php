@@ -33,7 +33,7 @@ class configOffcanvasContainer extends configContainerSortable {
 
     $this->args['moduleouter_attrs'] = '{"uk-offcanvas":"overlay: true;"}';
 
-    $this->args['module_wrap'] = '{"tag":"div","attributes":{"class":"uk-offcanvas-bar"},"content_end":{"tag":"button","attributes":{"type":"button","class":"uk-offcanvas-close","uk-close":""},"content":{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label_close__","close":true},"close":true}}';
+    $this->args['module_wrap'] = '{"tag":"div","attributes":{"class":"uk-offcanvas-bar"},"content":{"tag":"button","attributes":{"type":"button","class":"uk-offcanvas-close","uk-close":""},"content":{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label_close__","close":true},"close":true}}';
 
   }
 

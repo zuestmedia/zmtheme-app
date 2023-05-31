@@ -1,6 +1,6 @@
 === ZM Theme Framework ===
 Contributors: zuestmedia
-Version: 1.0.17
+Version: 1.0.18
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZM-Theme-Framework.
@@ -10,6 +10,13 @@ Build modular OOP WordPress Themes with ZM-Theme-Framework.
 This is the core of ZM-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZM Plugin Template Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.18 =
+* Update: Accesibility fix Render.php - added aria-hidden to ajax loading button icon 
+* Update: Accesibility fix modMenu - add "Open menu" to dropdown navbar_dropdown_nav
+* Update: Accessiblity fix zmtheme.js - adds aria-hidden to uk-close svg icon
+* Update: Accesibility fixes in configNavMenu, configNavSearch, configNavToggle & configOffcanvasContainer
+* Update: use pagination by default, ajax posts loading is an option
 
 = 1.0.17 =
 * Update: View / display settings updated -> loggedin: as single condition valid for all pages / if has other conditions than loggedin, loggedin valid only together with other conditions 

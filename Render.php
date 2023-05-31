@@ -626,8 +626,8 @@ class Render {
 
           $content .=  '<div class="zmt-ajax-posts-load-container '.esc_attr($init_obj).'-ajax-button-container '.esc_attr($container_class).'" data-zmt-comid="'.esc_attr($init_obj).'" data-zmt-query="'.esc_attr(htmlspecialchars(wp_json_encode($wp_query->query_vars))).'" data-zmt-maxpages="'.esc_attr($wp_query->max_num_pages).'" data-zmt-current="'.esc_attr($current_page).'" style="display:none;">';
 
-            $content .= '<button class="zmt-ajax-posts-load-button uk-animation-scale-up '.esc_attr($button_class).'"><i class="uk-margin-small-right" uk-icon="icon:refresh;ratio:0.8;"></i>'.esc_html( \ZMT\Theme\Helpers::getTrStr('Loadmoreposts') ).'</button>';
-            $content .= '<button class="zmt-ajax-posts-loading-button '.esc_attr($button_class).'" style="display:none;"><i class="uk-margin-small-right" uk-spinner="ratio:0.5;"></i>'.esc_html( \ZMT\Theme\Helpers::getTrStr('Loading') ).'</button>';
+            $content .= '<button class="zmt-ajax-posts-load-button uk-animation-scale-up '.esc_attr($button_class).'"><i class="uk-margin-small-right" uk-icon="icon:refresh;ratio:0.8;" aria-hidden="true"></i>'.esc_html( \ZMT\Theme\Helpers::getTrStr('Loadmoreposts') ).'</button>';
+            $content .= '<button class="zmt-ajax-posts-loading-button '.esc_attr($button_class).'" style="display:none;"><i class="uk-margin-small-right" uk-spinner="ratio:0.5;" aria-hidden="true"></i>'.esc_html( \ZMT\Theme\Helpers::getTrStr('Loading') ).'</button>';
                         
           $content .= '</div>';
 

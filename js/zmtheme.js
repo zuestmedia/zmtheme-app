@@ -8,7 +8,9 @@ jQuery(document).ready(function($) {
 
 	zmNoFullAlignClasstoBody($);
 
-  zmtAjaxPostsLoader($);
+ 	zmtAjaxPostsLoader($);
+
+	zmtaccessibilityTweak($);
 
 });
 
@@ -192,4 +194,11 @@ jQuery(document).ready(function($) {
 	
 		});
 	
+	}
+
+	function zmtaccessibilityTweak($){
+
+		//add aria-hidden to close icons
+		$(".uk-close").children("svg").attr( "aria-hidden", "true" );
+
 	}

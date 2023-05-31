@@ -36,8 +36,9 @@ class _archive extends \ZMT\Theme\ExtendModules {
       /*$this->separator = new \ZMT\Theme\DefaultConfig\configSeparator('default',0,'archivecontainer',false );
       $this->separator->com_status = 0;*/
       
+      //add pagination by default, ajax posts loading optional
       $this->pagination  = new \ZMT\Theme\DefaultConfig\configPagination( 'default', 0,'archivecontainer',false );
-      $this->pagination->com_status = 0;
+      //$this->pagination->com_status = 0;
 
       $this->queryterm  = new \ZMT\Theme\DefaultConfig\configQueryTerm( 'default', 0,'archivecontainer',false );
       $this->queryterm->com_status = 0;

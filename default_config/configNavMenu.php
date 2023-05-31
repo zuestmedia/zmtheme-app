@@ -71,45 +71,7 @@ class configNavMenu extends configNav {
 
     parent::navbar();
 
-    /*
-    <a class="uk-navbar-toggle uk-navbar-toggle-animate" uk-navbar-toggle-icon href="#"></a>
-    <div class="uk-navbar-dropdown">
-        <ul class="uk-nav uk-navbar-dropdown-nav">
-            <li class="uk-active"><a href="#">Active</a></li>
-            <li><a href="#">Item</a></li>
-            <li><a href="#">Item</a></li>
-        </ul>
-    </div>
-    
-
-    $result = array(
-
-      array(
-          'tag' => 'a',
-          'attributes' => array(
-            'href' => '#',
-            'class' => 'uk-navbar-toggle uk-navbar-toggle-animate',
-            'uk-navbar-toggle-icon' => '',
-          ),
-          'close' => true,
-      ),
-
-      array(
-          'tag' => 'div',
-          'attributes' => array(
-            'class' => 'uk-navbar-dropdown',
-            //'uk-drop' => 'mode: click; cls-drop: uk-navbar-dropdown; boundary: .uk-navbar',
-            'uk-drop' => 'mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false',
-          ),
-      ),
-
-    );
-
-    [{"tag":"a","attributes":{"href":"#","class":"uk-navbar-toggle uk-navbar-toggle-animate","uk-navbar-toggle-icon":""},"close":true},{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false"}}]
-
-    */
-    
-    $this->args['moduleinner_wrap'] = '[{"tag":"a","attributes":{"href":"#","class":"uk-navbar-toggle uk-navbar-toggle-animate","uk-navbar-toggle-icon":""},"close":true},{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false"}}]'; 
+    $this->args['moduleinner_wrap'] = '[{"tag":"button","attributes":{"class":"uk-button uk-button-text uk-navbar-toggle uk-navbar-toggle-animate"},"content":[{"tag":"i","attributes":{"uk-navbar-toggle-icon":"{\"i18n\": {\"label\": \"__label_menu_toggle__\"}}","aria-hidden":"true"},"close":true},{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label_menu_toggle__","close":true}],"close":true},{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false"}}]'; 
 
     $this->args['menu_ul_class'] = 'uk-nav uk-navbar-dropdown-nav';
 
