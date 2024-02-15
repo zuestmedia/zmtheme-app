@@ -11,7 +11,7 @@ class configContainerSortableNav extends configContainerSortable {
     $this->args['presets'] = 'default';
 
     parent::module();
-    $this->args['module_element'] = 'div';
+    $this->args['module_element'] = 'div';    
 
     parent::module_background();
     parent::module_body();
@@ -32,6 +32,9 @@ class configContainerSortableNav extends configContainerSortable {
   protected function navbar() {
 
     $this->default();
+
+    //needs navbar-container (& transparent!) class to calculate drop position!
+    $this->args['module_class'] = 'uk-navbar-container uk-navbar-transparent';
 
     $this->args['moduleinner_class'] = 'uk-flex-between';
 

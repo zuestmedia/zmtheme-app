@@ -1,15 +1,18 @@
-=== ZM Theme Framework ===
+=== ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.0.19
+Version: 1.0.20
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 
 == Description ==
 
-This is the core of the ZuestMedia-Theme-Framework to build completly modular PHP OOP WordPress Themes which can be edited with ZMPlugin Template-Editor and Customizer.
+This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.20 =
+* Fix: UIKIT update need new classes uk-navbar-container uk-navbar-transparent in navbar container to calculate new drop position
 
 = 1.0.19 =
 * New: Adds data privacy checkbox to comments form, if a page is set in settings/privacy
