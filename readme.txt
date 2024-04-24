@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.0.20
+Version: 1.0.21
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,9 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.21 =
+* New: Theme setting added to asign template modules by page_ids (view.php)
 
 = 1.0.20 =
 * Fix: UIKIT update need new classes uk-navbar-container uk-navbar-transparent in navbar container to calculate new drop position

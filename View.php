@@ -236,15 +236,24 @@ class View {
         if( is_page_template( ) ) {
           $key = get_page_template_slug();
           if (in_array( $key, $conditions_array )) {
-            $result = 1;
+            return 1;
           }
-          return $result;
+        }
+
+        if( is_page() ){
+
+          $page_id = get_the_ID();
+          $key = 'page_id_'.$page_id;
+          if (in_array( $key, $conditions_array )) {
+            return 1;
+          }          
+
         }
 
         if( is_page() && is_front_page() == false ) {
 
           if (in_array( 'page', $conditions_array )) {
-            $result = 1;
+            return 1;
           }
 
         //single
@@ -256,7 +265,7 @@ class View {
               $key = 'single_'.get_post_type();
             }
             if (in_array( $key, $conditions_array )) {
-              $result = 1;
+              return 1;
             }
 
         }
