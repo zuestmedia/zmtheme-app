@@ -78,9 +78,29 @@ class Init {
 
         $zmtheme['theme']->setStarterContent( $theme_config_object->startercontent->content );
 
-        //child theme js
-        if( is_child_theme() && isset( $theme_config_object->theme->js_array_child_theme ) ){
-          $zmtheme['theme']->setJsArrayChildTheme( $theme_config_object->theme->js_array_child_theme );
+        if( is_child_theme() ){
+
+          //child theme css 
+          if( isset( $theme_config_object->theme->css_child_theme ) ){
+            $zmtheme['theme']->setCssChildTheme( $theme_config_object->theme->css_child_theme );
+          }
+          //child theme css-rtl
+          if( isset( $theme_config_object->theme->css_rtl_child_theme ) ){
+            $zmtheme['theme']->setCssRtlChildTheme( $theme_config_object->theme->css_rtl_child_theme );
+          }
+          //child theme uikit js
+          if( isset( $theme_config_object->theme->js_child_theme ) ){
+            $zmtheme['theme']->setJsChildTheme( $theme_config_object->theme->js_child_theme );
+          }
+          //child theme uikit icons
+          if( isset( $theme_config_object->theme->icons_child_theme ) ){
+            $zmtheme['theme']->setIconsChildTheme( $theme_config_object->theme->icons_child_theme );
+          }
+          //child theme js array
+          if( isset( $theme_config_object->theme->js_array_child_theme ) ){
+            $zmtheme['theme']->setJsArrayChildTheme( $theme_config_object->theme->js_array_child_theme );
+          }
+
         }
 
 

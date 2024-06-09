@@ -2,6 +2,8 @@
 
 namespace ZMT\Theme;
 
+#[\AllowDynamicProperties]
+
 class ExtendModules {
 
   /**

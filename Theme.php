@@ -37,6 +37,12 @@ class Theme {
     private $js = NULL;
     private $icons = NULL;
 
+    private $css_child_theme = NULL;
+    private $css_rtl_child_theme = NULL;
+
+    private $js_child_theme = NULL;
+    private $icons_child_theme = NULL;
+
     private $headscript = NULL;
     private $footerscript = NULL;
 
@@ -298,25 +304,96 @@ class Theme {
 
     }
 
+  /**
+    * CSS Child Theme Get n Set
+    */
+    public function setCssChildTheme($css_child_theme) {
+
+      $this->css_child_theme = $css_child_theme;
+
+    }
+    public function getCssChildThemeDefaultValue() {
+
+      return $this->css_child_theme;
+
+    }
+    public function setCssRtlChildTheme($css_rtl_child_theme) {
+
+      $this->css_rtl_child_theme = $css_rtl_child_theme;
+
+    }
+    public function getCssRtlChildThemeDefaultValue() {
+
+      return $this->css_rtl_child_theme;
+
+    }
+    public function getCssChildTheme() {
+
+      if ( is_rtl() ) {
+
+        return $this->getCSSFileByType( $this->getCssRtlChildThemeDefaultValue() );
+
+      } else {
+
+        return $this->getCSSFileByType( $this->getCssChildThemeDefaultValue() );
+
+      }
+
+    }
+
+    /**
+     * Set ChildTheme uikit Js and Icons
+     */
+    public function setJsChildTheme($js_child_theme) {
+
+      $this->js_child_theme = $js_child_theme;
+
+    }
+
+    public function setIconsChildTheme($icons_child_theme) {
+
+      $this->icons_child_theme = $icons_child_theme;
+
+    }
+
+    
+    /**
+     * Set JS and Icons
+     */
     public function setJs($js) {
 
       $this->js = $js;
 
     }
-    public function getJs() {
-
-      return Helpers::getThemeUrl().$this->js;
-
-    }
-
     public function setIcons($icons) {
 
       $this->icons = $icons;
 
     }
+
+    /**
+     * Get JS and Icons of Main or, if is set, from child theme
+     */
+    public function getJs() {
+
+      if(is_child_theme() && $this->js_child_theme){
+        return Helpers::getChildThemeUrl().$this->js_child_theme;
+      }
+
+      if($this->js){
+        return Helpers::getThemeUrl().$this->js;
+      }
+
+    }
     public function getIcons() {
 
-      return Helpers::getThemeUrl().$this->icons;
+      if(is_child_theme() && $this->icons_child_theme){
+        return Helpers::getChildThemeUrl().$this->icons_child_theme;
+      }
+
+      if($this->icons){
+        return Helpers::getThemeUrl().$this->icons;
+      }
 
     }
 
@@ -707,11 +784,21 @@ class Theme {
     public function Assets() {
 
       //if set to NULL, css or script will not be loaded, all set by default!
-      if($this->getCss()) {
+      /*if($this->getCss()) {
+        self::EnqueueStyle($this->getFramework().'-css',Helpers::getThemeUrl().$this->getCss(),NULL,$this->getVersion());
+      }*/
+
+      //loads uikit child css if available, else main theme uikit css or nothing
+      if($this->getCssChildTheme()){
+        self::EnqueueStyle($this->getFramework().'-css',Helpers::getChildThemeUrl().$this->getCssChildTheme(),NULL,$this->getVersion());
+      } elseif($this->getCss()) {
         self::EnqueueStyle($this->getFramework().'-css',Helpers::getThemeUrl().$this->getCss(),NULL,$this->getVersion());
       }
+
+      //uikit js & icons from main or child theme automatically
       if($this->getJs()) {
-        self::EnqueueScript($this->getFramework().'-js',$this->getJs(),array('jquery'),$this->getVersion());
+        //self::EnqueueScript($this->getFramework().'-js',$this->getJs(),array('jquery'),$this->getVersion());
+        self::EnqueueScript($this->getFramework().'-js',$this->getJs(),array(),$this->getVersion());
       }
       if($this->getIcons()) {
         self::EnqueueScript($this->getFramework().'-icons',$this->getIcons(),array($this->getFramework().'-js'),$this->getVersion());

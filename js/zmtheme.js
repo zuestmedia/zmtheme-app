@@ -2,9 +2,9 @@
 
 jQuery(document).ready(function($) {
 
-	zmRotateNavToggle($);
+	//zmRotateNavToggle($);
 
-	zmIconsMenu($);
+	//zmIconsMenu($);
 
 	zmNoFullAlignClasstoBody($);
 
@@ -31,7 +31,7 @@ jQuery(document).ready(function($) {
 /**
 	* rotating offcanvas_toggle
 	*/
-	function zmRotateNavToggle($){
+	/*function zmRotateNavToggle($){
 
 		if ($('.zmrotate-45')[0]){
 
@@ -52,10 +52,10 @@ jQuery(document).ready(function($) {
 
 		}
 
-	}
+	}*/
 	//needs to turn back if modal or offcanvas sidebar is closes otherwise!
 	//can use zmtargetid see confignavtoggle default
-	function zmRotateNavToggleBack($,obj){
+	/*function zmRotateNavToggleBack($,obj){
 
 		var targetid = obj.parent().attr("zmtargetid");
 
@@ -65,7 +65,7 @@ jQuery(document).ready(function($) {
 
 		});
 
-	}
+	}*/
 
 /**
 	* transform social media links to icons
@@ -75,7 +75,7 @@ jQuery(document).ready(function($) {
 	* ---> add title or tooltip!!!
 	*
 	*/
-	function zmIconsMenu($){
+	/*function zmIconsMenu($){
 
 		//if ($(".zmiconsmenu")[0]){
 		if ($(".zmsocialicons")[0]){
@@ -96,16 +96,28 @@ jQuery(document).ready(function($) {
 
 		}
 
-	}
+	}*/
 
-	function zmGetClassStartsWith(classes,string,$){
+	/*function zmGetClassStartsWith(classes,string,$){
 		var r=$.grep(classes.split(" "),function(classes,r){
 			return 0===classes.indexOf(string);
 		}).join();
 		return r||!1;
+	}*/
+
+	/* in plain js
+
+	function zmGetClassStartsWith(classes, string) {
+		var classArray = classes.split(" ");
+		var matchingClasses = classArray.filter(function(className) {
+			return className.indexOf(string) === 0;
+		});
+		return matchingClasses.length ? matchingClasses.join() : false;
 	}
 
-	function zmSocialIcons(obj, ratio){
+	*/
+
+	/*function zmSocialIcons(obj, ratio){
 
 		var childrenhrefs = obj.children('a').attr("href");
 
@@ -127,15 +139,15 @@ jQuery(document).ready(function($) {
 			zmSocialIcon(obj,'link',ratio);
 		}
 
-	}
+	}*/
 
-	function zmSocialIcon(obj,iconclass,ratio){
+	/*function zmSocialIcon(obj,iconclass,ratio){
 
 		//console.log('there is a ' + iconclass + ' menulink to change: uk-icon="icon:' + iconclass + ';"');
 		obj.children('a').text('');
 		obj.children('a').append('<i uk-icon="icon:' + iconclass + ';ratio:' + ratio + ';"></i>');
 
-	}
+	}*/
 
 	function zmtAjaxPostsLoader($){
 

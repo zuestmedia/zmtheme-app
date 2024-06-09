@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.0.21
+Version: 1.0.22
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,12 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.22 =
+* New: Child Theme Css and Js/Icons options added to use via theme config file
+* Update: uikit 3.1.25 update of uk-nav-search classes
+* Fix: #[\AllowDynamicProperties] where necessary
+* Test: added zmtheme2.js and AjaxPostsLoader2.php test file to start tests without jquery
 
 = 1.0.21 =
 * New: Theme setting added to asign template modules by page_ids (view.php)

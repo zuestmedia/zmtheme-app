@@ -47,7 +47,7 @@ class configNavSearch extends configNav {
 
     $this->args['content_wrap'] = '[{"tag":"button","attributes":{"class":"uk-button uk-button-link uk-navbar-toggle"},"content":[{"tag":"i","attributes":{"style":"min-width:20px;","uk-search-icon":"{\"i18n\": {\"submit\": \"__label__\"}}","aria-hidden":"true"},"close":true},{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label__","close":true}],"close":true},{"tag":"div","attributes":{"class":"uk-dropdown uk-padding-small","uk-drop":"mode: click; boundary: !.uk-navbar; stretch: x; flip: false; target-y: !.uk-navbar"}},{"tag":"div","attributes":{"class":"uk-grid-small uk-flex-middle","uk-grid":""},"content_end":{"tag":"div","attributes":{"class":"uk-width-auto"},"content":{"tag":"button","attributes":{"uk-close":"","class":"uk-button uk-button-link uk-drop-close"},"content":{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label_close__","close":true},"close":true},"close":true}},{"tag":"div","attributes":{"class":"uk-width-expand"}}]';
 
-    $this->args['form_class'] = 'uk-search uk-search-navbar uk-width-1-1';
+    $this->args['form_class'] = 'uk-search uk-search-medium uk-width-1-1';
     $this->args['search_icon'] = '';
     $this->args['autofocus'] = 1;
 
