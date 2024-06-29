@@ -41,10 +41,14 @@ class modArticleContainer extends modContainerSortable {
         $classes = 'zm-nohide-articles';//to jquery not hide if has zm-prev-hidden eg in article container children
       }
 
-      $stickyclass = $this->getArg('sticky_class'); //only escape in getContent! --> this is a modContainer class...
+      if($classes){
 
-      if( strpos( $classes, 'sticky') ){
-        $classes .= ' '.$stickyclass;
+        $stickyclass = $this->getArg('sticky_class'); //only escape in getContent! --> this is a modContainer class...
+
+        if( strpos( $classes, 'sticky') ){
+          $classes .= ' '.$stickyclass;
+        }
+        
       }
 
     }

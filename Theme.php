@@ -69,7 +69,19 @@ class Theme {
       $this->version = $version;
 
     }
-    public function getVersion() {
+    public function getVersion($child = false) {
+
+      if($child == 'child'){
+
+        $theme = wp_get_theme();
+
+          if (!empty($theme)) {
+
+            return $theme->Version;
+
+          }
+
+      }
 
       return $this->version;
 
@@ -87,7 +99,6 @@ class Theme {
 
         $versionofstylecss = NULL;
 
-        //if is a child theme, get version of parent theme to check against!!
         if(is_child_theme()){
 
           $parent = wp_get_theme()->parent();
@@ -374,25 +385,61 @@ class Theme {
     /**
      * Get JS and Icons of Main or, if is set, from child theme
      */
-    public function getJs() {
+    public function getJs($get_version = false) {
 
       if(is_child_theme() && $this->js_child_theme){
+
+        //to get child themes version dynamically
+        if($get_version == 'version'){
+
+          return $this->getVersion('child');
+
+        }
+
         return Helpers::getChildThemeUrl().$this->js_child_theme;
+
       }
 
-      if($this->js){
+      if($this->js){        
+
+        //to get child themes version dynamically
+        if($get_version == true){
+
+          return $this->getVersion();
+
+        }
+
         return Helpers::getThemeUrl().$this->js;
+
       }
 
     }
-    public function getIcons() {
+    public function getIcons($get_version = false) {
 
       if(is_child_theme() && $this->icons_child_theme){
+
+        //to get child themes version dynamically
+        if($get_version == 'version'){
+
+          return $this->getVersion('child');
+
+        }
+
         return Helpers::getChildThemeUrl().$this->icons_child_theme;
+
       }
 
       if($this->icons){
+
+        //to get child themes version dynamically
+        if($get_version == true){
+
+          return $this->getVersion();
+
+        }
+
         return Helpers::getThemeUrl().$this->icons;
+
       }
 
     }
@@ -746,7 +793,7 @@ class Theme {
 
           if(array_key_exists ('js_url',$innerarray)) { $js_url = Helpers::getChildThemeUrl().$innerarray['js_url']; } else { $js_url = NULL; }
           if(array_key_exists ('js_deps',$innerarray)) { $js_deps = $innerarray['js_deps']; } else { $js_deps = NULL; }
-          if(array_key_exists ('js_ver',$innerarray)) { $js_ver = $innerarray['js_ver']; } else { $js_ver = $this->getVersion(); }
+          if(array_key_exists ('js_ver',$innerarray)) { $js_ver = $innerarray['js_ver']; } else { $js_ver = $this->getVersion('child'); }
           if(array_key_exists ('js_in_footer',$innerarray)) { $js_in_footer = $innerarray['js_in_footer']; } else { $js_in_footer = NULL; }
 
           //Call to static function... (wäre auch mit this möglich, aber so korrekter)
@@ -783,14 +830,9 @@ class Theme {
     */
     public function Assets() {
 
-      //if set to NULL, css or script will not be loaded, all set by default!
-      /*if($this->getCss()) {
-        self::EnqueueStyle($this->getFramework().'-css',Helpers::getThemeUrl().$this->getCss(),NULL,$this->getVersion());
-      }*/
-
       //loads uikit child css if available, else main theme uikit css or nothing
       if($this->getCssChildTheme()){
-        self::EnqueueStyle($this->getFramework().'-css',Helpers::getChildThemeUrl().$this->getCssChildTheme(),NULL,$this->getVersion());
+        self::EnqueueStyle($this->getFramework().'-css',Helpers::getChildThemeUrl().$this->getCssChildTheme(),NULL,$this->getVersion('child'));
       } elseif($this->getCss()) {
         self::EnqueueStyle($this->getFramework().'-css',Helpers::getThemeUrl().$this->getCss(),NULL,$this->getVersion());
       }
@@ -798,10 +840,10 @@ class Theme {
       //uikit js & icons from main or child theme automatically
       if($this->getJs()) {
         //self::EnqueueScript($this->getFramework().'-js',$this->getJs(),array('jquery'),$this->getVersion());
-        self::EnqueueScript($this->getFramework().'-js',$this->getJs(),array(),$this->getVersion());
+        self::EnqueueScript($this->getFramework().'-js',$this->getJs(),array(),$this->getJs('version'));
       }
       if($this->getIcons()) {
-        self::EnqueueScript($this->getFramework().'-icons',$this->getIcons(),array($this->getFramework().'-js'),$this->getVersion());
+        self::EnqueueScript($this->getFramework().'-icons',$this->getIcons(),array($this->getFramework().'-js'),$this->getIcons('version'));
       }
 
       //js_array
@@ -823,7 +865,7 @@ class Theme {
 
       //if is child theme
       if(is_child_theme()){
-        self::EnqueueStyle(Helpers::getSlug().'-child-style-css',Helpers::getChildThemeUrl().'/style.css',NULL,$this->getVersion());
+        self::EnqueueStyle(Helpers::getSlug().'-child-style-css',Helpers::getChildThemeUrl().'/style.css',NULL,$this->getVersion('child'));
       }
 
 

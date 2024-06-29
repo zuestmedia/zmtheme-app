@@ -51,13 +51,17 @@ class modCommentsCounter extends \ZMT\Theme\Modules\Module {
 
     $result = parent::getModule();
 
-    $label = \ZMT\Theme\Helpers::getTrStr('CommentsCounter_label');//Author:
+    if($result){
 
-    $result = str_replace(
-      array( '__label__' ),
-      array(  esc_html( $label ) ),
-      $result
-    );
+      $label = \ZMT\Theme\Helpers::getTrStr('CommentsCounter_label');//Author:
+
+      $result = str_replace(
+        array( '__label__' ),
+        array(  esc_html( $label ) ),
+        $result
+      );
+      
+    }
 
     return $result;
 

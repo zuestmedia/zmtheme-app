@@ -71,11 +71,15 @@ class modTaxonomyTerms extends \ZMT\Theme\Modules\Module {
       $label = $taxonomy_details->labels->name;
     }
 
-    $result = str_replace(
-      array( '__label__' ),
-      array(  $label, ),
-      $result
-    );
+    if($result){
+
+      $result = str_replace(
+        array( '__label__' ),
+        array(  esc_html( $label ) ),
+        $result
+      );
+      
+    }
 
     return $result;
 

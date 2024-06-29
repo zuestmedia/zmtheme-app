@@ -24,13 +24,17 @@ class modOffcanvasContainer extends modContainerSortable {
 
     $result = parent::getModule();
 
-    $label_close = \ZMT\Theme\Helpers::getTrStr('OffcanvasContainer_label_close');//Author:
+    if($result){
+      
+      $label_close = \ZMT\Theme\Helpers::getTrStr('OffcanvasContainer_label_close');//Author:
+  
+      $result = str_replace(
+        array( '__label_close__' ),
+        array(  esc_html( $label_close ) ),
+        $result
+      );
 
-    $result = str_replace(
-      array( '__label_close__' ),
-      array(  esc_html( $label_close ) ),
-      $result
-    );
+    }
 
     return $result;
 

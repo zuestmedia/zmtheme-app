@@ -279,13 +279,17 @@ class modMenu extends \ZMT\Theme\Modules\Module {
 
     $result = parent::getModule();
 
-    $label = \ZMT\Theme\Helpers::getTrStr('NavToggle_label');//Open Menu
+    if($result){
 
-    $result = str_replace(
-      array( '__label_menu_toggle__' ),
-      array(  esc_html( $label ) ),
-      $result
-    );
+      $label = \ZMT\Theme\Helpers::getTrStr('NavToggle_label');//Open Menu
+
+      $result = str_replace(
+        array( '__label_menu_toggle__' ),
+        array(  esc_html( $label ) ),
+        $result
+      );
+
+    }
 
     return $result;
 

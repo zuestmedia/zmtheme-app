@@ -60,14 +60,18 @@ class modSearch extends \ZMT\Theme\Modules\Module {
 
     $result = parent::getModule();
 
-    $label = \ZMT\Theme\Helpers::getTrStr('Search_label');//Search
-    $label_close = \ZMT\Theme\Helpers::getTrStr('Search_label_close');//Search
+    if($result){
 
-    $result = str_replace(
-      array( '__label__', '__label_close__' ),
-      array(  esc_html( $label ), esc_html( $label_close ) ),
-      $result
-    );
+      $label = \ZMT\Theme\Helpers::getTrStr('Search_label');//Search
+      $label_close = \ZMT\Theme\Helpers::getTrStr('Search_label_close');//Search
+  
+      $result = str_replace(
+        array( '__label__', '__label_close__' ),
+        array(  esc_html( $label ), esc_html( $label_close ) ),
+        $result
+      );
+
+    }
 
     return $result;
 

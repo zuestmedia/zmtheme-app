@@ -46,13 +46,17 @@ class modLastNextArticleLink extends \ZMT\Theme\Modules\Module {
 
     $result = parent::getModule();
 
-    $label = \ZMT\Theme\Helpers::getTrStr('LastNextArticleLink_label');//Posts navigation:
+    if($result){
 
-    $result = str_replace(
-      array( '__label__' ),
-      array(  esc_html( $label ) ),
-      $result
-    );
+      $label = \ZMT\Theme\Helpers::getTrStr('LastNextArticleLink_label');//Posts navigation:
+
+      $result = str_replace(
+        array( '__label__' ),
+        array(  esc_html( $label ) ),
+        $result
+      );
+
+    }
 
     return $result;
 

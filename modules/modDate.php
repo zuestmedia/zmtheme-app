@@ -40,13 +40,17 @@ class modDate extends \ZMT\Theme\Modules\Module {
 
     $result = parent::getModule();
 
-    $label = \ZMT\Theme\Helpers::getTrStr('Date_label');//Post Date:
+    if($result){
 
-    $result = str_replace(
-      array( '__label__' ),
-      array(  esc_html( $label ) ),
-      $result
-    );
+      $label = \ZMT\Theme\Helpers::getTrStr('Date_label');//Post Date:
+
+      $result = str_replace(
+        array( '__label__' ),
+        array(  esc_html( $label ) ),
+        $result
+      );
+
+    }
 
     return $result;
 
