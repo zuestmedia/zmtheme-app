@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.0.23
+Version: 1.0.24
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,10 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 1.0.24 =
+* Fix: Add uk-overflow-auto to NavMenu navbar, so no overlap on large menu
+* Fix: Gradient Background in Editor
 
 = 1.0.23 =
 * Fix: automatically load child themes version for child style.css and child js scripts comming with child theme in config/theme/theme.php

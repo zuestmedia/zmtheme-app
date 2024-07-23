@@ -169,6 +169,7 @@ class ThemeJSON {
 
         $css = '<style>
 
+          .has-gradient_default-gradient-background,
           .uk-section-default.zmgradient,
           .uk-tile-default.zmgradient,
           .uk-background-default.zmgradient {
@@ -180,6 +181,7 @@ class ThemeJSON {
               var(--color_background_gradient_colstop2_default, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_default'] ).')
             );
           }
+          .has-gradient_muted-gradient-background,
           .uk-section-muted.zmgradient,
           .uk-card-default.zmgradient,
           .uk-button-default.zmgradient,
@@ -193,6 +195,7 @@ class ThemeJSON {
               var(--color_background_gradient_colstop2_muted, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_muted'] ).')
             );
           }
+          .has-gradient_primary-gradient-background,
           .uk-section-primary.zmgradient,
           .uk-card-primary.zmgradient,
           .uk-button-primary.zmgradient,
@@ -206,6 +209,7 @@ class ThemeJSON {
               var(--color_background_gradient_colstop2_primary, '.esc_attr( $cssvars_colors['color_background_gradient_colstop2_primary'] ).')
             );
           }
+          .has-gradient_secondary-gradient-background,
           .uk-section-secondary.zmgradient,
           .uk-card-secondary.zmgradient,
           .uk-button-secondary.zmgradient,

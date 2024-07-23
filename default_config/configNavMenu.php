@@ -52,6 +52,8 @@ class configNavMenu extends configNav {
 
     parent::navbar();
 
+    $this->args['module_class'] = 'zmnavitems uk-overflow-auto';
+
     $this->args['moduleinner_element'] = 'div';
 
     $this->args['moduleinner_class'] = 'uk-padding-remove-horizontal'; //without uk-navbar-item!!!!
@@ -71,7 +73,7 @@ class configNavMenu extends configNav {
 
     parent::navbar();
 
-    $this->args['moduleinner_wrap'] = '[{"tag":"button","attributes":{"class":"uk-button uk-button-link uk-navbar-toggle uk-navbar-toggle-animate"},"content":[{"tag":"i","attributes":{"uk-navbar-toggle-icon":"{\"i18n\": {\"label\": \"__label_menu_toggle__\"}}","aria-hidden":"true"},"close":true},{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label_menu_toggle__","close":true}],"close":true},{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false"}}]'; 
+    $this->args['moduleinner_wrap'] = '[{"tag":"button","attributes":{"class":"uk-button uk-button-link uk-navbar-toggle uk-navbar-toggle-animate"},"content":[{"tag":"i","attributes":{"uk-navbar-toggle-icon":"{\"i18n\": {\"label\": \"__label_menu_toggle__\"}}","aria-hidden":"true","style":"min-width:20px;"},"close":true},{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__label_menu_toggle__","close":true}],"close":true},{"tag":"div","attributes":{"class":"uk-navbar-dropdown","uk-drop":"mode: click; cls-drop: uk-navbar-dropdown; boundary: !.uk-navbar; stretch: x; flip: false"}}]'; 
 
     $this->args['menu_ul_class'] = 'uk-nav uk-navbar-dropdown-nav';
 
