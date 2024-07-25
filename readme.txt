@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.0.25
+Version: 1.1.0
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,12 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 1.1.0 =
+* Update: Version to 1.1
+* Remove: AjaxPostsLoader2 and zmtheme2.js
+* Remove: rotating class & js
+* Remove: js social buttons script
 
 = 1.0.25 =
 * Update: Default container width is now 1200px like in blockeditor
