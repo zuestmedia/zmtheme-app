@@ -51,8 +51,9 @@ class configNavMenu extends configNav {
   protected function navbar() {
 
     parent::navbar();
-
-    $this->args['module_class'] = 'zmnavitems uk-overflow-auto';
+ 
+    //no overflow auto, because uk-navbar-center not working so! only in theme default setting set to overflow-auto! 
+    $this->args['module_class'] = 'zmnavitems';
 
     $this->args['moduleinner_element'] = 'div';
 

@@ -16,7 +16,7 @@ class configNavSearch extends configNav {
     $this->args['search_icon'] = '{"tag":"i","attributes":{"uk-search-icon":"","class":"","aria-hidden":"true"},"close":true}';
     $this->args['form_class'] = 'uk-search uk-search-default uk-width-1-1';
     $this->args['input_class'] = 'uk-search-input';
-    $this->args['autofocus'] = 0;
+    $this->args['autofocus'] = 2;
 
     $this->args['module_wrap'] = '';
     $this->args['module_attrs'] = '';
