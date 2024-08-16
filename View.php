@@ -259,14 +259,19 @@ class View {
         //single
         } elseif( is_single() ){
 
-            //single post type
-            $key = 'single';
-            if(get_post_type() !== 'post' ) {
-              $key = 'single_'.get_post_type();
-            }
-            if (in_array( $key, $conditions_array )) {
-              return 1;
-            }
+          //übergeordnet
+          if (in_array( 'single_all', $conditions_array )) {
+            return 1;
+          }
+
+          //single post or other single post types
+          $key = 'single';
+          if(get_post_type() !== 'post' ) {
+            $key = 'single_'.get_post_type();
+          }
+          if (in_array( $key, $conditions_array )) {
+            return 1;
+          }
 
         }
 

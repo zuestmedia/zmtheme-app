@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.1.0
+Version: 1.1.1
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,9 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 1.1.1 =
+* Fix: view condition option "all single posttypes" added
 
 = 1.1.0 =
 * Update: Version to 1.1
