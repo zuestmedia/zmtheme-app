@@ -16,12 +16,16 @@ class configNavSidebar extends configNav {
 
     $this->args['presets'] = 'default';
 
-    $this->args['content_wrap'] = '';
-
     $this->args['widget_element'] = 'div';
     $this->args['widget_class'] = '';
     //old widget title
     $this->sidebar['widgettitle_wrap'] = '{"tag":"div","attributes":{"class":"uk-hidden"}}';
+    
+    $this->args['moduleinner_element'] = '';
+    $this->args['moduleinner_class'] = '';
+    $this->args['moduleinner_wrap'] = '';
+
+    $this->args['content_wrap'] = '';
 
   }
 
@@ -32,9 +36,7 @@ class configNavSidebar extends configNav {
   }
   protected function navbar() {
 
-    parent::navbar();
-    $this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
-    $this->args['moduleinner_wrap'] = '';
+    parent::navbar();    
 
   }
 

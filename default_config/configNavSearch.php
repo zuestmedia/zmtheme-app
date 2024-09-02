@@ -12,7 +12,6 @@ class configNavSearch extends configNav {
 
     $this->args['presets'] = 'default';
 
-    //$this->args['search_icon'] = '{"tag":"button","attributes":{"uk-search-icon":"","class":""},"close":true,"content":{"tag":"span","attributes":{"class":"screen-reader-text"},"content":"__alabeltosethere__","close":true}}';
     $this->args['search_icon'] = '{"tag":"i","attributes":{"uk-search-icon":"","class":"","aria-hidden":"true"},"close":true}';
     $this->args['form_class'] = 'uk-search uk-search-default uk-width-1-1';
     $this->args['input_class'] = 'uk-search-input';
@@ -20,7 +19,6 @@ class configNavSearch extends configNav {
 
     $this->args['module_wrap'] = '';
     $this->args['module_attrs'] = '';
-
     $this->args['content_wrap'] = '';
 
   }
@@ -33,14 +31,7 @@ class configNavSearch extends configNav {
     $this->args['input_class'] = 'uk-search-input';
 
   }
-  /* Old navbar searchform
-  protected function navbar() {
-
-    parent::navbar();
-
-    $this->args['form_class'] = 'uk-search uk-search-navbar uk-width-small';
-
-  }*/
+  
   protected function navbar() {
 
     parent::navbar();

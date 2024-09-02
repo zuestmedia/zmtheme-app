@@ -30,7 +30,7 @@ class configNavLogo extends configNav {
 
     parent::navbar();
 
-    $this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
+    $this->args['module_class'] = 'zmnavitems uk-navbar-item';
 
   }
 

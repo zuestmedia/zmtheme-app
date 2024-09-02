@@ -150,7 +150,7 @@ class configCssVars extends BuildComponent {
       $this->args['navbar_fontweight'] = 'normal';
       $this->args['navbar_letterspacing'] = 'normal';
       $this->args['navbar_height'] = '80px';
-      $this->args['navbar_padding'] = '15px';
+      $this->args['navbar_padding'] = '20px';
     }
 
 }

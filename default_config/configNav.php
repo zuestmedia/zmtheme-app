@@ -10,10 +10,12 @@ class configNav extends BuildModule {
     $this->args['module_class'] = '';
 
     $this->args['module_class_visibility'] = array();
+    
+    $this->args['module_class_navbar_item_pos'] = '';
+    $this->args['module_class_flex_horizontal'] = '';
     $this->args['module_class_width'] = array();
+    $this->args['module_class_margin_horizontal'] = array();
 
-    $this->args['moduleinner_element'] = '';
-    $this->args['moduleinner_class'] = '';
   }
 
   /**
@@ -31,15 +33,6 @@ class configNav extends BuildModule {
     $this->default();
 
     $this->args['module_class'] = 'zmnavitems';//used with overlay search!!!
-
-    //only in navbar --> navcontainer, not in offcanvascontainer
-    //--> always use "navbar" for _nav and "nav" for _offcanvas to create defaults
-    $this->args['module_class_navbar_item_pos'] = '';
-    $this->args['module_class_flex_horizontal'] = '';
-
-    $this->args['moduleinner_element'] = 'div';
-    //$this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
-    $this->args['moduleinner_class'] = 'uk-padding-remove-horizontal';
 
   }
 

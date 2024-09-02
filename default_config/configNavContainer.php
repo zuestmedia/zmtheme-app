@@ -13,6 +13,10 @@ class configNavContainer extends configNav {
 
     parent::default();
 
+    $this->args['moduleinner_element'] = '';    
+    $this->args['moduleinner_class'] = '';    
+    $this->args['moduleinner_wrap'] = '';
+
     $this->args['content_wrap'] = '';
 
   }
@@ -25,10 +29,6 @@ class configNavContainer extends configNav {
   protected function navbar() {
 
     parent::navbar();
-    
-    $this->args['moduleinner_class'] = 'uk-navbar-item uk-padding-remove-horizontal';
-    
-    $this->args['moduleinner_wrap'] = '';
 
   }
 
