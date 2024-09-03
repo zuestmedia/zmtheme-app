@@ -30,6 +30,9 @@ class configNavContainer extends configNav {
 
     parent::navbar();
 
+    $this->args['moduleinner_element'] = 'div';
+    $this->args['moduleinner_class'] = 'uk-navbar-item';
+
   }
 
 

@@ -36,7 +36,10 @@ class configNavSidebar extends configNav {
   }
   protected function navbar() {
 
-    parent::navbar();    
+    parent::navbar();
+
+    $this->args['moduleinner_element'] = 'div';
+    $this->args['moduleinner_class'] = 'uk-navbar-item';
 
   }
 
