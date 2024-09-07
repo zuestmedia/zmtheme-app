@@ -146,7 +146,7 @@ class Module extends \ZMT\Theme\Component {
 
     $result = NULL;
 
-    if( View::checkStatus( $this->getViewStatus() ) == 1 || is_404() ) {
+    if( View::checkStatus( $this->getViewStatus() ) == 1 ) {
 
       $content = $this->getContent();
 

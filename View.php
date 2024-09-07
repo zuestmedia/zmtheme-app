@@ -25,9 +25,6 @@ class View {
 
       $result = 1;
 
-      //404page wants to be rid of sidebars n menus in default mode --> also in content php getThemeContent is a 404 hack!
-      if( is_404() ) { $result = NULL; }
-
     } elseif ($status == '1') {//hidden
 
       $result = NULL;
@@ -221,7 +218,7 @@ class View {
 
       }
 
-      //404 - not in use...
+      //404
       if( is_404() ){
 
         if (in_array( 'errorpage', $conditions_array )) {

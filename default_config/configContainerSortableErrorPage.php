@@ -15,7 +15,9 @@ class configContainerSortableErrorPage extends configContainerSortable {
     $this->args['moduleouter_class'] = 'uk-flex uk-flex-middle';
     $this->args['moduleouter_attrs'] = '{"uk-height-viewport":"expand: true"}';
 
+    parent::moduleouter_section();
     parent::moduleouter_background();
+    parent::moduleouter_background_img();
 
     parent::module();
     parent::module_container();

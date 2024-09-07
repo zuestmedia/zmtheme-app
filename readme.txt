@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.1.3
+Version: 1.1.4
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,11 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 1.1.4 =
+* Update: 404 Error Page Show/Hide Header & Footer Sections
+* Update: 404 Error Page add Sections Classes & Background Image Options
+* Fix: 404 Error Page Show/Hide Modules
 
 = 1.1.3 =
 * Fix: NavContainer & NavSidebar in navbar
