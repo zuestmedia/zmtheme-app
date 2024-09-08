@@ -340,15 +340,29 @@ class Theme {
     }
     public function getCssChildTheme() {
 
-      if ( is_rtl() ) {
+      if(is_child_theme()){
 
-        return $this->getCSSFileByType( $this->getCssRtlChildThemeDefaultValue() );
+        if ( is_rtl() ) {
 
-      } else {
+          if($this->getCssRtlChildThemeDefaultValue()){
 
-        return $this->getCSSFileByType( $this->getCssChildThemeDefaultValue() );
+            return $this->getCSSFileByType( $this->getCssRtlChildThemeDefaultValue() );
+  
+          }
 
+        } else {
+
+          if($this->getCssChildThemeDefaultValue()){
+
+            return $this->getCSSFileByType( $this->getCssChildThemeDefaultValue() );
+  
+          }
+  
+        }
+  
       }
+
+      return;
 
     }
 
