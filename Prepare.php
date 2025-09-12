@@ -232,7 +232,8 @@ class Prepare {
     }
 
     public function addCustomTemplatesProgramaticallyatInit(){
-      add_action('init', array( $this, 'addCustomTemplatesProgramatically' ));
+      //add_action('init', array( $this, 'addCustomTemplatesProgramatically' ));
+      $this->addCustomTemplatesProgramatically();//due to too late init on zmplugin_last_action...
     }
 
     public function addCustomTemplatesProgramatically(){

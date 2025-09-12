@@ -4,11 +4,94 @@ namespace ZMT\Theme;
 
 class Init {
 
-    function __construct( ){
+    function __construct( ){      
 
-      $this->initTheme();
-      $this->initThemeSettings();
-      $this->initThemeCustomizer();
+      $this->selectiveInit();
+
+    }
+
+    /**
+     * Check if ZMPlugin is installed!
+     * -> theme needs different action to initialise, because zmplugin actions are not available if no zmplugin!
+     * -> version check, because actions are different before v2.0.0
+     */
+    public function selectiveInit(){
+
+      /**
+       * add theme support directly at 'after_setup_theme'!
+       * is a static function inside Theme.php!
+       */
+      \ZMT\Theme\Theme::addThemeSupport();
+
+      //check if zmplugin is installed and activated
+      if(class_exists('ZMPluginPsr4AutoloaderClass')){
+
+        global $zmplugin;      
+
+        $zmplugin_data = get_file_data(WP_PLUGIN_DIR.'/'.$zmplugin['plugin_basename'], array('Version' => 'Version'), false);        
+
+        //check version of zmplugin
+        if($zmplugin_data['Version'] < 2){
+
+          $this->initTheme();
+          $this->displayErrorMessage();
+
+        } else {
+
+          add_action('zmplugin_last_action', array($this, 'initTheme'));
+          add_action('zmplugin_last_action', array($this, 'initThemeSettings'));
+          add_action('zmplugin_last_action', array($this, 'initThemeCustomizer'));
+
+        }
+
+      } else {
+
+        //only initTheme if ZMPlugin is not activated or not installed
+        $this->initTheme();
+        $this->displayErrorMessage();
+
+      }    
+
+    }
+
+    public function displayErrorMessage(){
+
+      if( is_admin() ){
+
+        global $zmtheme;
+
+        /**
+         * This is a standard error menu to show zm toolbox core is missing
+         * Required setters: Display Name & Slug
+         */
+        $errormenu = new \ZMT\Theme\ErrorMenu( $zmtheme['theme']->getDisplayName() );
+
+        $errormenu->setMenuPage('<div class="wrap">');
+
+          $errormenu->setMenuPage('<h1>');
+
+            $errormenu->setMenuPage( esc_html( $zmtheme['theme']->getDisplayName() ) );
+
+          $errormenu->setMenuPage('</h1>');
+
+          $errormenu->setMenuPage('<div class="notice notice-info"><p>');
+
+            $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('Toenablethemesettings') ) );
+
+            $errormenu->setMenuPage('</p><p><a target="_blank" rel="nofollow" href="https://zuestmedia.com/zmplugin/">');
+
+            $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('DownloadZMPlugin') ) );
+
+          $errormenu->setMenuPage('</a></p></div>');
+
+        $errormenu->setMenuPage('</div>');
+
+        $errormenu->getErrorMenu();
+
+        //stop execution of plugin
+        return;
+
+      }
 
     }
 
@@ -124,51 +207,13 @@ class Init {
         //add ajax posts loader
         new \ZMT\Theme\AjaxPostsLoader();
 
+        do_action( 'after_setup_ZMTheme' );
+
     }
 
     public function initThemeSettings(){
 
-      //check if ZMPlugin is installed! without, settings do not work!
-      if (!class_exists('\ZMP\Plugin\ThemeSettings\ThemeSettingsInit')) {
-
-        if( is_admin() ){
-
-          global $zmtheme;
-
-          /**
-            * This is a standard error menu to show zm toolbox core is missing
-            * Required setters: Display Name & Slug
-            */
-            $errormenu = new \ZMT\Theme\ErrorMenu( $zmtheme['theme']->getDisplayName() );
-
-            $errormenu->setMenuPage('<div class="wrap">');
-
-              $errormenu->setMenuPage('<h1>');
-
-                $errormenu->setMenuPage( esc_html( $zmtheme['theme']->getDisplayName() ) );
-
-              $errormenu->setMenuPage('</h1>');
-
-              $errormenu->setMenuPage('<div class="notice notice-info"><p>');
-
-                $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('Toenablethemesettings') ) );
-
-                $errormenu->setMenuPage('</p><p><a target="_blank" rel="nofollow" href="https://zuestmedia.com/plugins/">');
-
-                $errormenu->setMenuPage( esc_html( \ZMT\Theme\Helpers::getTrStr('DownloadZMPlugin') ) );
-
-              $errormenu->setMenuPage('</a></p></div>');
-
-            $errormenu->setMenuPage('</div>');
-
-            $errormenu->getErrorMenu();
-
-            //stop execution of plugin
-            return;
-
-          }
-
-      } else {
+      if (class_exists('\ZMP\Plugin\ThemeSettings\ThemeSettingsInit')) {
 
         new \ZMP\Plugin\ThemeSettings\Init();
 
@@ -176,12 +221,7 @@ class Init {
 
     }
 
-
     public function initThemeCustomizer(){
-      add_action('after_setup_theme', array( $this, 'ThemeCustomizerStart' ));
-    }
-
-    public function ThemeCustomizerStart(){
 
       if(is_customize_preview()){
 

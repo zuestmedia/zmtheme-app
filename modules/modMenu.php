@@ -147,7 +147,8 @@ class modMenu extends \ZMT\Theme\Modules\Module {
 
   public function addMenu(){
 
-    add_action( 'after_setup_theme', array($this, 'RegisterMenu') );
+    //add_action( 'after_setup_theme', array($this, 'RegisterMenu') );
+    $this->RegisterMenu();//due to too late init on zmplugin_last_action...
 
   }
 

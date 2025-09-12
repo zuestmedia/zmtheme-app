@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 1.1.5
+Version: 2.0.3
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,20 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 2.0.3 =
+* Fix: Move do_action 'after_setup_ZMTheme' after Theme Init Function is proceeded -> at end of initTheme()
+
+= 2.0.2 =
+* Fix: Load Theme via default action 'after_setup_theme', if ZMPlugin is not installed. 1. Check if ZMPlugin is installed! 2. Check version of ZMPlugin! 3. Use the correct action 'zmplugin_last_action' -> theme needs different action to initialise, because zmplugin actions are not available if no zmplugin!
+* Fix: add_theme_support functions called directly with 'after_setup_theme' from Init.php
+
+= 2.0.1 =
+* Fix: Action loading order
+
+= 2.0.0 =
+* Update: tested up to 6.8
+* Fix: _load_textdomain_just_in_time; now initialising at after_setup_theme
 
 = 1.1.5 =
 * Fix: Child-Theme CSS file loading logic

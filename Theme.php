@@ -545,7 +545,9 @@ class Theme {
     }
     public function addTextDomain() {
 
-      add_action( 'after_setup_theme', array( $this, 'TextDomain' ) );
+      //add_action( 'after_setup_theme', array( $this, 'TextDomain' ) );
+      $this->TextDomain(); //initialised by hook 'after_setup_theme'
+      
 
     }
 
@@ -636,8 +638,9 @@ class Theme {
 
   /**
     * Theme Support for different features default activated
+    * is called from init directly at action 'after_setup_theme'!!! -> only add static stuff here
     */
-    public function ThemeSupport(){
+    static function addThemeSupport(){
 
       // Set content-width.
     	global $content_width;
@@ -712,13 +715,6 @@ class Theme {
 */
        //woocommerce
        add_theme_support( 'woocommerce' );
-
-
-    }
-
-    public function addThemeSupport(){
-
-      add_action( 'after_setup_theme', array( $this, 'ThemeSupport') );
 
     }
 
@@ -835,7 +831,8 @@ class Theme {
     }
     public function addEditorStyle() {
 
-      add_action( 'after_setup_theme', array( $this, 'EditorStyle') );
+      //add_action( 'after_setup_theme', array( $this, 'EditorStyle') );
+      $this->EditorStyle(); //initialised by hook 'after_setup_theme'
 
     }
 
@@ -905,18 +902,6 @@ class Theme {
 
         //do a version check
         $this->checkVersion();
-
-      /**
-        * Theme Support: post-formats, post-thumbnails, html5, title-tag
-        * action: after_setup_theme
-        */
-        $this->addThemeSupport();
-
-      /**
-        * Theme Support: post-formats, post-thumbnails, html5, title-tag
-        * action: after_setup_theme
-        */
-        $this->addThemeSupport();
 
       /**
         * Add CSS n Scripts
