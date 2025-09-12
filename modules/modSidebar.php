@@ -202,8 +202,8 @@ class modSidebar extends \ZMT\Theme\Modules\Module {
 
   public function registerSidebar(){
 
-    //add_action( 'widgets_init', array($this, 'newgetRegisterSidebarArray'));
-    $this->newgetRegisterSidebarArray();//due to too late init on zmplugin_last_action...
+    add_action( 'widgets_init', array($this, 'newgetRegisterSidebarArray'));
+    //$this->newgetRegisterSidebarArray();//due to too late init on zmplugin_last_action...
 
   }
 
