@@ -1,6 +1,6 @@
 === ZMTheme Framework ===
 Contributors: zuestmedia
-Version: 2.0.4
+Version: 2.1.0
 Text Domain: zmtheme
 
 Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
@@ -10,6 +10,12 @@ Build modular OOP WordPress Themes with ZuestMedia-Theme-Framework.
 This is the core of the ZuestMedia-Theme-Framework to build completly modular WordPress Themes, which can be edited with ZMPlugin Template-Editor and Customizer.
 
 == Changelog ==
+
+= 2.1.0 =
+* New: Delete options and theme_mod on action delete_theme
+* Update: ThemeImport moved from ZMPlugin to ZMTheme to auto-import styles in child themes
+* Update: Child Themes use now separate com_ settings in wp_options
+* Fix: Themes & Child Themes Display Name uses always style.css Name
 
 = 2.0.4 =
 * Fix: Add widgets_init im zmthemes modSidebar again and use action 'init' with prio 0 in zmplugin to start earlier

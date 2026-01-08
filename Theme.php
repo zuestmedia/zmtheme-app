@@ -185,6 +185,11 @@ class Theme {
       return $this->getOptGroup().$this->option_name_settings_status;
 
     }
+    public function getSettingsStatusFieldNamewithoutOptGroup() {
+
+      return $this->option_name_settings_status;
+
+    }
     public function getSettingsStatusDefaultValue() {
 
       return $this->settings_status;
@@ -528,26 +533,6 @@ class Theme {
     public function setJsArrayChildTheme($js_array_child_theme) {
 
         $this->js_array_child_theme = $js_array_child_theme;
-
-    }
-
-
-  /**
-    * Load Textdomain (only works with strings in template files, not in config files)
-    * to load translations for config files, use helpers load_theme_textdomain function and set before config.php is loaded
-    * -> LoadTextDomainbeforeConfigFiles()
-    */
-    ////not in use --> see helper and init.php!
-    public function TextDomain(){
-
-      load_theme_textdomain( Helpers::getTextDomain(), get_template_directory().'/languages' );
-
-    }
-    public function addTextDomain() {
-
-      //add_action( 'after_setup_theme', array( $this, 'TextDomain' ) );
-      $this->TextDomain(); //initialised by hook 'after_setup_theme'
-      
 
     }
 
@@ -932,14 +917,6 @@ class Theme {
         * action: add_editor_style
         */
         $this->addEditorStyle();
-
-      /**
-        * Add Language File Support if defined in style.css
-        * action: after_setup_theme
-        * --> too late for config files!
-        * no in config.php
-        */
-        //$this->addTextDomain();
 
       /**
         * Add Custom Menu Active Class --> uk-active = default

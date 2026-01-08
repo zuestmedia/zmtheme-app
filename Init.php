@@ -50,7 +50,7 @@ class Init {
         $this->initTheme();
         $this->displayErrorMessage();
 
-      }    
+      }
 
     }
 
@@ -140,13 +140,19 @@ class Init {
         */
         $zmtheme['theme'] = new \ZMT\Theme\Theme();
 
+
+      /**
+        * Update to 2.1.0 - if is child theme copy existing option settings to child-option-settings (only once!)
+        */
+        \ZMT\Theme\Helpers::updateTo210();
+
+
         $theme_config_object = $zmtheme['default_config'];
 
       /**
         * Theme Config
         */
         $zmtheme['theme']->setVersion( $theme_config_object->theme->version );
-        $zmtheme['theme']->setDisplayName( $theme_config_object->theme->displayname );
         $zmtheme['theme']->setFramework( $theme_config_object->theme->framework );
         $zmtheme['theme']->setCSSType( $theme_config_object->theme->css_type );
         $zmtheme['theme']->setCss( $theme_config_object->theme->css );
@@ -161,7 +167,10 @@ class Init {
 
         $zmtheme['theme']->setStarterContent( $theme_config_object->startercontent->content );
 
-        if( is_child_theme() ){
+        if( is_child_theme() ){          
+
+          //set settings = 2 in child themes to use pre-imported designs
+          $zmtheme['theme']->setSettingsStatus( '2' );
 
           //child theme css 
           if( isset( $theme_config_object->theme->css_child_theme ) ){
@@ -201,11 +210,20 @@ class Init {
         //create configurated com & module objects
         new \ZMT\Theme\Config();
 
+        /**
+        * Load Theme Design if has zmt-config.json and not theme_mods yet (fresh install / preview or reset to default)
+        * Important: load after prepare and config, to recreate objects again
+        */
+        \ZMT\Theme\Helpers::loadThemeDesignConfig();
+
         //add modules to head
         new \ZMT\Theme\Head();
 
         //add ajax posts loader
         new \ZMT\Theme\AjaxPostsLoader();
+        
+        //add action to delet wp_options on theme deletion
+        \ZMT\Theme\Helpers::addDeleteThemeOptions();
 
         do_action( 'after_setup_ZMTheme' );
 

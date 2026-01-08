@@ -74,8 +74,24 @@ class Helpers {
 
   /**
     * Get Theme Slug
+    * getSlug is dynamic parent or child
+    * getParentSlug is always parent
+    * getChildSlug is always child
     */
     static function getSlug() {
+      
+      if( is_child_theme() ){
+
+        return basename( Helpers::getChildThemeUrl() );
+
+      } else {
+
+        return basename( Helpers::getThemeUrl() );
+
+      }
+
+    }
+    static function getParentSlug() {
 
       return basename( Helpers::getThemeUrl() );
 
@@ -87,30 +103,150 @@ class Helpers {
     }
 
   /**
-    * GetTextDomain
+    * Update to 2.1.0
+    * Child themes use own wp_options settings
+    * Move on first check settings from parent to child
     */
-    static function getTextDomain() {
+    static function updateTo210(){
 
-      if( Helpers::getThemeDetails('TextDomain') ) {
+      if( is_child_theme() ){
 
-        $result = Helpers::getThemeDetails('TextDomain');
+        global $zmtheme;
 
-      } else {
+        $optgroup_parent = Helpers::getParentSlug();
+        $optgroup_child = Helpers::getChildSlug();
 
-        $result = Helpers::getSlug();
+        
+        $settings_status = $zmtheme['theme']->getSettingsStatusFieldNamewithoutOptGroup();
+        if(get_option( $optgroup_child.$settings_status, 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+
+          update_option( $optgroup_child.$settings_status, get_option( $optgroup_parent.$settings_status ) );
+
+        }
+        $css_type_key = $zmtheme['theme']->getCSSTypeFieldNamewithoutOptGroup();
+        if(get_option( $optgroup_child.$css_type_key, 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+
+          update_option( $optgroup_child.$css_type_key, get_option( $optgroup_parent.$css_type_key ) );
+
+        }
+
+        $template_config_key = \ZMT\Theme\Prepare::getTemplateConfigOptionsModNamewithoutOptGroup();
+        if(get_option( $optgroup_child.$template_config_key, 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+
+          update_option( $optgroup_child.$template_config_key, get_option( $optgroup_parent.$template_config_key ) );
+
+        }
+
+        $virtual_com_key = \ZMT\Theme\Prepare::getVirtualComOptionsModNamewithoutOptGroup();
+        if(get_option( $optgroup_child.$virtual_com_key, 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+
+          update_option( $optgroup_child.$virtual_com_key, get_option( $optgroup_parent.$virtual_com_key ) );
+
+        }
+
+        $com_status_key = \ZMT\Theme\Component::getComStatusOptionsModNamewithoutOptGroup();
+        if(get_option( $optgroup_child.$com_status_key, 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+
+          update_option( $optgroup_child.$com_status_key, get_option( $optgroup_parent.$com_status_key ) );
+
+        }
+
+        $com_lock_status_key = \ZMT\Theme\Component::getComLockStatusOptionsModNamewithoutOptGroup();
+        if(get_option( $optgroup_child.$com_lock_status_key, 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+
+          update_option( $optgroup_child.$com_lock_status_key, get_option( $optgroup_parent.$com_lock_status_key ) );
+
+        }
+
+        $com_label_key = \ZMT\Theme\Component::getComLabelOptionsModNamewithoutOptGroup();
+        if(get_option( $optgroup_child.$com_label_key, 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+
+          update_option( $optgroup_child.$com_label_key, get_option( $optgroup_parent.$com_label_key ) );
+
+        }
 
       }
 
-      return $result;
+    }
+
+  /**
+    * Check if child theme has Design Presets from json
+    */
+  static function loadThemeDesignConfig(){
+
+    if( is_child_theme() ){
+
+      add_action('after_switch_theme', array('\ZMT\Theme\Helpers','loadThemeDesignAfterFirstActivation'));
+
+      $theme_mods = get_theme_mods();
+
+      if(empty($theme_mods) || get_option(Helpers::getSlug().'_first_activation') == 1){
+
+        update_option(Helpers::getSlug().'_first_activation', 0);
+
+        $child_theme_dir = get_stylesheet_directory();
+        $file_path = $child_theme_dir . '/zmt-config.json';
+
+        if ( file_exists( $file_path ) ) {
+
+          global $zmtheme;
+          $settings_status = $zmtheme['theme']->getSettingsStatusFieldNamewithoutOptGroup();
+          update_option(Helpers::getSlug().$settings_status, '2');
+
+          $json_data = file_get_contents( $file_path );
+
+          $json_import = new \ZMT\Theme\ThemeImport();
+          $result = $json_import->importJsonData($json_data);
+
+        } 
+
+      }
 
     }
+
+  }
+  static function loadThemeDesignAfterFirstActivation () {
+    if(get_option( Helpers::getSlug().'_first_activation', 'xxx243__ckeck__value' ) === 'xxx243__ckeck__value' ){
+      add_option(Helpers::getSlug().'_first_activation', 1);
+    }
+  }
+
+  //add action delete_theme gibt wp_option stylesheet zurück = slug!
+  static function deleteThemeOptions($optgroup){
+
+    delete_option( 'theme_mods_' . $optgroup );
+
+    delete_option( $optgroup.'_set_status' );
+
+    delete_option( $optgroup.'_first_activation' );
+    
+    delete_option( $optgroup.\ZMT\Theme\Prepare::getTemplateConfigOptionsModNamewithoutOptGroup() );
+    delete_option( $optgroup.\ZMT\Theme\Prepare::getVirtualComOptionsModNamewithoutOptGroup() );
+    delete_option( $optgroup.\ZMT\Theme\Prepare::getCleaningThemeModsOptionsModNamewithoutOptGroup() );
+
+    delete_option( $optgroup.\ZMT\Theme\Component::getComStatusOptionsModNamewithoutOptGroup() );
+    delete_option( $optgroup.\ZMT\Theme\Component::getComLockStatusOptionsModNamewithoutOptGroup() );
+    delete_option( $optgroup.\ZMT\Theme\Component::getComLabelOptionsModNamewithoutOptGroup() );
+
+    delete_option( $optgroup.'_css_type' );
+
+    delete_option( $optgroup.'_imp_json' );
+    delete_option( $optgroup.'_temp_sub_form_location' );
+
+  }
+
+  static function addDeleteThemeOptions(){
+
+    add_action( 'delete_theme', array('\ZMT\Theme\Helpers','deleteThemeOptions') );
+
+  }
 
   /**
     * LoadTextdomain before Config Files!!
     */
     static function LoadTextDomainbeforeConfigFiles(){
 
-     load_theme_textdomain( Helpers::getTextDomain(), get_template_directory().'/languages' );
+     load_theme_textdomain( Helpers::getParentSlug(), get_template_directory().'/languages' );
 
      if( is_child_theme() ){
       load_child_theme_textdomain( Helpers::getChildSlug(), get_stylesheet_directory().'/languages' );
