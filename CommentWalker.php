@@ -236,7 +236,7 @@ class CommentWalker extends Walker_Comment  {
                                     <?php
                                         /* translators: 1: Comment date, 2: Comment time. */
                                         //printf( '%1$s at %2$s', get_comment_date( '', $comment ), get_comment_time() );
-                                        esc_html( printf( $args['zm_comment_datentime_sprintf'], get_comment_date( $args['zm_comment_date_format'], $comment ), get_comment_time($args['zm_comment_time_format']) ) );
+                                        echo esc_html( sprintf( $args['zm_comment_datentime_sprintf'], get_comment_date( $args['zm_comment_date_format'], $comment ), get_comment_time( $args['zm_comment_time_format'] ) ) );
                                     ?>
                                 </time>
                             </a>
